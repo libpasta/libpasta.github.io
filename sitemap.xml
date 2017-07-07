@@ -3,28 +3,28 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>http://example.org/introduction/what-is-libpasta/</loc>
+    <loc>https://libpasta.github.io/introduction/what-is-libpasta/</loc>
     <lastmod>2017-07-07T15:21:59+01:00</lastmod>
   </url>
   
   <url>
-    <loc>http://example.org/introduction/</loc>
+    <loc>https://libpasta.github.io/introduction/</loc>
     <lastmod>2017-07-07T15:21:26+01:00</lastmod>
   </url>
   
   <url>
-    <loc>http://example.org/categories/</loc>
+    <loc>https://libpasta.github.io/categories/</loc>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>http://example.org/</loc>
+    <loc>https://libpasta.github.io/tags/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://libpasta.github.io/</loc>
     <lastmod>2017-07-07T15:21:59+01:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>http://example.org/tags/</loc>
     <priority>0</priority>
   </url>
   

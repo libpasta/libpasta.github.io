@@ -1,22 +1,22 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Introduction on My New Hugo Site</title>
-    <link>http://example.org/introduction/</link>
-    <description>Recent content in Introduction on My New Hugo Site</description>
+    <title>Introduction on libpasta</title>
+    <link>https://libpasta.github.io/introduction/</link>
+    <description>Recent content in Introduction on libpasta</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
+    <language>en-gb</language>
     <lastBuildDate>Fri, 07 Jul 2017 15:21:26 +0100</lastBuildDate>
     
-	<atom:link href="http://example.org/introduction/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://libpasta.github.io/introduction/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>What is libpasta?</title>
-      <link>http://example.org/introduction/what-is-libpasta/</link>
+      <link>https://libpasta.github.io/introduction/what-is-libpasta/</link>
       <pubDate>Fri, 07 Jul 2017 15:21:59 +0100</pubDate>
       
-      <guid>http://example.org/introduction/what-is-libpasta/</guid>
+      <guid>https://libpasta.github.io/introduction/what-is-libpasta/</guid>
       <description> Making Passwords Painless This library aims to be a all-in-one solution for password storage. In particular, we aim to provide:
  Easy-to-use password storage with sane defaults. Tools to provide parameter tuning for different use cases. Automatic migration of password to new algorithms. Cross-platform builds and cross-language bindings.  </description>
     </item>
