@@ -97,10 +97,10 @@ textarea:focus, input[type="email"]:focus, input[type="number"]:focus, input[typ
     box-shadow: inset 0 1px 3px rgba(0,0,0,.06),0 0 5px rgba(0,169,218,.7)
 }
 #header-wrapper {
-    background: #8451a1;
+    background: #890902;
     color: #fff;
     text-align: center;
-    border-bottom: 4px solid #9c6fb6;
+    border-bottom: 4px solid #af4842;
     padding: 1rem;
 }
 #header a {
@@ -116,8 +116,8 @@ textarea:focus, input[type="email"]:focus, input[type="number"]:focus, input[typ
 .searchbox {
     margin-top: 1rem;
     position: relative;
-    border: 1px solid #915eae;
-    background: #764890;
+    border: 1px solid #af4842;
+    background: #a3140d;
     border-radius: 4px;
 }
 .searchbox label {
@@ -618,7 +618,7 @@ td {
     border: 1px solid #eaeaea;
 }
 .button {
-    background: #9c6fb6;
+    background: #af4842;
     color: #fff;
     box-shadow: 0 3px 0 #00a5d4;
 }
@@ -679,7 +679,7 @@ td {
 }
 .bullet-icon {
     float: left;
-    background: #9c6fb6;
+    background: #af4842;
     padding: 0.875rem;
     width: 3.5rem;
     height: 3.5rem;
@@ -689,7 +689,7 @@ td {
     text-align: center;
 }
 .bullet-icon-1 {
-    background: #9c6fb6;
+    background: #af4842;
 }
 .bullet-icon-2 {
     background: #00f3d8;
