@@ -89,7 +89,28 @@
             
           
         
+          
+          
+            
+          
         
+          
+          
+            
+          
+        
+          
+          
+            
+          
+        
+        
+        
+          
+        
+          
+        
+          
         
           
         
@@ -124,6 +145,168 @@
             <li class="dd-item active" data-nav-id="/introduction/what-is-libpasta/">
               <a href="/introduction/what-is-libpasta/">
                 <span>What is libpasta?     </i></span>
+              </a>
+            </li>
+          
+            <li class="dd-item " data-nav-id="/introduction/basic-usage/">
+              <a href="/introduction/basic-usage/">
+                <span>Basic Usage     </i></span>
+              </a>
+            </li>
+          
+            <li class="dd-item " data-nav-id="/introduction/installation/">
+              <a href="/introduction/installation/">
+                <span>Installation     </i></span>
+              </a>
+            </li>
+          
+            <li class="dd-item " data-nav-id="/introduction/password-hashing-theory/">
+              <a href="/introduction/password-hashing-theory/">
+                <span>Password hashing theory     </i></span>
+              </a>
+            </li>
+          
+        </ul>
+        
+      </li>
+      
+      
+      
+
+      
+      
+      
+        
+          
+        
+      
+      
+      
+
+      <li class="dd-item  " data-nav-id="/advanced/">
+        <a href="/advanced/">
+          <span>
+            
+              <b>2. </b>
+            
+             Advanced Usage
+            
+           </span>
+        </a>
+        
+        <ul>
+          
+            <li class="dd-item " data-nav-id="/advanced/migration/">
+              <a href="/advanced/migration/">
+                <span>Password Migration     </i></span>
+              </a>
+            </li>
+          
+            <li class="dd-item " data-nav-id="/advanced/tuning/">
+              <a href="/advanced/tuning/">
+                <span>Parameter Selection     </i></span>
+              </a>
+            </li>
+          
+        </ul>
+        
+      </li>
+      
+      
+      
+
+      
+      
+      
+        
+          
+        
+      
+      
+      
+
+      <li class="dd-item  " data-nav-id="/other-languages/">
+        <a href="/other-languages/">
+          <span>
+            
+              <b>3. </b>
+            
+             Other Languages
+            
+           </span>
+        </a>
+        
+        <ul>
+          
+            <li class="dd-item " data-nav-id="/other-languages/c/">
+              <a href="/other-languages/c/">
+                <span>C     </i></span>
+              </a>
+            </li>
+          
+            <li class="dd-item " data-nav-id="/other-languages/java/">
+              <a href="/other-languages/java/">
+                <span>Java     </i></span>
+              </a>
+            </li>
+          
+            <li class="dd-item " data-nav-id="/other-languages/php/">
+              <a href="/other-languages/php/">
+                <span>PHP     </i></span>
+              </a>
+            </li>
+          
+            <li class="dd-item " data-nav-id="/other-languages/python/">
+              <a href="/other-languages/python/">
+                <span>Python     </i></span>
+              </a>
+            </li>
+          
+            <li class="dd-item " data-nav-id="/other-languages/ruby/">
+              <a href="/other-languages/ruby/">
+                <span>Ruby     </i></span>
+              </a>
+            </li>
+          
+        </ul>
+        
+      </li>
+      
+      
+      
+
+      
+      
+      
+        
+          
+        
+      
+      
+      
+
+      <li class="dd-item  " data-nav-id="/technical-details/">
+        <a href="/technical-details/">
+          <span>
+            
+              <b>4. </b>
+            
+             Techincal Details
+            
+           </span>
+        </a>
+        
+        <ul>
+          
+            <li class="dd-item " data-nav-id="/technical-details/algorithm-choice/">
+              <a href="/technical-details/algorithm-choice/">
+                <span>Algorithm Selection     </i></span>
+              </a>
+            </li>
+          
+            <li class="dd-item " data-nav-id="/technical-details/phc-string-format/">
+              <a href="/technical-details/phc-string-format/">
+                <span>Serializing Hashes     </i></span>
               </a>
             </li>
           
@@ -183,6 +366,10 @@
 <li>
 <ul>
 <li><a href="#making-passwords-painless"><em>Making Passwords Painless</em></a></li>
+<li><a href="#secure-by-default">Secure by Default</a></li>
+<li><a href="#easy-password-migration">Easy password migration</a></li>
+<li><a href="#tuning-tools">Tuning tools</a></li>
+<li><a href="#cross-platform-and-cross-language">Cross-platform and cross-language</a></li>
 </ul></li>
 </ul></li>
 </ul></li>
@@ -214,6 +401,51 @@ particular, we aim to provide:</p>
 <li>Automatic migration of password to new algorithms.</li>
 <li>Cross-platform builds and cross-language bindings.</li>
 </ul>
+
+<h4 id="secure-by-default">Secure by Default</h4>
+
+<p><code>libpasta</code> is ready to work at a production level straight out of the box. We
+hide any unnecessary decisions from the developer. Together with the support for
+<a href="#easy-password-migration">migrating passwords</a>, <code>libpasta</code> gives you the
+peace-of-mind to install once, and never touch it again.</p>
+
+<p>Currently, the algorithm favoured by <code>libpasta</code> is XXX (probably scrypt).
+For more details, see <a href="../../technical-details/algorithm-choice">algorithm choice</a>.</p>
+
+<h4 id="easy-password-migration">Easy password migration</h4>
+
+<p>We aim to help everyone move away from insecure password hashing systems,
+to more modern algorithms. Hence we have designed <code>libpasta</code> to come with
+built-in support for password migration.</p>
+
+<p>This allows you to easily, and dynamically, migrate all password hashes to
+secure algorithms, without inconveniencing users with password resets.</p>
+
+<p>Furthermore, having convenient migration tools makes it easier to keep your
+parameters selection up to date with increases in computer performance.</p>
+
+<p>See <a href="../basic-usage#password-migration">basic usage</a> for an example of
+migrating passwords, or <a href="../../advanced/migration/">advanced usage</a> for more
+details.</p>
+
+<h4 id="tuning-tools">Tuning tools</h4>
+
+<p>For times when the default parameters are not sufficient, <code>libpasta</code> helps to
+pick the optimal parameters.</p>
+
+<p>The tuning tool measures the performance of your system to suggest parameters.
+As a safeguard, the tool also estimates the parameters based off of the
+specifications of the system, to avoid mistakenly suggesting lower parameters.</p>
+
+<p>See <a href="../../tuning">tuning</a> for more details.</p>
+
+<h4 id="cross-platform-and-cross-language">Cross-platform and cross-language</h4>
+
+<p>While the main library is written in Rust, thanks to the C-style ABI that is
+exported by Rust libraries, we are able to support many different languages.
+Similarly, Rust supports compilation over a number of platforms.</p>
+
+<p>For more information, see <a href="../../other-languages">other languages</a>.</p>
 
 
       

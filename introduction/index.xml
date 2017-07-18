@@ -6,7 +6,6 @@
     <description>Recent content in Introduction on libpasta</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-gb</language>
-    <lastBuildDate>Fri, 07 Jul 2017 15:21:26 +0100</lastBuildDate>
     
 	<atom:link href="https://libpasta.github.io/introduction/index.xml" rel="self" type="application/rss+xml" />
     
@@ -14,11 +13,44 @@
     <item>
       <title>What is libpasta?</title>
       <link>https://libpasta.github.io/introduction/what-is-libpasta/</link>
-      <pubDate>Fri, 07 Jul 2017 15:21:59 +0100</pubDate>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://libpasta.github.io/introduction/what-is-libpasta/</guid>
-      <description> Making Passwords Painless This library aims to be a all-in-one solution for password storage. In particular, we aim to provide:
- Easy-to-use password storage with sane defaults. Tools to provide parameter tuning for different use cases. Automatic migration of password to new algorithms. Cross-platform builds and cross-language bindings.  </description>
+      <description>Making Passwords Painless This library aims to be a all-in-one solution for password storage. In particular, we aim to provide:
+ Easy-to-use password storage with sane defaults. Tools to provide parameter tuning for different use cases. Automatic migration of password to new algorithms. Cross-platform builds and cross-language bindings.  Secure by Default libpasta is ready to work at a production level straight out of the box. We hide any unnecessary decisions from the developer.</description>
+    </item>
+    
+    <item>
+      <title>Basic Usage</title>
+      <link>https://libpasta.github.io/introduction/basic-usage/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://libpasta.github.io/introduction/basic-usage/</guid>
+      <description>The following examples are for the core library written in Rust. See other languages for language bindings and examples. Where possible, the APIs exported by libpasta are identical to those used in the Rust library.
+Password Hashes A common scenario is that a particular user has password, which a service will check on each login to authenticate the user.
+externcratelibpasta; // We re-export the rpassword crate for CLI password input.</description>
+    </item>
+    
+    <item>
+      <title>Installation</title>
+      <link>https://libpasta.github.io/introduction/installation/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://libpasta.github.io/introduction/installation/</guid>
+      <description>libpasta is designed to be installed as a system library. Currently, this can be achieved by downloading the repository, compiling it, and moving the library to the system library, e.g /usr/lib.
+git clone https://github.com/libpasta/libpasta/ # NOT ACTUALLY HERE YET cd pass # compiles the library make libpasta # installs the library to ${INSTALL_DIR} - defaults to /usr/lib make install  For developing Rust applications, we recommend using it as usual through cargo.</description>
+    </item>
+    
+    <item>
+      <title>Password hashing theory</title>
+      <link>https://libpasta.github.io/introduction/password-hashing-theory/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://libpasta.github.io/introduction/password-hashing-theory/</guid>
+      <description>Why hash passwords? Starting off with the most common use of passwords: user authentication.
+The general setting is that an individual has a username and a password, lets say username: alice and password: hunter2.
+When Alice first registers on a website, a new account is created, and the password is stored in the database, so that Alice can prove she is indeed Alice
+id | username | password | creation-date | .</description>
     </item>
     
   </channel>

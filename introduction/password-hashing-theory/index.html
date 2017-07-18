@@ -1,0 +1,562 @@
+<!DOCTYPE html>
+<html lang="en" class="js csstransforms3d">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta name="generator" content="Hugo 0.21" />
+    <meta name="description" content="">
+
+
+    <link rel="shortcut icon" href="/images/favicon.png" type="image/x-icon" />
+
+    
+    <title>Password hashing theory</title>
+    <link href="https://libpasta.github.io//css/nucleus.css" rel="stylesheet">
+    <link href="https://libpasta.github.io//css/font-awesome.min.css" rel="stylesheet">
+    <link href="https://libpasta.github.io//css/hybrid.css" rel="stylesheet">
+    <link href="https://libpasta.github.io//css/featherlight.min.css" rel="stylesheet">
+    <link href="https://libpasta.github.io//css/perfect-scrollbar.min.css" rel="stylesheet">
+    <link href="https://libpasta.github.io//css/horsey.css" rel="stylesheet">
+    <link href="https://libpasta.github.io//css/theme.css" rel="stylesheet">
+    <link href="https://libpasta.github.io//css/hugo-theme.css" rel="stylesheet">
+    <script src="https://libpasta.github.io//js/jquery-2.x.min.js"></script>
+    <style type="text/css">:root #header + #content > #left > #rlblock_left
+    {display:none !important;}</style>
+    
+
+  </head>
+  <body class="" data-url="/introduction/password-hashing-theory/">
+    
+    <nav id="sidebar">
+  <div id="header-wrapper">
+    <div id="header">
+      <a id="logo" href="https://libpasta.github.io/">
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   id="svg8"
+   version="1.1"
+   viewBox="0 0 45.997559 10"
+   height="12.242269mm"
+   width="45.997559mm">
+  <defs
+     id="defs2" />
+  <metadata
+     id="metadata5">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     transform="translate(-66.952891,-67.060878)"
+     id="layer1">
+    <text
+       id="text4487"
+       y="100.10173"
+       x="68.955536"
+       style="font-style:normal;font-weight:normal;font-size:10.58333302px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       xml:space="preserve"><tspan
+         style="fill:#ffffff;stroke:#FFFFFF;stroke-width:0.26458332px"
+         y="76.10173"
+         x="68.955536"
+         id="tspan4485">libpasta</tspan></text>
+  </g>
+</svg>
+
+</a>
+
+    </div>
+    
+</div>
+
+
+  <div class="highlightable">
+    <ul class="topics">
+      
+        
+        
+          
+          
+            
+          
+        
+          
+          
+            
+          
+        
+          
+          
+            
+          
+        
+          
+          
+            
+          
+        
+        
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+      
+      
+      
+
+      
+      
+      
+        
+          
+        
+      
+      
+      
+
+      <li class="dd-item  parent" data-nav-id="/introduction/">
+        <a href="/introduction/">
+          <span>
+            
+              <b>1. </b>
+            
+             Introduction
+            
+           </span>
+        </a>
+        
+        <ul>
+          
+            <li class="dd-item " data-nav-id="/introduction/what-is-libpasta/">
+              <a href="/introduction/what-is-libpasta/">
+                <span>What is libpasta?     </i></span>
+              </a>
+            </li>
+          
+            <li class="dd-item " data-nav-id="/introduction/basic-usage/">
+              <a href="/introduction/basic-usage/">
+                <span>Basic Usage     </i></span>
+              </a>
+            </li>
+          
+            <li class="dd-item " data-nav-id="/introduction/installation/">
+              <a href="/introduction/installation/">
+                <span>Installation     </i></span>
+              </a>
+            </li>
+          
+            <li class="dd-item active" data-nav-id="/introduction/password-hashing-theory/">
+              <a href="/introduction/password-hashing-theory/">
+                <span>Password hashing theory     </i></span>
+              </a>
+            </li>
+          
+        </ul>
+        
+      </li>
+      
+      
+      
+
+      
+      
+      
+        
+          
+        
+      
+      
+      
+
+      <li class="dd-item  " data-nav-id="/advanced/">
+        <a href="/advanced/">
+          <span>
+            
+              <b>2. </b>
+            
+             Advanced Usage
+            
+           </span>
+        </a>
+        
+        <ul>
+          
+            <li class="dd-item " data-nav-id="/advanced/migration/">
+              <a href="/advanced/migration/">
+                <span>Password Migration     </i></span>
+              </a>
+            </li>
+          
+            <li class="dd-item " data-nav-id="/advanced/tuning/">
+              <a href="/advanced/tuning/">
+                <span>Parameter Selection     </i></span>
+              </a>
+            </li>
+          
+        </ul>
+        
+      </li>
+      
+      
+      
+
+      
+      
+      
+        
+          
+        
+      
+      
+      
+
+      <li class="dd-item  " data-nav-id="/other-languages/">
+        <a href="/other-languages/">
+          <span>
+            
+              <b>3. </b>
+            
+             Other Languages
+            
+           </span>
+        </a>
+        
+        <ul>
+          
+            <li class="dd-item " data-nav-id="/other-languages/c/">
+              <a href="/other-languages/c/">
+                <span>C     </i></span>
+              </a>
+            </li>
+          
+            <li class="dd-item " data-nav-id="/other-languages/java/">
+              <a href="/other-languages/java/">
+                <span>Java     </i></span>
+              </a>
+            </li>
+          
+            <li class="dd-item " data-nav-id="/other-languages/php/">
+              <a href="/other-languages/php/">
+                <span>PHP     </i></span>
+              </a>
+            </li>
+          
+            <li class="dd-item " data-nav-id="/other-languages/python/">
+              <a href="/other-languages/python/">
+                <span>Python     </i></span>
+              </a>
+            </li>
+          
+            <li class="dd-item " data-nav-id="/other-languages/ruby/">
+              <a href="/other-languages/ruby/">
+                <span>Ruby     </i></span>
+              </a>
+            </li>
+          
+        </ul>
+        
+      </li>
+      
+      
+      
+
+      
+      
+      
+        
+          
+        
+      
+      
+      
+
+      <li class="dd-item  " data-nav-id="/technical-details/">
+        <a href="/technical-details/">
+          <span>
+            
+              <b>4. </b>
+            
+             Techincal Details
+            
+           </span>
+        </a>
+        
+        <ul>
+          
+            <li class="dd-item " data-nav-id="/technical-details/algorithm-choice/">
+              <a href="/technical-details/algorithm-choice/">
+                <span>Algorithm Selection     </i></span>
+              </a>
+            </li>
+          
+            <li class="dd-item " data-nav-id="/technical-details/phc-string-format/">
+              <a href="/technical-details/phc-string-format/">
+                <span>Serializing Hashes     </i></span>
+              </a>
+            </li>
+          
+        </ul>
+        
+      </li>
+      
+      
+    </ul>
+    <hr>
+     
+    <section id="footer">
+      <p>Built with <a href="https://github.com/matcornic/hugo-theme-learn"><i class="fa fa-heart"></i></a> from <a href="http://getgrav.org">Grav</a> and <a href="http://gohugo.io/">Hugo</a></p>
+
+    </section>
+  </div>
+</nav>
+
+        <section id="body">
+        <div id="overlay"></div>
+
+        <div class="padding highlightable sticky-parent">
+            
+            <div class="sticky-spacer">
+              <div id="top-bar">
+              
+              <div id="breadcrumbs" itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb">
+                  <span id="sidebar-toggle-span">
+                      <a href="#" id="sidebar-toggle" data-sidebar-toggle="">
+                        <i class="fa fa-bars"></i>
+                      </a>
+                  </span>
+                
+                <span id="toc-menu"><a href=""><i class="fa fa-list-alt"></i></a></span>
+                
+                
+                  
+                  
+                  
+                    
+                    
+                <a href="/introduction/" itemprop="url"><span itemprop="title">Introduction</span></a> <i class="fa fa-angle-right"></i>
+                    
+                  
+                
+                <span itemprop="title"> Password hashing theory</span>
+              </div>
+              
+                  <div class="progress">
+    <div class="wrapper">
+<nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li><a href="#why-hash-passwords">Why hash passwords?</a></li>
+<li><a href="#brute-force-attacks">Brute force attacks</a></li>
+<li><a href="#password-hashing-algorithms">Password hashing algorithms</a></li>
+<li><a href="#salting-password-hashes">Salting password hashes</a></li>
+<li><a href="#keyed-hashes">Keyed hashes</a></li>
+<li><a href="#memory-hard-password-hashes">Memory hard password hashes</a></li>
+</ul></li>
+</ul>
+</nav>
+    </div>
+</div>
+
+              
+            </div>
+
+            </div>
+            
+              <div id="body-inner">
+                
+                <h1>Password hashing theory</h1>
+                
+
+
+
+<h2 id="why-hash-passwords">Why hash passwords?</h2>
+
+<p>Starting off with the most common use of passwords: user authentication.</p>
+
+<p>The general setting is that an individual has a username and a password,
+lets say <code>username: alice</code> and <code>password: hunter2</code>.</p>
+
+<p>When Alice first registers on a website, a new account is created, and the
+password is stored in the database, so that Alice can prove she is indeed Alice</p>
+<div class="highlight" style="background: #272822"><pre style="line-height: 125%"><span></span><span style="color: #f8f8f2">id</span> <span style="color: #f92672">|</span> <span style="color: #f8f8f2">username</span> <span style="color: #f92672">|</span> <span style="color: #f8f8f2">password</span> <span style="color: #f92672">|</span> <span style="color: #f8f8f2">creation</span><span style="color: #f92672">-</span><span style="color: #f8f8f2">date</span> <span style="color: #f92672">|</span> <span style="color: #f8f8f2">...</span>
+<span style="color: #f92672">------------------------------------------------</span>
+<span style="color: #ae81ff">1</span>  <span style="color: #f92672">|</span> <span style="color: #f8f8f2">alice</span>    <span style="color: #f92672">|</span> <span style="color: #f8f8f2">hunter2</span>  <span style="color: #f92672">|</span> <span style="color: #ae81ff">2017</span><span style="color: #f92672">-</span><span style="color: #ae81ff">07</span><span style="color: #f92672">-</span><span style="color: #ae81ff">14</span>    <span style="color: #f92672">|</span> <span style="color: #f8f8f2">...</span>
+</pre></div>
+
+<p>However, what if somebody gains access to this database with malicious intent -
+whether external hackers, or internal such as a database admin. Alice&rsquo;s
+password is sitting in the open.</p>
+
+<p>Hence we want to apply a <a href="https://en.wikipedia.org/wiki/One-way_function">one-way function</a> <code>f</code> to the password, so that
+nobody can reverse the function <code>f(password)</code> and work out the password, but
+given a password <code>other-password</code> it is easy to check whether
+<code>f(password) == f(other-password)</code>.</p>
+
+<p>From the wikipedia page, we learn that SHA256 is a candidate one-way function,
+so we go ahead and use this as our hash function.</p>
+
+<p>Now, our database might look something like this:</p>
+<div class="highlight" style="background: #272822"><pre style="line-height: 125%"><span></span><span style="color: #f8f8f2">id</span> <span style="color: #f92672">|</span> <span style="color: #f8f8f2">username</span> <span style="color: #f92672">|</span> <span style="color: #f8f8f2">password</span>    <span style="color: #f92672">|</span> <span style="color: #f8f8f2">creation</span><span style="color: #f92672">-</span><span style="color: #f8f8f2">date</span> <span style="color: #f92672">|</span> <span style="color: #f8f8f2">...</span>
+<span style="color: #f92672">--------------------------------------------------</span>
+<span style="color: #ae81ff">1</span>  <span style="color: #f92672">|</span> <span style="color: #f8f8f2">alice</span>    <span style="color: #f92672">|</span> <span style="color: #f8f8f2">f52fbd32...</span> <span style="color: #f92672">|</span> <span style="color: #ae81ff">2017</span><span style="color: #f92672">-</span><span style="color: #ae81ff">07</span><span style="color: #f92672">-</span><span style="color: #ae81ff">14</span>    <span style="color: #f92672">|</span> <span style="color: #f8f8f2">...</span>
+</pre></div>
+
+<p>This looks better, now the password isn&rsquo;t revealed in the clear. However, this
+is actually not much better than the cleartext version.</p>
+
+<p><strong>Plain cryptographic hash functions are not suitable for password hashing functions.</strong></p>
+
+<p>Not SHA256, not SHA512, and no, not MD5.</p>
+
+<h2 id="brute-force-attacks">Brute force attacks</h2>
+
+<p>In the previous example, we simply applied SHA256 to attempt to hide the
+password.</p>
+
+<p>The reason for this is due to one of the fundamental requirements of password
+hashing algorithms: computing many outputs should be <em>slow</em>.</p>
+
+<p>As in the previous example, suppose the attacker has access to the entire
+password database, with usernames and SHA256 hashes of passwords.</p>
+
+<p>The attacker can take a list of <a href="https://wiki.skullsecurity.org/Passwords">common password</a> and simply test
+every single value against the database. Looking at <a href="https://en.bitcoin.it/wiki/Mining_hardware_comparison">some commodity hardware</a>,
+we see that (at the time of writing), $2,400 USD can get you a machine which computes
+14,000,000,000,000 hashes per <em>second</em>.</p>
+
+<p>To put that in perspective, that can compute <em>every</em> 7 character password made up of <code>a-zA-Z0-9</code> in <a href="https://www.wolframalpha.com/input/?i=(26%2B26%2B10)%5E7%2F14000000000000">less than once second</a>.</p>
+
+<p>Thus we have the great dichotomy of password hashing:</p>
+
+<p><strong>Computing one password hash should be fast, computing many should be slow</strong></p>
+
+<h2 id="password-hashing-algorithms">Password hashing algorithms</h2>
+
+<p>To be resistant to a brute-force attack, password hashing algorithms are
+intentionally made to be slow. As a simple example of this, we have
+<a href="https://en.wikipedia.org/wiki/PBKDF2">PBKDF2</a>, which is effectively &ldquo;take a
+cryptographic hash function, and repeat it N times&rdquo;.</p>
+
+<p>Password hashing algorithms allow you to choose parameters to slow down the
+hash function. For interactive logins (think: website login), choosing
+parameters such that login takes half a second is reasonable.</p>
+
+<p>If it takes half a second to compute a single password hash, then guessing a
+7 character password as before would take <a href="https://www.wolframalpha.com/input/?i=(26%2B26%2B10)%5E7%2F2+seconds">over 55 thousand years</a>.</p>
+
+<p>However, in practice attackers will be using the list of <a href="https://wiki.skullsecurity.org/Passwords">common passwords</a>
+we mentioned before. Even checking the top 10,000 most passwords will only take
+about an hour and a half.</p>
+
+<p>Are these password doomed to be recovered that easily?</p>
+
+<h2 id="salting-password-hashes">Salting password hashes</h2>
+
+<p>Before, we saw that many password could be recovered in just an hour and a half.
+It was implicitly assumed that for any given password, the value stored in the
+database would be the same for any user. Suppose Alice and Charlie happen to share
+the same common password:</p>
+<div class="highlight" style="background: #272822"><pre style="line-height: 125%"><span></span><span style="color: #f8f8f2">id</span> <span style="color: #f92672">|</span> <span style="color: #f8f8f2">username</span> <span style="color: #f92672">|</span> <span style="color: #f8f8f2">password</span>    <span style="color: #f92672">|</span> <span style="color: #f8f8f2">creation</span><span style="color: #f92672">-</span><span style="color: #f8f8f2">date</span> <span style="color: #f92672">|</span> <span style="color: #f8f8f2">...</span>
+<span style="color: #f92672">--------------------------------------------------</span>
+<span style="color: #ae81ff">1</span>  <span style="color: #f92672">|</span> <span style="color: #f8f8f2">alice</span>    <span style="color: #f92672">|</span> <span style="color: #f8f8f2">cXmBfX44...</span> <span style="color: #f92672">|</span> <span style="color: #ae81ff">2017</span><span style="color: #f92672">-</span><span style="color: #ae81ff">07</span><span style="color: #f92672">-</span><span style="color: #ae81ff">14</span>    <span style="color: #f92672">|</span> <span style="color: #f8f8f2">...</span>
+<span style="color: #ae81ff">2</span>  <span style="color: #f92672">|</span> <span style="color: #f8f8f2">bob</span>      <span style="color: #f92672">|</span> <span style="color: #f8f8f2">BlEi9jKX...</span> <span style="color: #f92672">|</span> <span style="color: #ae81ff">2017</span><span style="color: #f92672">-</span><span style="color: #ae81ff">07</span><span style="color: #f92672">-</span><span style="color: #ae81ff">10</span>    <span style="color: #f92672">|</span> <span style="color: #f8f8f2">...</span>
+<span style="color: #ae81ff">3</span>  <span style="color: #f92672">|</span> <span style="color: #f8f8f2">charlie</span>  <span style="color: #f92672">|</span> <span style="color: #f8f8f2">cXmBfX44...</span> <span style="color: #f92672">|</span> <span style="color: #ae81ff">2017</span><span style="color: #f92672">-</span><span style="color: #ae81ff">07</span><span style="color: #f92672">-</span><span style="color: #ae81ff">01</span>    <span style="color: #f92672">|</span> <span style="color: #f8f8f2">...</span>
+</pre></div>
+
+<p>Therefore, we typically add what is called a &ldquo;salt&rdquo; as an input to a password
+hash. This is a per-user unique value. So we get <code>hash = f(password, salt)</code>.</p>
+
+<p>Since the salt is unique for each user, any brute force attack would need to
+be mounted on a <em>per-user</em> basis. This is a huge improvement when the attacker
+is simply interested in recovering as many passwords as possible, but is not
+necessarily interested in a specific user.</p>
+
+<h2 id="keyed-hashes">Keyed hashes</h2>
+
+<p>People familiar with the basics of cryptography might be wondering why
+we are not using encryption to protect the password hashes. Indeed, without the
+key, an encrypted hash is worthless to an attacker.</p>
+
+<p>Since we do not need decryption algorithms, we can use keyed hash functions such
+as <a href="https://en.wikipedia.org/wiki/Hash-based_message_authentication_code">HMAC</a>
+instead. This has the same effect, without the key <code>k</code> it will be impossible to
+compute <code>f_k(password, salt)</code>, and thus an attacker would not be able to check
+whether their password guess is correct.</p>
+
+<p>Properly protecting the key <code>k</code> is a difficult problem, and compromise
+of <code>k</code> renders it useless. One effective way is to store <code>k</code> in  specialised
+hardware such as an
+<a href="https://en.wikipedia.org/wiki/Hardware_security_module">HSM</a>.
+However, there exist <a href="https://www.usenix.org/system/files/conference/usenixsecurity15/sec15-paper-everspaugh.pdf">solutions (warning: PDF)</a> which can help in making
+keyed solutions more accessible.</p>
+
+<h2 id="memory-hard-password-hashes">Memory hard password hashes</h2>
+
+<p>In recent times, such as in the <a href="https://password-hashing.net/">password hashing competition</a>,
+memory hard password hashing has been emphasised as an important part of the
+design criteria.</p>
+
+<p>The main concept here is that it can be significantly cheaper to perform
+computation on custom hardware (e.g. ASICs), than on a general purpose CPU.</p>
+
+<p>Before, we discussed the requirement that it should be fast to compute a single
+output, but slow to compute many. In order to make this as balanced as possible,
+we need to ensure that an adversary computing many hashes on custom hardware should
+not have an advantage over the innocent party using general-purpose hardware.</p>
+
+<p>As a potential solution to this, memory-hard hashing functions have been
+proposed. Reading and writing to memory is an operation which is approximately
+equally expensive on custom hardware, and the cost to produce ASICs capable of
+handling more memory is significantly higher. Therefore, the advantage of these
+custom solutions is reduced.</p>
+
+
+      
+      
+      </div>
+    </div>
+
+    
+
+    <div id="navigation">
+        
+        
+        
+    </div>
+
+    </section>
+    <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
+      <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
+    </div>
+    <script src="https://libpasta.github.io//js/clipboard.min.js"></script>
+    <script src="https://libpasta.github.io//js/perfect-scrollbar.min.js"></script>
+    <script src="https://libpasta.github.io//js/perfect-scrollbar.jquery.min.js"></script>
+    <script src="https://libpasta.github.io//js/jquery.sticky-kit.min.js"></script>
+    <script src="https://libpasta.github.io//js/featherlight.min.js"></script>
+    <script src="https://libpasta.github.io//js/html5shiv-printshiv.min.js"></script>
+    <script src="https://libpasta.github.io//js/highlight.pack.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <script src="https://libpasta.github.io//js/modernizr.custom.71422.js"></script>
+    <script src="https://libpasta.github.io//js/learn.js"></script>
+    <script src="https://libpasta.github.io//js/hugo-learn.js"></script>
+    
+
+  </body>
+</html>
+

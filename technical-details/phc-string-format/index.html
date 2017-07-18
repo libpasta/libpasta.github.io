@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en" class="js csstransforms3d">
   <head>
@@ -11,7 +10,7 @@
     <link rel="shortcut icon" href="/images/favicon.png" type="image/x-icon" />
 
     
-    <title>Introduction</title>
+    <title>Serializing Hashes</title>
     <link href="https://libpasta.github.io//css/nucleus.css" rel="stylesheet">
     <link href="https://libpasta.github.io//css/font-awesome.min.css" rel="stylesheet">
     <link href="https://libpasta.github.io//css/hybrid.css" rel="stylesheet">
@@ -26,7 +25,7 @@
     
 
   </head>
-  <body class="" data-url="/introduction/">
+  <body class="" data-url="/technical-details/phc-string-format/">
     
     <nav id="sidebar">
   <div id="header-wrapper">
@@ -130,7 +129,7 @@
       
       
 
-      <li class="dd-item active parent" data-nav-id="/introduction/">
+      <li class="dd-item  " data-nav-id="/introduction/">
         <a href="/introduction/">
           <span>
             
@@ -286,7 +285,7 @@
       
       
 
-      <li class="dd-item  " data-nav-id="/technical-details/">
+      <li class="dd-item  parent" data-nav-id="/technical-details/">
         <a href="/technical-details/">
           <span>
             
@@ -305,7 +304,7 @@
               </a>
             </li>
           
-            <li class="dd-item " data-nav-id="/technical-details/phc-string-format/">
+            <li class="dd-item active" data-nav-id="/technical-details/phc-string-format/">
               <a href="/technical-details/phc-string-format/">
                 <span>Serializing Hashes     </i></span>
               </a>
@@ -341,38 +340,69 @@
                       </a>
                   </span>
                 
+                <span id="toc-menu"><a href=""><i class="fa fa-list-alt"></i></a></span>
+                
                 
                   
                   
                   
                     
                     
+                <a href="/technical-details/" itemprop="url"><span itemprop="title">Techincal Details</span></a> <i class="fa fa-angle-right"></i>
+                    
                   
                 
-                <span itemprop="title"> Introduction</span>
+                <span itemprop="title"> Serializing Hashes</span>
               </div>
+              
+                  <div class="progress">
+    <div class="wrapper">
+
+    </div>
+</div>
+
               
             </div>
 
             </div>
             
-              <div id="chapter">
-            
               <div id="body-inner">
                 
+                <h1>Serializing Hashes</h1>
+                
 
+<p>We use the PHC string format, as defined <a href="https://github.com/P-H-C/phc-string-format/blob/master/phc-sf-spec.md">here</a>, to
+format password hashes produced by libpasta.</p>
 
+<p>These take the following format:</p>
 
-<h3 id="chapter-1">Chapter 1</h3>
+<pre><code>   $&lt;id&gt;[$&lt;param&gt;=&lt;value&gt;(,&lt;param&gt;=&lt;value&gt;)*][$&lt;salt&gt;[$&lt;hash&gt;]]
+</code></pre>
 
-<h1 id="introduction">Introduction</h1>
+<p>where:</p>
 
-<p>Introduction to <code>libpasta</code>.</p>
+<ul>
+<li><code>&lt;id&gt;</code> is the symbolic name for the function</li>
+<li><code>&lt;param&gt;</code> is a parameter name</li>
+<li><code>&lt;value&gt;</code> is a parameter value</li>
+<li><code>&lt;salt&gt;</code> is an encoding of the salt</li>
+<li><code>&lt;hash&gt;</code> is an encoding of the hash output</li>
+</ul>
+
+<p>The string is then the concatenation, in that order, of:</p>
+
+<ul>
+<li>a <code>$</code> sign;</li>
+<li>the function symbolic name;</li>
+<li>optionally, a <code>$</code> sign followed by one or several parameters, each
+with a <code>name=value</code> format; the parameters are separated by commas;</li>
+<li>optionally, a <code>$</code> sign followed by the (encoded) salt value;</li>
+<li>optionally, a <code>$</code> sign followed by the (encoded) hash output (the
+hash output may be present only if the salt is present).</li>
+</ul>
 
 
       
-      
-        </div> 
       
       </div>
     </div>
@@ -404,5 +434,4 @@
 
   </body>
 </html>
-
 

@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en" class="js csstransforms3d">
   <head>
@@ -11,7 +10,7 @@
     <link rel="shortcut icon" href="/images/favicon.png" type="image/x-icon" />
 
     
-    <title>Introduction</title>
+    <title>Installation</title>
     <link href="https://libpasta.github.io//css/nucleus.css" rel="stylesheet">
     <link href="https://libpasta.github.io//css/font-awesome.min.css" rel="stylesheet">
     <link href="https://libpasta.github.io//css/hybrid.css" rel="stylesheet">
@@ -26,7 +25,7 @@
     
 
   </head>
-  <body class="" data-url="/introduction/">
+  <body class="" data-url="/introduction/installation/">
     
     <nav id="sidebar">
   <div id="header-wrapper">
@@ -130,7 +129,7 @@
       
       
 
-      <li class="dd-item active parent" data-nav-id="/introduction/">
+      <li class="dd-item  parent" data-nav-id="/introduction/">
         <a href="/introduction/">
           <span>
             
@@ -155,7 +154,7 @@
               </a>
             </li>
           
-            <li class="dd-item " data-nav-id="/introduction/installation/">
+            <li class="dd-item active" data-nav-id="/introduction/installation/">
               <a href="/introduction/installation/">
                 <span>Installation     </i></span>
               </a>
@@ -341,38 +340,58 @@
                       </a>
                   </span>
                 
+                <span id="toc-menu"><a href=""><i class="fa fa-list-alt"></i></a></span>
+                
                 
                   
                   
                   
                     
                     
+                <a href="/introduction/" itemprop="url"><span itemprop="title">Introduction</span></a> <i class="fa fa-angle-right"></i>
+                    
                   
                 
-                <span itemprop="title"> Introduction</span>
+                <span itemprop="title"> Installation</span>
               </div>
+              
+                  <div class="progress">
+    <div class="wrapper">
+
+    </div>
+</div>
+
               
             </div>
 
             </div>
             
-              <div id="chapter">
-            
               <div id="body-inner">
                 
+                <h1>Installation</h1>
+                
 
+<p><code>libpasta</code> is designed to be installed as a system library.
+Currently, this can be achieved by downloading the repository, compiling it,
+and moving the library to the system library, e.g <code>/usr/lib</code>.</p>
 
+<pre><code>git clone https://github.com/libpasta/libpasta/ # NOT ACTUALLY HERE YET
+cd pass
 
-<h3 id="chapter-1">Chapter 1</h3>
+# compiles the library
+make libpasta
 
-<h1 id="introduction">Introduction</h1>
+# installs the library to ${INSTALL_DIR} - defaults to /usr/lib
+make install
+</code></pre>
 
-<p>Introduction to <code>libpasta</code>.</p>
+<p>For developing Rust applications, we recommend using it as usual through cargo.</p>
+
+<p>For non-Rust applications, follow the above steps to install the library, and
+follow the instructions for <a href="../../other-languages">bindings to other languages</a>.</p>
 
 
       
-      
-        </div> 
       
       </div>
     </div>
@@ -404,5 +423,4 @@
 
   </body>
 </html>
-
 
