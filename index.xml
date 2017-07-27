@@ -25,8 +25,8 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://libpasta.github.io/introduction/what-is-libpasta/</guid>
-      <description>Making Passwords Painless This library aims to be a all-in-one solution for password storage. In particular, we aim to provide:
- Easy-to-use password storage with sane defaults. Tools to provide parameter tuning for different use cases. Automatic migration of password to new algorithms. Cross-platform builds and cross-language bindings.  Secure by Default libpasta is ready to work at a production level straight out of the box. We hide any unnecessary decisions from the developer.</description>
+      <description>Making Passwords Painless This library aims to be an all-in-one solution for password storage. In particular, we aim to provide:
+ Easy-to-use password storage with sane defaults. Tools to provide parameter tuning for different use cases. Automatic migration of passwords to new algorithms. Cross-platform builds and cross-language bindings.  Secure by Default libpasta is ready to work at a production level straight out of the box. We hide any unnecessary decisions from the developer.</description>
     </item>
     
     <item>

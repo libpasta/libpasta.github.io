@@ -392,13 +392,13 @@
 
 <h4 id="making-passwords-painless"><em>Making Passwords Painless</em></h4>
 
-<p>This library aims to be a all-in-one solution for password storage. In
+<p>This library aims to be an all-in-one solution for password storage. In
 particular, we aim to provide:</p>
 
 <ul>
 <li>Easy-to-use password storage with sane defaults.</li>
 <li>Tools to provide parameter tuning for different use cases.</li>
-<li>Automatic migration of password to new algorithms.</li>
+<li>Automatic migration of passwords to new algorithms.</li>
 <li>Cross-platform builds and cross-language bindings.</li>
 </ul>
 
@@ -406,23 +406,25 @@ particular, we aim to provide:</p>
 
 <p><code>libpasta</code> is ready to work at a production level straight out of the box. We
 hide any unnecessary decisions from the developer. Together with the support for
-<a href="#easy-password-migration">migrating passwords</a>, <code>libpasta</code> gives you the
-peace-of-mind to install once, and never touch it again.</p>
+<a href="#easy-password-migration">migrating passwords</a>, <code>libpasta</code> provides a
+streamlined, easy, and secure password management solution.</p>
 
 <p>Currently, the algorithm favoured by <code>libpasta</code> is XXX (probably scrypt).
 For more details, see <a href="../../technical-details/algorithm-choice">algorithm choice</a>.</p>
 
 <h4 id="easy-password-migration">Easy password migration</h4>
 
-<p>We aim to help everyone move away from insecure password hashing systems,
-to more modern algorithms. Hence we have designed <code>libpasta</code> to come with
-built-in support for password migration.</p>
+<p>Many developers still use insecure password hashing systems, despite it causing
+embarrassing and significant vulnerabilities should a leak occur.<br />
+Our aim is to help everyone adopt modern algorithms and
+associated best practices. Hence we have designed <code>libpasta</code> to come with
+built-in support for easy password migration.</p>
 
-<p>This allows you to easily, and dynamically, migrate all password hashes to
-secure algorithms, without inconveniencing users with password resets.</p>
-
-<p>Furthermore, having convenient migration tools makes it easier to keep your
-parameters selection up to date with increases in computer performance.</p>
+<p>This allows you to migrate an existing password hash database to
+secure algorithms, without inconveniencing users with password resets.
+Furthermore, having convenient migration tools makes it easier to keep you
+up-to-date with what hashing parameters should be as computer performance
+increases.</p>
 
 <p>See <a href="../basic-usage#password-migration">basic usage</a> for an example of
 migrating passwords, or <a href="../../advanced/migration/">advanced usage</a> for more
@@ -430,12 +432,16 @@ details.</p>
 
 <h4 id="tuning-tools">Tuning tools</h4>
 
-<p>For times when the default parameters are not sufficient, <code>libpasta</code> helps to
-pick the optimal parameters.</p>
+<p>Password hashing is relatively slow by design,
+and setting parameters (the cost of computing the hash) too low can be a
+vulnerability. Of course this has to be balanced against performance of your
+<code>libpasta</code>-using application.
+For times when the default parameters are not sufficient, <code>libpasta</code> helps
+developers pick good parameters.</p>
 
-<p>The tuning tool measures the performance of your system to suggest parameters.
-As a safeguard, the tool also estimates the parameters based off of the
-specifications of the system, to avoid mistakenly suggesting lower parameters.</p>
+<p>The tuning tool measures the performance of your system to suggest parameters,
+as well as doing some sanity checks based on the specifications of the system.
+The tool will help you avoid setting parameters too aggressively</p>
 
 <p>See <a href="../../advanced/tuning">tuning</a> for more details.</p>
 
@@ -465,7 +471,6 @@ Similarly, Rust supports compilation over a number of platforms.</p>
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="https://libpasta.github.io//js/clipboard.min.js"></script>
     <script src="https://libpasta.github.io//js/perfect-scrollbar.min.js"></script>
     <script src="https://libpasta.github.io//js/perfect-scrollbar.jquery.min.js"></script>
     <script src="https://libpasta.github.io//js/jquery.sticky-kit.min.js"></script>
