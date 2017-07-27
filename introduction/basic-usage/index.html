@@ -495,24 +495,42 @@ requires updating the stored version of the hash.</p>
 
 <h4 id="basic-configuration">Basic configuration</h4>
 
-<p><code>libpasta</code> supports runtime configuration by using config files, either
-found in default directories or specified by environment variables.</p>
+<p><code>libpasta</code> supports configuration in two ways: directly in code, or using
+configuration files.</p>
 
-<p>Accepted formats are YAML and TOML. An example config files looks like:</p>
-<div class="highlight" style="background: #272822"><pre style="line-height: 125%"><span></span><span style="color: #ae81ff">algorithm</span><span style="color: #f8f8f2">:</span>
-  <span style="color: #ae81ff">scrypt-mcf</span><span style="color: #f8f8f2">:</span>
-    <span style="color: #ae81ff">log_n</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">16</span>
+<p>For example, suppose we wish to use bcrypt as the default algorithm.</p>
+<div class="highlight" style="background: #272822"><pre style="line-height: 125%"><span></span><span style="color: #66d9ef">extern</span><span style="color: #f8f8f2"> </span><span style="color: #66d9ef">crate</span><span style="color: #f8f8f2"> libpasta;</span>
+
+<span style="color: #66d9ef">fn</span><span style="color: #f8f8f2"> main() {</span>
+<span style="color: #f8f8f2">    libpasta</span><span style="color: #f92672">::</span><span style="color: #f8f8f2">config</span><span style="color: #f92672">::</span><span style="color: #f8f8f2">set_primitive(libpasta</span><span style="color: #f92672">::</span><span style="color: #f8f8f2">default_bcrypt());</span>
+<span style="color: #f8f8f2">    </span><span style="color: #66d9ef">let</span><span style="color: #f8f8f2"> password_hash </span><span style="color: #f92672">=</span><span style="color: #f8f8f2"> libpasta</span><span style="color: #f92672">::</span><span style="color: #f8f8f2">hash_password(</span><span style="color: #e6db74">&quot;hunter2&quot;</span><span style="color: #f8f8f2">.to_string());</span>
+<span style="color: #f8f8f2">    println</span><span style="color: #f92672">!</span><span style="color: #f8f8f2">(</span><span style="color: #e6db74">&quot;The hashed password is: &#39;{}&#39;&quot;</span><span style="color: #f8f8f2">, password_hash);</span>
+<span style="color: #f8f8f2">    </span><span style="color: #75715e">// Prints bcrypt hash</span>
+<span style="color: #f8f8f2">}</span>
+</pre></div>
+
+<p>Note that once the library is in use, the configuration can no longer be
+changed.</p>
+
+<p>Additionally, values may be set using a configuration file. Written in YAML,
+these look as follows:</p>
+<div class="highlight" style="background: #272822"><pre style="line-height: 125%"><span></span><span style="color: #ae81ff">default_primitive</span><span style="color: #f8f8f2">:</span>
+  <span style="color: #ae81ff">id</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">scrypt-mcf</span>
+  <span style="color: #ae81ff">params</span><span style="color: #f8f8f2">:</span> 
+    <span style="color: #ae81ff">log_n</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">12</span>
     <span style="color: #ae81ff">r</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">8</span>
     <span style="color: #ae81ff">p</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">1</span>
-
-<span style="color: #ae81ff">force-migration</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">true</span>
 </pre></div>
 
 <p>This specifies the algorithm to use, in this case, scrypt.</p>
 
 <p>By default, <code>libpasta</code> will search the current directory for a file with the name
-<code>.libpasta.{yaml,toml}</code>. Alternatively, a specific (relative or absolute) path
-can be supplied by running: <code>LIBPASTA_CFG=path/to/file.yaml &lt;app-name&gt;</code>.</p>
+<code>.libpasta.yaml</code>. Alternatively, a specific (relative or absolute) directory
+can be supplied by running: <code>LIBPASTA_CFG=path/to/cfg/ &lt;app-name&gt;</code>.</p>
+
+<p><code>libpasta</code> will use any parameters set directly, then use any values
+specified in configuration files, and finally all remaining variables are set
+to defaults.</p>
 
 
       
