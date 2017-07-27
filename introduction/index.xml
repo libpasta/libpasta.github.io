@@ -16,8 +16,9 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://libpasta.github.io/introduction/what-is-libpasta/</guid>
-      <description>Making Passwords Painless This library aims to be an all-in-one solution for password storage. In particular, we aim to provide:
- Easy-to-use password storage with sane defaults. Tools to provide parameter tuning for different use cases. Automatic migration of passwords to new algorithms. Cross-platform builds and cross-language bindings.  Secure by Default libpasta is ready to work at a production level straight out of the box. We hide any unnecessary decisions from the developer.</description>
+      <description>Password breaches have become a regular occurance. See: Yahoo, LinkedIn, Adobe, Ashley Madison, and a whole lot more.
+Furthermore, with the exception of Yahoo, the above examples doubles as a list of &amp;ldquo;how NOT to do password storage&amp;rdquo;: simple hashing, unsalted values, misuse of encryption, and failed password migration. (For more information on why these are bad, see our introduction to password hashing theory).
+There are two possible interpretations here: first, companies do not put adequate resources in securing passwords; and secondly, getting password hashing right is hard.</description>
     </item>
     
     <item>
@@ -47,8 +48,8 @@ git clone https://github.com/libpasta/libpasta/ # NOT ACTUALLY HERE YET cd pass 
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://libpasta.github.io/introduction/password-hashing-theory/</guid>
-      <description>Why hash passwords? Starting off with the most common use of passwords: user authentication.
-The general setting is that an individual has a username and a password, lets say username: alice and password: hunter2.
+      <description>Why hash passwords? Let&amp;rsquo;s start with the most common use of passwords: user authentication.
+The general setting is that an individual has a username and a password, e.g. username: alice and password: hunter2.
 When Alice first registers on a website, a new account is created, and the password is stored in the database, so that Alice can prove she is indeed Alice
 id | username | password | creation-date | .</description>
     </item>

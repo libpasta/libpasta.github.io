@@ -363,12 +363,11 @@
 <ul>
 <li>
 <ul>
-<li>
+<li><a href="#libpasta-making-passwords-painless">libpasta - making passwords painless</a>
 <ul>
-<li><a href="#making-passwords-painless"><em>Making Passwords Painless</em></a></li>
-<li><a href="#secure-by-default">Secure by Default</a></li>
+<li><a href="#secure-by-default">Secure by default</a></li>
 <li><a href="#easy-password-migration">Easy password migration</a></li>
-<li><a href="#tuning-tools">Tuning tools</a></li>
+<li><a href="#tunable">Tunable</a></li>
 <li><a href="#cross-platform-and-cross-language">Cross-platform and cross-language</a></li>
 </ul></li>
 </ul></li>
@@ -390,19 +389,35 @@
 
 
 
-<h4 id="making-passwords-painless"><em>Making Passwords Painless</em></h4>
+<p>Password breaches have become a regular occurance. See: <a href="https://nakedsecurity.sophos.com/2016/09/23/change-your-password-yahoo-confirms-data-breach-of-500-million-accounts/">Yahoo</a>,
+<a href="https://motherboard.vice.com/en_us/article/78kk4z/another-day-another-hack-117-million-linkedin-emails-and-password">LinkedIn</a>, <a href="https://www.troyhunt.com/adobe-credentials-and-serious/">Adobe</a>, <a href="http://krebsonsecurity.com/2015/07/online-cheating-site-ashleymadison-hacked/">Ashley Madison</a>, and
+<a href="https://haveibeenpwned.com/PwnedWebsites">a whole lot more</a>.</p>
+
+<p>Furthermore, with the exception of Yahoo, the above examples doubles as a list
+of &ldquo;how NOT to do password storage&rdquo;: simple hashing, unsalted values, misuse of
+encryption, and failed password migration. (For more information on why these
+are bad, see our
+<a href="../password-hashing-theory">introduction to password hashing theory</a>).</p>
+
+<p>There are two possible interpretations here: first, companies do not put
+adequate resources in securing passwords; and secondly, getting password hashing
+right is hard. Furthermore, even if you have followed previous best practice,
+keeping it right is another technical challenge: algorithm choices, security
+levels, parameter selection change regularly.</p>
+
+<h3 id="libpasta-making-passwords-painless">libpasta - making passwords painless</h3>
 
 <p>This library aims to be an all-in-one solution for password storage. In
 particular, we aim to provide:</p>
 
 <ul>
-<li>Easy-to-use password storage with sane defaults.</li>
+<li>Easy-to-use password storage with strong defaults.</li>
 <li>Tools to provide parameter tuning for different use cases.</li>
 <li>Automatic migration of passwords to new algorithms.</li>
 <li>Cross-platform builds and cross-language bindings.</li>
 </ul>
 
-<h4 id="secure-by-default">Secure by Default</h4>
+<h4 id="secure-by-default">Secure by default</h4>
 
 <p><code>libpasta</code> is ready to work at a production level straight out of the box. We
 hide any unnecessary decisions from the developer. Together with the support for
@@ -417,7 +432,7 @@ For more details, see <a href="../../technical-details/algorithm-choice">algorit
 <p>Many developers still use insecure password hashing systems, despite it causing
 embarrassing and significant vulnerabilities should a leak occur.<br />
 Our aim is to help everyone adopt modern algorithms and
-associated best practices. Hence we have designed <code>libpasta</code> to come with
+associated best practices. Hence we have designed <code>libpasta</code> with
 built-in support for easy password migration.</p>
 
 <p>This allows you to migrate an existing password hash database to
@@ -430,7 +445,7 @@ increases.</p>
 migrating passwords, or <a href="../../advanced/migration/">advanced usage</a> for more
 details.</p>
 
-<h4 id="tuning-tools">Tuning tools</h4>
+<h4 id="tunable">Tunable</h4>
 
 <p>Password hashing is relatively slow by design,
 and setting parameters (the cost of computing the hash) too low can be a

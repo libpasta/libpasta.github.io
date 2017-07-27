@@ -367,6 +367,7 @@
 <li><a href="#salting-password-hashes">Salting password hashes</a></li>
 <li><a href="#keyed-hashes">Keyed hashes</a></li>
 <li><a href="#memory-hard-password-hashes">Memory hard password hashes</a></li>
+<li><a href="#summary">Summary</a></li>
 </ul></li>
 </ul>
 </nav>
@@ -387,10 +388,10 @@
 
 <h2 id="why-hash-passwords">Why hash passwords?</h2>
 
-<p>Starting off with the most common use of passwords: user authentication.</p>
+<p>Let&rsquo;s start with the most common use of passwords: user authentication.</p>
 
 <p>The general setting is that an individual has a username and a password,
-lets say <code>username: alice</code> and <code>password: hunter2</code>.</p>
+e.g. <code>username: alice</code> and <code>password: hunter2</code>.</p>
 
 <p>When Alice first registers on a website, a new account is created, and the
 password is stored in the database, so that Alice can prove she is indeed Alice</p>
@@ -399,9 +400,13 @@ password is stored in the database, so that Alice can prove she is indeed Alice<
 <span style="color: #ae81ff">1</span>  <span style="color: #f92672">|</span> <span style="color: #f8f8f2">alice</span>    <span style="color: #f92672">|</span> <span style="color: #f8f8f2">hunter2</span>  <span style="color: #f92672">|</span> <span style="color: #ae81ff">2017</span><span style="color: #f92672">-</span><span style="color: #ae81ff">07</span><span style="color: #f92672">-</span><span style="color: #ae81ff">14</span>    <span style="color: #f92672">|</span> <span style="color: #f8f8f2">...</span>
 </pre></div>
 
-<p>However, what if somebody gains access to this database with malicious intent -
-whether external hackers, or internal such as a database admin. Alice&rsquo;s
+<p>However, if somebody gains access to this database with malicious intent -
+whether external hackers, or internal such as a database admin - Alice&rsquo;s
 password is sitting in the open.</p>
+
+<p>This is bad, since Alice is a typical user who likes to re-use the same
+password across multiple services. Unfortunately, as service providers we do
+not have the luxury of assuming all users have unique, high-entropy passwords.</p>
 
 <p>Hence we want to apply a <a href="https://en.wikipedia.org/wiki/One-way_function">one-way function</a> <code>f</code> to the password, so that
 nobody can reverse the function <code>f(password)</code> and work out the password, but
@@ -525,6 +530,17 @@ proposed. Reading and writing to memory is an operation which is approximately
 equally expensive on custom hardware, and the cost to produce ASICs capable of
 handling more memory is significantly higher. Therefore, the advantage of these
 custom solutions is reduced.</p>
+
+<h2 id="summary">Summary</h2>
+
+<p>Password hashing is essential to protect passwords from being leaked after a
+data breach. However, is is far from straightforward given the many
+considerations in play, such as: salting, security-parameters choices, key
+management, and memory-hardness.</p>
+
+<p>Hence, we created libpasta to help accomodate the needs of the majority of
+use cases, providing an easy-to-use API which removes the necessity for the
+technical knowledge to choose appopriate algorithms and parameters.</p>
 
 
       
