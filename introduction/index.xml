@@ -17,7 +17,7 @@
       
       <guid>https://libpasta.github.io/introduction/what-is-libpasta/</guid>
       <description>Password breaches have become a regular occurance. See: Yahoo, LinkedIn, Adobe, Ashley Madison, and a whole lot more.
-Furthermore, with the exception of Yahoo, the above examples doubles as a list of &amp;ldquo;how NOT to do password storage&amp;rdquo;: simple hashing, unsalted values, misuse of encryption, and failed password migration. (For more information on why these are bad, see our introduction to password hashing theory).
+Furthermore, the above examples doubles as a list of &amp;ldquo;how NOT to do password storage&amp;rdquo;: simple hashing, unsalted values, misuse of encryption, and failed password migration. (For more information on why these are bad, see our introduction to password hashing theory).
 There are two possible interpretations here: first, companies do not put adequate resources in securing passwords; and secondly, getting password hashing right is hard.</description>
     </item>
     
