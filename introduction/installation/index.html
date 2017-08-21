@@ -381,16 +381,15 @@
 <p><code>libpasta</code> is designed to be installed as a system library.
 Currently, this can be achieved by downloading the repository, compiling it,
 and moving the library to the system library, e.g <code>/usr/lib</code>.</p>
+<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span></span>git clone https://github.com/libpasta/libpasta/ <span class="c1"># NOT ACTUALLY HERE YET</span>
+<span class="nb">cd</span> libpasta
 
-<pre><code>git clone https://github.com/libpasta/libpasta/ # NOT ACTUALLY HERE YET
-cd pass
-
-# compiles the library
+<span class="c1"># compiles the library</span>
 make libpasta
 
-# installs the library to ${INSTALL_DIR} - defaults to /usr/lib
+<span class="c1"># installs the library to ${INSTALL_DIR} - defaults to /usr/lib</span>
 make install
-</code></pre>
+</code></pre></div>
 
 <p>For developing Rust applications, we recommend using it as usual through cargo.</p>
 
