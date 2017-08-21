@@ -11,7 +11,7 @@
 
     <link rel="stylesheet" href="https://libpasta.github.io/css/monokai.css">
     
-    <title>What is libpasta?</title>
+    <title>Overview</title>
     <link href="https://libpasta.github.io//css/nucleus.css" rel="stylesheet">
     <link href="https://libpasta.github.io//css/font-awesome.min.css" rel="stylesheet">
     <link href="https://libpasta.github.io//css/hybrid.css" rel="stylesheet">
@@ -26,7 +26,7 @@
     
 
   </head>
-  <body class="" data-url="/introduction/what-is-libpasta/">
+  <body class="" data-url="/other-languages/overview/">
     
     <nav id="sidebar">
   <div id="header-wrapper">
@@ -130,7 +130,7 @@
       
       
 
-      <li class="dd-item  parent" data-nav-id="/introduction/">
+      <li class="dd-item  " data-nav-id="/introduction/">
         <a href="/introduction/">
           <span>
             
@@ -143,7 +143,7 @@
         
         <ul>
           
-            <li class="dd-item active" data-nav-id="/introduction/what-is-libpasta/">
+            <li class="dd-item " data-nav-id="/introduction/what-is-libpasta/">
               <a href="/introduction/what-is-libpasta/">
                 <span>What is libpasta?     </i></span>
               </a>
@@ -226,7 +226,7 @@
       
       
 
-      <li class="dd-item  " data-nav-id="/other-languages/">
+      <li class="dd-item  parent" data-nav-id="/other-languages/">
         <a href="/other-languages/">
           <span>
             
@@ -239,7 +239,7 @@
         
         <ul>
           
-            <li class="dd-item " data-nav-id="/other-languages/overview/">
+            <li class="dd-item active" data-nav-id="/other-languages/overview/">
               <a href="/other-languages/overview/">
                 <span>Overview     </i></span>
               </a>
@@ -355,32 +355,16 @@
                   
                     
                     
-                <a href="/introduction/" itemprop="url"><span itemprop="title">Introduction</span></a> <i class="fa fa-angle-right"></i>
+                <a href="/other-languages/" itemprop="url"><span itemprop="title">Other Languages</span></a> <i class="fa fa-angle-right"></i>
                     
                   
                 
-                <span itemprop="title"> What is libpasta?</span>
+                <span itemprop="title"> Overview</span>
               </div>
               
                   <div class="progress">
     <div class="wrapper">
-<nav id="TableOfContents">
-<ul>
-<li>
-<ul>
-<li>
-<ul>
-<li><a href="#libpasta-making-passwords-painless">libpasta - making passwords painless</a>
-<ul>
-<li><a href="#secure-by-default">Secure by default</a></li>
-<li><a href="#easy-password-migration">Easy password migration</a></li>
-<li><a href="#tunable">Tunable</a></li>
-<li><a href="#cross-platform-and-cross-language">Cross-platform and cross-language</a></li>
-</ul></li>
-</ul></li>
-</ul></li>
-</ul>
-</nav>
+
     </div>
 </div>
 
@@ -391,90 +375,64 @@
             
               <div id="body-inner">
                 
-                <h1>What is libpasta?</h1>
+                <h1>Overview</h1>
                 
 
+<p>Our goal is for <code>libpasta</code> to be the clear choice for any developers requiring
+secure password storage. We target a number of languages, initially supported
+through the use of <a href="http://www.swig.org/">SWIG</a>.</p>
+
+<p>So far, this means we have simple bindings for <a href="../c">C</a>, <a href="../java">Java</a>,
+<a href="../php">PHP</a>, <a href="../python">python</a>, and <a href="../ruby">Ruby</a>.</p>
+
+<p>The SWIG specification for <code>libpasta</code> reveals the simplicity of the API,
+and a few important caveats:</p>
+<div class="highlight"><pre><code class="language-c" data-lang="c"><span></span><span class="cp"># in pasta.h</span>
+
+<span class="cp">#include</span> <span class="cpf">&lt;stdbool.h&gt;</span><span class="cp"></span>
+<span class="k">extern</span> <span class="kt">char</span> <span class="o">*</span> <span class="nf">hash_password</span><span class="p">(</span><span class="k">const</span> <span class="kt">char</span> <span class="o">*</span><span class="n">password</span><span class="p">);</span>
+<span class="k">extern</span> <span class="kt">bool</span> <span class="nf">verify_password</span><span class="p">(</span><span class="k">const</span> <span class="kt">char</span><span class="o">*</span> <span class="n">hash</span><span class="p">,</span> <span class="k">const</span> <span class="kt">char</span> <span class="o">*</span><span class="n">password</span><span class="p">);</span>
+<span class="k">extern</span> <span class="kt">void</span> <span class="nf">free_string</span><span class="p">(</span><span class="k">const</span> <span class="kt">char</span> <span class="o">*</span><span class="p">);</span>
+<span class="k">extern</span> <span class="kt">char</span> <span class="o">*</span> <span class="nf">read_password</span><span class="p">(</span><span class="k">const</span> <span class="kt">char</span> <span class="o">*</span><span class="n">prompt</span><span class="p">);</span>
+</code></pre></div>
+
+<p>These bind to the functions exported by the <a href="#">libpasta-ffi</a> crate.</p>
+<div class="highlight"><pre><code class="language-swig" data-lang="swig"><span></span><span class="cp"># in pasta.i</span>
+
+<span class="nf">%module</span> <span class="n">pasta</span>
+<span class="o">%</span><span class="p">{</span>
+<span class="cp">#include</span> <span class="cpf">&lt;pasta.h&gt;</span><span class="cp"></span>
+
+<span class="o">%</span><span class="p">}</span>
+
+<span class="nf">%typemap</span><span class="p">(</span><span class="n">newfree</span><span class="p">)</span> <span class="kt">char</span> <span class="o">*</span> <span class="s">&quot;free_string($1);&quot;</span><span class="p">;</span>
+<span class="nf">%newobject</span> <span class="n">hash_password</span><span class="p">;</span>
+<span class="nf">%newobject</span> <span class="n">read_password</span><span class="p">;</span>
 
 
-<p>Password breaches have become a regular occurance. See: <a href="https://help.yahoo.com/kb/account/SLN27925.html">Yahoo</a> (<a href="https://help.yahoo.com/kb/account/sln28092.html">twice</a>),
-<a href="https://motherboard.vice.com/en_us/article/78kk4z/another-day-another-hack-117-million-linkedin-emails-and-password">LinkedIn</a>, <a href="https://www.troyhunt.com/adobe-credentials-and-serious/">Adobe</a>, <a href="http://krebsonsecurity.com/2015/07/online-cheating-site-ashleymadison-hacked/">Ashley Madison</a>, and
-<a href="https://haveibeenpwned.com/PwnedWebsites">a whole lot more</a>.</p>
+<span class="nf">%pragma</span><span class="p">(</span><span class="n">java</span><span class="p">)</span> <span class="n">jniclasscode</span><span class="o">=%</span><span class="p">{</span>
+  <span class="k">static</span> <span class="p">{</span>
+    <span class="k">try</span> <span class="p">{</span>
+        <span class="n">System</span><span class="p">.</span><span class="n">loadLibrary</span><span class="p">(</span><span class="s">&quot;pasta_jni&quot;</span><span class="p">);</span>
+    <span class="p">}</span> <span class="k">catch</span> <span class="p">(</span><span class="n">UnsatisfiedLinkError</span> <span class="n">e</span><span class="p">)</span> <span class="p">{</span>
+      <span class="n">System</span><span class="p">.</span><span class="n">err</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="s">&quot;Native code library failed to load. </span><span class="se">\n</span><span class="s">&quot;</span> <span class="o">+</span> <span class="n">e</span><span class="p">);</span>
+      <span class="n">System</span><span class="p">.</span><span class="n">exit</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+<span class="o">%</span><span class="p">}</span>
 
-<p>Furthermore, with the exception of Yahoo who <em>eventually</em> migrated to bcrypt in 2013,
-the above examples doubles as a list
-of &ldquo;how NOT to do password storage&rdquo;: simple hashing, unsalted values, misuse of
-encryption, and failed password migration. (For more information on why these
-are bad, see our
-<a href="../password-hashing-theory">introduction to password hashing theory</a>).</p>
+<span class="cp">#include</span> <span class="cpf">&lt;pasta.h&gt;</span><span class="cp"></span>
+</code></pre></div>
 
-<p>There are two possible interpretations here: first, companies do not put
-adequate resources in securing passwords; and secondly, getting password hashing
-right is hard. Furthermore, even if you have followed previous best practice,
-keeping it right is another technical challenge: algorithm choices, security
-levels, parameter selection change regularly.</p>
+<p>An important caveat, and reason why these bindings should be preferred,
+is that the values returned by <code>hash_password</code> and <code>read_password</code> are
+technically still Rust <code>CString</code>s. Although these are in the correct layout
+to be read as string pointers in C, we must take care to return the pointer
+to Rust so that it can handle freeing the <code>CString</code>. Otherwise we are left
+with a memory leak.</p>
 
-<h3 id="libpasta-making-passwords-painless">libpasta - making passwords painless</h3>
-
-<p>This library aims to be an all-in-one solution for password storage. In
-particular, we aim to provide:</p>
-
-<ul>
-<li>Easy-to-use password storage with strong defaults.</li>
-<li>Tools to provide parameter tuning for different use cases.</li>
-<li>Automatic migration of passwords to new algorithms.</li>
-<li>Cross-platform builds and cross-language bindings.</li>
-</ul>
-
-<h4 id="secure-by-default">Secure by default</h4>
-
-<p><code>libpasta</code> is ready to work at a production level straight out of the box. We
-hide any unnecessary decisions from the developer. Together with the support for
-<a href="#easy-password-migration">migrating passwords</a>, <code>libpasta</code> provides a
-streamlined, easy, and secure password management solution.</p>
-
-<p>Currently, the algorithm favoured by <code>libpasta</code> is XXX (probably scrypt).
-For more details, see <a href="../../technical-details/algorithm-choice">algorithm choice</a>.</p>
-
-<h4 id="easy-password-migration">Easy password migration</h4>
-
-<p>Many developers still use insecure password hashing systems, despite it causing
-embarrassing and significant vulnerabilities should a leak occur.<br />
-Our aim is to help everyone adopt modern algorithms and
-associated best practices. Hence we have designed <code>libpasta</code> with
-built-in support for easy password migration.</p>
-
-<p>This allows you to migrate an existing password hash database to
-secure algorithms, without inconveniencing users with password resets.
-Furthermore, having convenient migration tools makes it easier to keep you
-up-to-date with what hashing parameters should be as computer performance
-increases.</p>
-
-<p>See <a href="../basic-usage#password-migration">basic usage</a> for an example of
-migrating passwords, or <a href="../../advanced/migration/">advanced usage</a> for more
-details.</p>
-
-<h4 id="tunable">Tunable</h4>
-
-<p>Password hashing is relatively slow by design,
-and setting parameters (the cost of computing the hash) too low can be a
-vulnerability. Of course this has to be balanced against performance of your
-<code>libpasta</code>-using application.
-For times when the default parameters are not sufficient, <code>libpasta</code> helps
-developers pick good parameters.</p>
-
-<p>The tuning tool measures the performance of your system to suggest parameters,
-as well as doing some sanity checks based on the specifications of the system.
-The tool will help you avoid setting parameters too aggressively</p>
-
-<p>See <a href="../../advanced/tuning">tuning</a> for more details.</p>
-
-<h4 id="cross-platform-and-cross-language">Cross-platform and cross-language</h4>
-
-<p>While the main library is written in Rust, thanks to the C-style ABI that is
-exported by Rust libraries, we are able to support many different languages.
-Similarly, Rust supports compilation over a number of platforms.</p>
-
-<p>For more information, see <a href="../../other-languages">other languages</a>.</p>
+<p>Notice that the SWIG bindings have handled this: on returning a <code>CString</code>,
+the bindings create a new object, and then call <code>free_string</code> on the pointer.</p>
 
 
       

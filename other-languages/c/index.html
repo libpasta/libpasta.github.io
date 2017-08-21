@@ -9,6 +9,7 @@
 
     <link rel="shortcut icon" href="/images/favicon.png" type="image/x-icon" />
 
+    <link rel="stylesheet" href="https://libpasta.github.io/css/monokai.css">
     
     <title>C</title>
     <link href="https://libpasta.github.io//css/nucleus.css" rel="stylesheet">
@@ -238,6 +239,12 @@
         
         <ul>
           
+            <li class="dd-item " data-nav-id="/other-languages/overview/">
+              <a href="/other-languages/overview/">
+                <span>Overview     </i></span>
+              </a>
+            </li>
+          
             <li class="dd-item active" data-nav-id="/other-languages/c/">
               <a href="/other-languages/c/">
                 <span>C     </i></span>
@@ -291,7 +298,7 @@
             
               <b>4. </b>
             
-             Techincal Details
+             Technical Details
             
            </span>
         </a>
@@ -371,7 +378,44 @@
                 <h1>C</h1>
                 
 
-<p>Lorem Ipsum</p>
+<p>We can use the FFI definitions output by Rust directly in C code.
+However, unlike with the SWIG bindings, we are required to manually free
+the strings after use, as in the following simple example.</p>
+<div class="highlight"><pre><code class="language-c" data-lang="c"><span></span><span class="cp">### in pasta.h</span>
+<span class="cp">#include</span> <span class="cpf">&lt;stdbool.h&gt;</span><span class="cp"></span>
+
+<span class="k">extern</span> <span class="kt">char</span> <span class="o">*</span> <span class="nf">hash_password</span><span class="p">(</span><span class="k">const</span> <span class="kt">char</span> <span class="o">*</span><span class="n">password</span><span class="p">);</span>
+<span class="k">extern</span> <span class="kt">bool</span> <span class="nf">verify_password</span><span class="p">(</span><span class="k">const</span> <span class="kt">char</span><span class="o">*</span> <span class="n">hash</span><span class="p">,</span> <span class="k">const</span> <span class="kt">char</span> <span class="o">*</span><span class="n">password</span><span class="p">);</span>
+<span class="k">extern</span> <span class="kt">void</span> <span class="nf">free_string</span><span class="p">(</span><span class="k">const</span> <span class="kt">char</span> <span class="o">*</span><span class="p">);</span>
+<span class="k">extern</span> <span class="kt">char</span> <span class="o">*</span> <span class="nf">read_password</span><span class="p">(</span><span class="k">const</span> <span class="kt">char</span> <span class="o">*</span><span class="n">prompt</span><span class="p">);</span>
+</code></pre></div>
+<div class="highlight"><pre><code class="language-c" data-lang="c"><span></span><span class="cp">#include</span> <span class="cpf">&quot;pasta.h&quot;</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;</span><span class="cp"></span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kt">char</span> <span class="o">*</span><span class="n">hash</span><span class="p">,</span> <span class="o">*</span><span class="n">password</span><span class="p">;</span>
+    <span class="n">hash</span> <span class="o">=</span> <span class="n">hash_password</span><span class="p">(</span><span class="s">&quot;hello123&quot;</span><span class="p">);</span>
+    <span class="n">password</span> <span class="o">=</span> <span class="n">read_password</span><span class="p">(</span><span class="s">&quot;Please enter the password (hint: hello123):&quot;</span><span class="p">);</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">verify_password</span><span class="p">(</span><span class="n">hash</span><span class="p">,</span> <span class="n">password</span><span class="p">))</span> <span class="p">{</span>
+        <span class="n">printf</span><span class="p">(</span><span class="s">&quot;Correct password</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
+    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+        <span class="n">printf</span><span class="p">(</span><span class="s">&quot;Sorry, that is incorrect</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
+    <span class="p">}</span>
+    <span class="n">free_string</span><span class="p">(</span><span class="n">hash</span><span class="p">);</span>
+    <span class="n">free_string</span><span class="p">(</span><span class="n">password</span><span class="p">);</span>
+    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<p>Which is compiled in the usual way:</p>
+
+<pre><code>$ ls
+pasta.h     test.c
+$ gcc test.c -lpasta -otest
+$ ./test
+Please enter the password (hint: hello123):
+Correct password
+</code></pre>
 
 
       

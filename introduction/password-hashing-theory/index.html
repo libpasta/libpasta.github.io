@@ -9,6 +9,7 @@
 
     <link rel="shortcut icon" href="/images/favicon.png" type="image/x-icon" />
 
+    <link rel="stylesheet" href="https://libpasta.github.io/css/monokai.css">
     
     <title>Password hashing theory</title>
     <link href="https://libpasta.github.io//css/nucleus.css" rel="stylesheet">
@@ -238,6 +239,12 @@
         
         <ul>
           
+            <li class="dd-item " data-nav-id="/other-languages/overview/">
+              <a href="/other-languages/overview/">
+                <span>Overview     </i></span>
+              </a>
+            </li>
+          
             <li class="dd-item " data-nav-id="/other-languages/c/">
               <a href="/other-languages/c/">
                 <span>C     </i></span>
@@ -291,7 +298,7 @@
             
               <b>4. </b>
             
-             Techincal Details
+             Technical Details
             
            </span>
         </a>
@@ -395,17 +402,17 @@ e.g. <code>username: alice</code> and <code>password: hunter2</code>.</p>
 
 <p>When Alice first registers on a website, a new account is created, and the
 password is stored in the database, so that Alice can prove she is indeed Alice</p>
-<div class="highlight" style="background: #272822"><pre style="line-height: 125%"><span></span><span style="color: #f8f8f2">id</span> <span style="color: #f92672">|</span> <span style="color: #f8f8f2">username</span> <span style="color: #f92672">|</span> <span style="color: #f8f8f2">password</span> <span style="color: #f92672">|</span> <span style="color: #f8f8f2">creation</span><span style="color: #f92672">-</span><span style="color: #f8f8f2">date</span> <span style="color: #f92672">|</span> <span style="color: #f8f8f2">...</span>
-<span style="color: #f92672">------------------------------------------------</span>
-<span style="color: #ae81ff">1</span>  <span style="color: #f92672">|</span> <span style="color: #f8f8f2">alice</span>    <span style="color: #f92672">|</span> <span style="color: #f8f8f2">hunter2</span>  <span style="color: #f92672">|</span> <span style="color: #ae81ff">2017</span><span style="color: #f92672">-</span><span style="color: #ae81ff">07</span><span style="color: #f92672">-</span><span style="color: #ae81ff">14</span>    <span style="color: #f92672">|</span> <span style="color: #f8f8f2">...</span>
-</pre></div>
+<div class="highlight"><pre><code class="language-C" data-lang="C"><span></span><span class="n">id</span> <span class="o">|</span> <span class="n">username</span> <span class="o">|</span> <span class="n">password</span> <span class="o">|</span> <span class="n">creation</span><span class="o">-</span><span class="n">date</span> <span class="o">|</span> <span class="p">...</span>
+<span class="o">------------------------------------------------</span>
+<span class="mi">1</span>  <span class="o">|</span> <span class="n">alice</span>    <span class="o">|</span> <span class="n">hunter2</span>  <span class="o">|</span> <span class="mi">2017</span><span class="o">-</span><span class="mo">07</span><span class="o">-</span><span class="mi">14</span>    <span class="o">|</span> <span class="p">...</span>
+</code></pre></div>
 
 <p>However, if somebody gains access to this database with malicious intent -
 whether external hackers, or internal such as a database admin - Alice&rsquo;s
 password is sitting in the open.</p>
 
 <p>This is bad, since Alice is a typical user who likes to re-use the same
-password across multiple services. Unfortunately, as service providers we do
+password across multiple services. Unfortunately, service providers do
 not have the luxury of assuming all users have unique, high-entropy passwords.</p>
 
 <p>Hence we want to apply a <a href="https://en.wikipedia.org/wiki/One-way_function">one-way function</a> <code>f</code> to the password, so that
@@ -417,10 +424,10 @@ given a password <code>other-password</code> it is easy to check whether
 so we go ahead and use this as our hash function.</p>
 
 <p>Now, our database might look something like this:</p>
-<div class="highlight" style="background: #272822"><pre style="line-height: 125%"><span></span><span style="color: #f8f8f2">id</span> <span style="color: #f92672">|</span> <span style="color: #f8f8f2">username</span> <span style="color: #f92672">|</span> <span style="color: #f8f8f2">password</span>    <span style="color: #f92672">|</span> <span style="color: #f8f8f2">creation</span><span style="color: #f92672">-</span><span style="color: #f8f8f2">date</span> <span style="color: #f92672">|</span> <span style="color: #f8f8f2">...</span>
-<span style="color: #f92672">--------------------------------------------------</span>
-<span style="color: #ae81ff">1</span>  <span style="color: #f92672">|</span> <span style="color: #f8f8f2">alice</span>    <span style="color: #f92672">|</span> <span style="color: #f8f8f2">f52fbd32...</span> <span style="color: #f92672">|</span> <span style="color: #ae81ff">2017</span><span style="color: #f92672">-</span><span style="color: #ae81ff">07</span><span style="color: #f92672">-</span><span style="color: #ae81ff">14</span>    <span style="color: #f92672">|</span> <span style="color: #f8f8f2">...</span>
-</pre></div>
+<div class="highlight"><pre><code class="language-C" data-lang="C"><span></span><span class="n">id</span> <span class="o">|</span> <span class="n">username</span> <span class="o">|</span> <span class="n">password</span>    <span class="o">|</span> <span class="n">creation</span><span class="o">-</span><span class="n">date</span> <span class="o">|</span> <span class="p">...</span>
+<span class="o">--------------------------------------------------</span>
+<span class="mi">1</span>  <span class="o">|</span> <span class="n">alice</span>    <span class="o">|</span> <span class="n">f52fbd32</span><span class="p">...</span> <span class="o">|</span> <span class="mi">2017</span><span class="o">-</span><span class="mo">07</span><span class="o">-</span><span class="mi">14</span>    <span class="o">|</span> <span class="p">...</span>
+</code></pre></div>
 
 <p>This looks better, now the password isn&rsquo;t revealed in the clear. However, this
 is actually not much better than the cleartext version.</p>
@@ -477,12 +484,12 @@ about an hour and a half.</p>
 It was implicitly assumed that for any given password, the value stored in the
 database would be the same for any user. Suppose Alice and Charlie happen to share
 the same common password:</p>
-<div class="highlight" style="background: #272822"><pre style="line-height: 125%"><span></span><span style="color: #f8f8f2">id</span> <span style="color: #f92672">|</span> <span style="color: #f8f8f2">username</span> <span style="color: #f92672">|</span> <span style="color: #f8f8f2">password</span>    <span style="color: #f92672">|</span> <span style="color: #f8f8f2">creation</span><span style="color: #f92672">-</span><span style="color: #f8f8f2">date</span> <span style="color: #f92672">|</span> <span style="color: #f8f8f2">...</span>
-<span style="color: #f92672">--------------------------------------------------</span>
-<span style="color: #ae81ff">1</span>  <span style="color: #f92672">|</span> <span style="color: #f8f8f2">alice</span>    <span style="color: #f92672">|</span> <span style="color: #f8f8f2">cXmBfX44...</span> <span style="color: #f92672">|</span> <span style="color: #ae81ff">2017</span><span style="color: #f92672">-</span><span style="color: #ae81ff">07</span><span style="color: #f92672">-</span><span style="color: #ae81ff">14</span>    <span style="color: #f92672">|</span> <span style="color: #f8f8f2">...</span>
-<span style="color: #ae81ff">2</span>  <span style="color: #f92672">|</span> <span style="color: #f8f8f2">bob</span>      <span style="color: #f92672">|</span> <span style="color: #f8f8f2">BlEi9jKX...</span> <span style="color: #f92672">|</span> <span style="color: #ae81ff">2017</span><span style="color: #f92672">-</span><span style="color: #ae81ff">07</span><span style="color: #f92672">-</span><span style="color: #ae81ff">10</span>    <span style="color: #f92672">|</span> <span style="color: #f8f8f2">...</span>
-<span style="color: #ae81ff">3</span>  <span style="color: #f92672">|</span> <span style="color: #f8f8f2">charlie</span>  <span style="color: #f92672">|</span> <span style="color: #f8f8f2">cXmBfX44...</span> <span style="color: #f92672">|</span> <span style="color: #ae81ff">2017</span><span style="color: #f92672">-</span><span style="color: #ae81ff">07</span><span style="color: #f92672">-</span><span style="color: #ae81ff">01</span>    <span style="color: #f92672">|</span> <span style="color: #f8f8f2">...</span>
-</pre></div>
+<div class="highlight"><pre><code class="language-C" data-lang="C"><span></span><span class="n">id</span> <span class="o">|</span> <span class="n">username</span> <span class="o">|</span> <span class="n">password</span>    <span class="o">|</span> <span class="n">creation</span><span class="o">-</span><span class="n">date</span> <span class="o">|</span> <span class="p">...</span>
+<span class="o">--------------------------------------------------</span>
+<span class="mi">1</span>  <span class="o">|</span> <span class="n">alice</span>    <span class="o">|</span> <span class="n">cXmBfX44</span><span class="p">...</span> <span class="o">|</span> <span class="mi">2017</span><span class="o">-</span><span class="mo">07</span><span class="o">-</span><span class="mi">14</span>    <span class="o">|</span> <span class="p">...</span>
+<span class="mi">2</span>  <span class="o">|</span> <span class="n">bob</span>      <span class="o">|</span> <span class="n">BlEi9jKX</span><span class="p">...</span> <span class="o">|</span> <span class="mi">2017</span><span class="o">-</span><span class="mo">07</span><span class="o">-</span><span class="mi">10</span>    <span class="o">|</span> <span class="p">...</span>
+<span class="mi">3</span>  <span class="o">|</span> <span class="n">charlie</span>  <span class="o">|</span> <span class="n">cXmBfX44</span><span class="p">...</span> <span class="o">|</span> <span class="mi">2017</span><span class="o">-</span><span class="mo">07</span><span class="o">-</span><span class="mo">01</span>    <span class="o">|</span> <span class="p">...</span>
+</code></pre></div>
 
 <p>Therefore, we typically add what is called a &ldquo;salt&rdquo; as an input to a password
 hash. This is a per-user unique value. So we get <code>hash = f(password, salt)</code>.</p>

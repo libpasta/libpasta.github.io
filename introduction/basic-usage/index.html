@@ -9,6 +9,7 @@
 
     <link rel="shortcut icon" href="/images/favicon.png" type="image/x-icon" />
 
+    <link rel="stylesheet" href="https://libpasta.github.io/css/monokai.css">
     
     <title>Basic Usage</title>
     <link href="https://libpasta.github.io//css/nucleus.css" rel="stylesheet">
@@ -238,6 +239,12 @@
         
         <ul>
           
+            <li class="dd-item " data-nav-id="/other-languages/overview/">
+              <a href="/other-languages/overview/">
+                <span>Overview     </i></span>
+              </a>
+            </li>
+          
             <li class="dd-item " data-nav-id="/other-languages/c/">
               <a href="/other-languages/c/">
                 <span>C     </i></span>
@@ -291,7 +298,7 @@
             
               <b>4. </b>
             
-             Techincal Details
+             Technical Details
             
            </span>
         </a>
@@ -395,18 +402,18 @@ identical to those used in the Rust library.</p>
 <h3 id="password-hashes">Password Hashes</h3>
 
 <p>A common scenario is that a particular user has password, which a service will check on each login to authenticate the user.</p>
-<div class="highlight" style="background: #272822"><pre style="line-height: 125%"><span></span><span style="color: #66d9ef">extern</span><span style="color: #f8f8f2"> </span><span style="color: #66d9ef">crate</span><span style="color: #f8f8f2"> libpasta;</span>
+<div class="highlight"><pre><code class="language-rust" data-lang="rust"><span></span><span class="k">extern</span><span class="w"> </span><span class="k">crate</span><span class="w"> </span><span class="n">libpasta</span><span class="p">;</span><span class="w"></span>
 
-<span style="color: #75715e">// We re-export the rpassword crate for CLI password input.</span>
-<span style="color: #f92672">use</span><span style="color: #f8f8f2"> libpasta</span><span style="color: #f92672">::</span><span style="color: #f8f8f2">rpassword</span><span style="color: #f92672">::*</span><span style="color: #f8f8f2">;</span>
+<span class="c1">// We re-export the rpassword crate for CLI password input.</span>
+<span class="kn">use</span><span class="w"> </span><span class="n">libpasta</span><span class="o">::</span><span class="n">rpassword</span><span class="o">::*</span><span class="p">;</span><span class="w"></span>
 
-<span style="color: #66d9ef">fn</span><span style="color: #f8f8f2"> main() {</span>
-<span style="color: #f8f8f2">    println</span><span style="color: #f92672">!</span><span style="color: #f8f8f2">(</span><span style="color: #e6db74">&quot;Please enter your password:&quot;</span><span style="color: #f8f8f2">);</span>
-<span style="color: #f8f8f2">    </span><span style="color: #66d9ef">let</span><span style="color: #f8f8f2"> password </span><span style="color: #f92672">=</span><span style="color: #f8f8f2"> read_password().unwrap();</span>
-<span style="color: #f8f8f2">    </span><span style="color: #66d9ef">let</span><span style="color: #f8f8f2"> password_hash </span><span style="color: #f92672">=</span><span style="color: #f8f8f2"> libpasta</span><span style="color: #f92672">::</span><span style="color: #f8f8f2">hash_password(password);</span>
-<span style="color: #f8f8f2">    println</span><span style="color: #f92672">!</span><span style="color: #f8f8f2">(</span><span style="color: #e6db74">&quot;The hashed password is: &#39;{}&#39;&quot;</span><span style="color: #f8f8f2">, password_hash);</span>
-<span style="color: #f8f8f2">}</span>
-</pre></div>
+<span class="k">fn</span><span class="w"> </span><span class="n">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="n">println</span><span class="o">!</span><span class="p">(</span><span class="s">&quot;Please enter your password:&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="n">password</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">read_password</span><span class="p">().</span><span class="n">unwrap</span><span class="p">();</span><span class="w"></span>
+<span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="n">password_hash</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">libpasta</span><span class="o">::</span><span class="n">hash_password</span><span class="p">(</span><span class="n">password</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="n">println</span><span class="o">!</span><span class="p">(</span><span class="s">&quot;The hashed password is: &#39;{}&#39;&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">password_hash</span><span class="p">);</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</code></pre></div>
 
 <p>The above code randomly generates a salt, and outputs the hash in the following format:
 <code>$$argon2i$m=4096,t=3,p=1$P7ckzVebJQZCacmRdOdd1g$NNPTr2du3PQbGWUQF9+ZzAaIZKA/FlwJRR+TQ/h0Pq8</code>.</p>
@@ -419,26 +426,26 @@ outputs a variable-length string.</p>
 <h4 id="verifying-passwords">Verifying passwords</h4>
 
 <p>Now that you have the hashed output, verifying that an inputted password is correct can be done as follows:</p>
-<div class="highlight" style="background: #272822"><pre style="line-height: 125%"><span></span><span style="color: #66d9ef">extern</span><span style="color: #f8f8f2"> </span><span style="color: #66d9ef">crate</span><span style="color: #f8f8f2"> libpasta;</span>
-<span style="color: #f92672">use</span><span style="color: #f8f8f2"> libpasta</span><span style="color: #f92672">::</span><span style="color: #f8f8f2">rpassword</span><span style="color: #f92672">::*</span><span style="color: #f8f8f2">;</span>
+<div class="highlight"><pre><code class="language-rust" data-lang="rust"><span></span><span class="k">extern</span><span class="w"> </span><span class="k">crate</span><span class="w"> </span><span class="n">libpasta</span><span class="p">;</span><span class="w"></span>
+<span class="kn">use</span><span class="w"> </span><span class="n">libpasta</span><span class="o">::</span><span class="n">rpassword</span><span class="o">::*</span><span class="p">;</span><span class="w"></span>
 
-<span style="color: #66d9ef">struct</span><span style="color: #f8f8f2"> User {</span>
-<span style="color: #f8f8f2">    </span><span style="color: #75715e">// ...</span>
-<span style="color: #f8f8f2">    password_hash</span><span style="color: #f92672">:</span><span style="color: #f8f8f2"> String,</span>
-<span style="color: #f8f8f2">}</span>
+<span class="k">struct</span><span class="w"> </span><span class="n">User</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="c1">// ...</span>
+<span class="w">    </span><span class="n">password_hash</span><span class="o">:</span><span class="w"> </span><span class="nb">String</span><span class="p">,</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
 
-<span style="color: #66d9ef">fn</span><span style="color: #f8f8f2"> auth_user(user</span><span style="color: #f92672">:</span><span style="color: #f8f8f2"> </span><span style="color: #f92672">&amp;</span><span style="color: #f8f8f2">User) {</span>
-<span style="color: #f8f8f2">    println</span><span style="color: #f92672">!</span><span style="color: #f8f8f2">(</span><span style="color: #e6db74">&quot;Enter password:&quot;</span><span style="color: #f8f8f2">);</span>
-<span style="color: #f8f8f2">    </span><span style="color: #66d9ef">let</span><span style="color: #f8f8f2"> password </span><span style="color: #f92672">=</span><span style="color: #f8f8f2"> read_password().unwrap();</span>
-<span style="color: #f8f8f2">    </span><span style="color: #66d9ef">if</span><span style="color: #f8f8f2"> libpasta</span><span style="color: #f92672">::</span><span style="color: #f8f8f2">verify_password(</span><span style="color: #f92672">&amp;</span><span style="color: #f8f8f2">user.password_hash, password) {</span>
-<span style="color: #f8f8f2">        println</span><span style="color: #f92672">!</span><span style="color: #f8f8f2">(</span><span style="color: #e6db74">&quot;The inputted password is correct!&quot;</span><span style="color: #f8f8f2">);</span>
-<span style="color: #f8f8f2">        </span><span style="color: #75715e">// ~&gt; Handle correct password</span>
-<span style="color: #f8f8f2">    } </span><span style="color: #66d9ef">else</span><span style="color: #f8f8f2"> {</span>
-<span style="color: #f8f8f2">        println</span><span style="color: #f92672">!</span><span style="color: #f8f8f2">(</span><span style="color: #e6db74">&quot;Incorrect password.&quot;</span><span style="color: #f8f8f2">);</span>
-<span style="color: #f8f8f2">        </span><span style="color: #75715e">// ~&gt; Handle incorrect password</span>
-<span style="color: #f8f8f2">    }</span>
-<span style="color: #f8f8f2">}</span>
-</pre></div>
+<span class="k">fn</span><span class="w"> </span><span class="n">auth_user</span><span class="p">(</span><span class="n">user</span><span class="o">:</span><span class="w"> </span><span class="o">&amp;</span><span class="n">User</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="n">println</span><span class="o">!</span><span class="p">(</span><span class="s">&quot;Enter password:&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="n">password</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">read_password</span><span class="p">().</span><span class="n">unwrap</span><span class="p">();</span><span class="w"></span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="n">libpasta</span><span class="o">::</span><span class="n">verify_password</span><span class="p">(</span><span class="o">&amp;</span><span class="n">user</span><span class="p">.</span><span class="n">password_hash</span><span class="p">,</span><span class="w"> </span><span class="n">password</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="n">println</span><span class="o">!</span><span class="p">(</span><span class="s">&quot;The inputted password is correct!&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="w">        </span><span class="c1">// ~&gt; Handle correct password</span>
+<span class="w">    </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="n">println</span><span class="o">!</span><span class="p">(</span><span class="s">&quot;Incorrect password.&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="w">        </span><span class="c1">// ~&gt; Handle incorrect password</span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</code></pre></div>
 
 <h4 id="password-migration">Password migration</h4>
 
@@ -458,32 +465,32 @@ with the new algorithm.</p>
 
 <p>The following code first wraps an existing hash, and then a move to just using
 the new algorithm:</p>
-<div class="highlight" style="background: #272822"><pre style="line-height: 125%"><span></span><span style="color: #66d9ef">extern</span><span style="color: #f8f8f2"> </span><span style="color: #66d9ef">crate</span><span style="color: #f8f8f2"> libpasta;</span>
-<span style="color: #f92672">use</span><span style="color: #f8f8f2"> libpasta</span><span style="color: #f92672">::</span><span style="color: #f8f8f2">rpassword</span><span style="color: #f92672">::*</span><span style="color: #f8f8f2">;</span>
+<div class="highlight"><pre><code class="language-rust" data-lang="rust"><span></span><span class="k">extern</span><span class="w"> </span><span class="k">crate</span><span class="w"> </span><span class="n">libpasta</span><span class="p">;</span><span class="w"></span>
+<span class="kn">use</span><span class="w"> </span><span class="n">libpasta</span><span class="o">::</span><span class="n">rpassword</span><span class="o">::*</span><span class="p">;</span><span class="w"></span>
 
-<span style="color: #66d9ef">struct</span><span style="color: #f8f8f2"> User {</span>
-<span style="color: #f8f8f2">    </span><span style="color: #75715e">// ...</span>
-<span style="color: #f8f8f2">    password_hash</span><span style="color: #f92672">:</span><span style="color: #f8f8f2"> String,</span>
-<span style="color: #f8f8f2">}</span>
+<span class="k">struct</span><span class="w"> </span><span class="n">User</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="c1">// ...</span>
+<span class="w">    </span><span class="n">password_hash</span><span class="o">:</span><span class="w"> </span><span class="nb">String</span><span class="p">,</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
 
-<span style="color: #66d9ef">fn</span><span style="color: #f8f8f2"> migrate_users(users</span><span style="color: #f92672">:</span><span style="color: #f8f8f2"> Vec</span><span style="color: #f92672">&lt;&amp;</span><span style="color: #66d9ef">mut</span><span style="color: #f8f8f2"> User</span><span style="color: #f92672">&gt;</span><span style="color: #f8f8f2">) {</span>
-<span style="color: #f8f8f2">    </span><span style="color: #75715e">// Step 1: Wrap old hash</span>
-<span style="color: #f8f8f2">    </span><span style="color: #66d9ef">for</span><span style="color: #f8f8f2"> user </span><span style="color: #66d9ef">in</span><span style="color: #f8f8f2"> users {</span>
-<span style="color: #f8f8f2">        libpasta</span><span style="color: #f92672">::</span><span style="color: #f8f8f2">migrate_hash(</span><span style="color: #f92672">&amp;</span><span style="color: #66d9ef">mut</span><span style="color: #f8f8f2"> user.password_hash);</span>
-<span style="color: #f8f8f2">    }</span>
-<span style="color: #f8f8f2">}</span>
+<span class="k">fn</span><span class="w"> </span><span class="n">migrate_users</span><span class="p">(</span><span class="n">users</span><span class="o">:</span><span class="w"> </span><span class="nb">Vec</span><span class="o">&lt;&amp;</span><span class="k">mut</span><span class="w"> </span><span class="n">User</span><span class="o">&gt;</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="c1">// Step 1: Wrap old hash</span>
+<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="n">user</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="n">users</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="n">libpasta</span><span class="o">::</span><span class="n">migrate_hash</span><span class="p">(</span><span class="o">&amp;</span><span class="k">mut</span><span class="w"> </span><span class="n">user</span><span class="p">.</span><span class="n">password_hash</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
 
-<span style="color: #66d9ef">fn</span><span style="color: #f8f8f2"> auth_user(user</span><span style="color: #f92672">:</span><span style="color: #f8f8f2"> </span><span style="color: #f92672">&amp;</span><span style="color: #66d9ef">mut</span><span style="color: #f8f8f2"> User) {</span>
-<span style="color: #f8f8f2">    </span><span style="color: #75715e">// Step 2: Update algorithm during log in</span>
-<span style="color: #f8f8f2">    println</span><span style="color: #f92672">!</span><span style="color: #f8f8f2">(</span><span style="color: #e6db74">&quot;Enter password:&quot;</span><span style="color: #f8f8f2">);</span>
-<span style="color: #f8f8f2">    </span><span style="color: #66d9ef">let</span><span style="color: #f8f8f2"> password </span><span style="color: #f92672">=</span><span style="color: #f8f8f2"> read_password().unwrap();</span>
-<span style="color: #f8f8f2">    </span><span style="color: #66d9ef">if</span><span style="color: #f8f8f2"> libpasta</span><span style="color: #f92672">::</span><span style="color: #f8f8f2">verify_password_update_hash(</span><span style="color: #f92672">&amp;</span><span style="color: #66d9ef">mut</span><span style="color: #f8f8f2"> user.password_hash, password) {</span>
-<span style="color: #f8f8f2">        println</span><span style="color: #f92672">!</span><span style="color: #f8f8f2">(</span><span style="color: #e6db74">&quot;Password correct, new hash: </span><span style="color: #ae81ff">\n</span><span style="color: #e6db74">{}&quot;</span><span style="color: #f8f8f2">, user.password_hash);</span>
-<span style="color: #f8f8f2">    } </span><span style="color: #66d9ef">else</span><span style="color: #f8f8f2"> {</span>
-<span style="color: #f8f8f2">        println</span><span style="color: #f92672">!</span><span style="color: #f8f8f2">(</span><span style="color: #e6db74">&quot;Password incorrect, hash unchanged: </span><span style="color: #ae81ff">\n</span><span style="color: #e6db74">{}&quot;</span><span style="color: #f8f8f2">, user.password_hash);</span>
-<span style="color: #f8f8f2">    }</span>
-<span style="color: #f8f8f2">}</span>
-</pre></div>
+<span class="k">fn</span><span class="w"> </span><span class="n">auth_user</span><span class="p">(</span><span class="n">user</span><span class="o">:</span><span class="w"> </span><span class="o">&amp;</span><span class="k">mut</span><span class="w"> </span><span class="n">User</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="c1">// Step 2: Update algorithm during log in</span>
+<span class="w">    </span><span class="n">println</span><span class="o">!</span><span class="p">(</span><span class="s">&quot;Enter password:&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="n">password</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">read_password</span><span class="p">().</span><span class="n">unwrap</span><span class="p">();</span><span class="w"></span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="n">libpasta</span><span class="o">::</span><span class="n">verify_password_update_hash</span><span class="p">(</span><span class="o">&amp;</span><span class="k">mut</span><span class="w"> </span><span class="n">user</span><span class="p">.</span><span class="n">password_hash</span><span class="p">,</span><span class="w"> </span><span class="n">password</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="n">println</span><span class="o">!</span><span class="p">(</span><span class="s">&quot;Password correct, new hash: </span><span class="se">\n</span><span class="s">{}&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">user</span><span class="p">.</span><span class="n">password_hash</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="n">println</span><span class="o">!</span><span class="p">(</span><span class="s">&quot;Password incorrect, hash unchanged: </span><span class="se">\n</span><span class="s">{}&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">user</span><span class="p">.</span><span class="n">password_hash</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</code></pre></div>
 
 <p>In the first step, we do not need the user&rsquo;s password (and can therefore
 apply this to all user passwords when desired). However, the password hash is now
@@ -499,28 +506,28 @@ requires updating the stored version of the hash.</p>
 configuration files.</p>
 
 <p>For example, suppose we wish to use bcrypt as the default algorithm.</p>
-<div class="highlight" style="background: #272822"><pre style="line-height: 125%"><span></span><span style="color: #66d9ef">extern</span><span style="color: #f8f8f2"> </span><span style="color: #66d9ef">crate</span><span style="color: #f8f8f2"> libpasta;</span>
+<div class="highlight"><pre><code class="language-rust" data-lang="rust"><span></span><span class="k">extern</span><span class="w"> </span><span class="k">crate</span><span class="w"> </span><span class="n">libpasta</span><span class="p">;</span><span class="w"></span>
 
-<span style="color: #66d9ef">fn</span><span style="color: #f8f8f2"> main() {</span>
-<span style="color: #f8f8f2">    libpasta</span><span style="color: #f92672">::</span><span style="color: #f8f8f2">config</span><span style="color: #f92672">::</span><span style="color: #f8f8f2">set_primitive(libpasta</span><span style="color: #f92672">::</span><span style="color: #f8f8f2">default_bcrypt());</span>
-<span style="color: #f8f8f2">    </span><span style="color: #66d9ef">let</span><span style="color: #f8f8f2"> password_hash </span><span style="color: #f92672">=</span><span style="color: #f8f8f2"> libpasta</span><span style="color: #f92672">::</span><span style="color: #f8f8f2">hash_password(</span><span style="color: #e6db74">&quot;hunter2&quot;</span><span style="color: #f8f8f2">.to_string());</span>
-<span style="color: #f8f8f2">    println</span><span style="color: #f92672">!</span><span style="color: #f8f8f2">(</span><span style="color: #e6db74">&quot;The hashed password is: &#39;{}&#39;&quot;</span><span style="color: #f8f8f2">, password_hash);</span>
-<span style="color: #f8f8f2">    </span><span style="color: #75715e">// Prints bcrypt hash</span>
-<span style="color: #f8f8f2">}</span>
-</pre></div>
+<span class="k">fn</span><span class="w"> </span><span class="n">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="n">libpasta</span><span class="o">::</span><span class="n">config</span><span class="o">::</span><span class="n">set_primitive</span><span class="p">(</span><span class="n">libpasta</span><span class="o">::</span><span class="n">default_bcrypt</span><span class="p">());</span><span class="w"></span>
+<span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="n">password_hash</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">libpasta</span><span class="o">::</span><span class="n">hash_password</span><span class="p">(</span><span class="s">&quot;hunter2&quot;</span><span class="p">.</span><span class="n">to_string</span><span class="p">());</span><span class="w"></span>
+<span class="w">    </span><span class="n">println</span><span class="o">!</span><span class="p">(</span><span class="s">&quot;The hashed password is: &#39;{}&#39;&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">password_hash</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="c1">// Prints bcrypt hash</span>
+<span class="p">}</span><span class="w"></span>
+</code></pre></div>
 
 <p>Note that once the library is in use, the configuration can no longer be
 changed.</p>
 
 <p>Additionally, values may be set using a configuration file. Written in YAML,
 these look as follows:</p>
-<div class="highlight" style="background: #272822"><pre style="line-height: 125%"><span></span><span style="color: #ae81ff">default_primitive</span><span style="color: #f8f8f2">:</span>
-  <span style="color: #ae81ff">id</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">scrypt-mcf</span>
-  <span style="color: #ae81ff">params</span><span style="color: #f8f8f2">:</span> 
-    <span style="color: #ae81ff">log_n</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">12</span>
-    <span style="color: #ae81ff">r</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">8</span>
-    <span style="color: #ae81ff">p</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">1</span>
-</pre></div>
+<div class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span></span><span class="l l-Scalar l-Scalar-Plain">default_primitive</span><span class="p p-Indicator">:</span>
+  <span class="l l-Scalar l-Scalar-Plain">id</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">scrypt-mcf</span>
+  <span class="l l-Scalar l-Scalar-Plain">params</span><span class="p p-Indicator">:</span> 
+    <span class="l l-Scalar l-Scalar-Plain">log_n</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">12</span>
+    <span class="l l-Scalar l-Scalar-Plain">r</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">8</span>
+    <span class="l l-Scalar l-Scalar-Plain">p</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">1</span>
+</code></pre></div>
 
 <p>This specifies the algorithm to use, in this case, scrypt.</p>
 

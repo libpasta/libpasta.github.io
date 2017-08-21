@@ -11,6 +11,18 @@
     
     
     <item>
+      <title>Overview</title>
+      <link>https://libpasta.github.io/other-languages/overview/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://libpasta.github.io/other-languages/overview/</guid>
+      <description>Our goal is for libpasta to be the clear choice for any developers requiring secure password storage. We target a number of languages, initially supported through the use of SWIG.
+So far, this means we have simple bindings for C, Java, PHP, python, and Ruby.
+The SWIG specification for libpasta reveals the simplicity of the API, and a few important caveats:
+# in pasta.h #include &amp;lt;stdbool.h&amp;gt; extern char * hash_password(const char *password); extern bool verify_password(const char* hash, const char *password); extern void free_string(const char *); extern char * read_password(const char *prompt);  These bind to the functions exported by the libpasta-ffi crate.</description>
+    </item>
+    
+    <item>
       <title>Algorithm Selection</title>
       <link>https://libpasta.github.io/technical-details/algorithm-choice/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -46,7 +58,8 @@ externcratelibpasta; // We re-export the rpassword crate for CLI password input.
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://libpasta.github.io/other-languages/c/</guid>
-      <description>Lorem Ipsum</description>
+      <description>We can use the FFI definitions output by Rust directly in C code. However, unlike with the SWIG bindings, we are required to manually free the strings after use, as in the following simple example.
+### in pasta.h #include &amp;lt;stdbool.h&amp;gt; extern char * hash_password(const char *password); extern bool verify_password(const char* hash, const char *password); extern void free_string(const char *); extern char * read_password(const char *prompt);  #include &amp;quot;pasta.h&amp;quot; #include &amp;lt;stdio.h&amp;gt; int main(void) { char *hash, *password; hash = hash_password(&amp;quot;hello123&amp;quot;); password = read_password(&amp;quot;Please enter the password (hint: hello123):&amp;quot;); if (verify_password(hash, password)) { printf(&amp;quot;Correct password\n&amp;quot;); } else { printf(&amp;quot;Sorry, that is incorrect\n&amp;quot;); } free_string(hash); free_string(password); return 0; }  Which is compiled in the usual way:</description>
     </item>
     
     <item>
@@ -55,7 +68,9 @@ externcratelibpasta; // We re-export the rpassword crate for CLI password input.
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://libpasta.github.io/other-languages/java/</guid>
-      <description>Lorem Ipsum</description>
+      <description>SWIG generates a number of helper files for Java, and a JNI library for use. For convenience, we have packaged these in a .jar file, which can be compiled from scratch using the make install_java command.
+Hence, we need the following files: libpasta.so, libpasta_jni.so, and `libpasta.jar. Then, the following is sufficient to use the pasta functions:
+public class test { public static void main(String argv[]) { String hash = pasta.hash_password(&amp;quot;hello123&amp;quot;); String password = pasta.</description>
     </item>
     
     <item>
@@ -64,7 +79,8 @@ externcratelibpasta; // We re-export the rpassword crate for CLI password input.
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://libpasta.github.io/other-languages/php/</guid>
-      <description>Lorem Ipsum</description>
+      <description>For PHP, SWIG generates a pasta.so extension, which can be installed in the system directory (for example, /etc/php/php.ini), and must be enabled. SWIG also generates a pasta.php module file which loads the extension and defines the API for libpasta.
+// In pasta.php &amp;lt;?php include(&amp;quot;pasta.php&amp;quot;); $password = $_POST[&amp;#39;password&amp;#39;]; $hash = pasta::hash_password(&amp;quot;hello123&amp;quot;); if (pasta::verify_password($hash, $password)) { echo &amp;quot;Correct password.&amp;quot;; } else { echo &amp;quot;Sorry, that is incorrect&amp;quot;; } ?&amp;gt;  &amp;lt;html&amp;gt; &amp;lt;head&amp;gt; &amp;lt;title&amp;gt;libpasta PHP example&amp;lt;/title&amp;gt; &amp;lt;/head&amp;gt; &amp;lt;body&amp;gt; &amp;lt;form action=&amp;quot;pasta_form.</description>
     </item>
     
     <item>

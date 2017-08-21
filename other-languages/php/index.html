@@ -9,6 +9,7 @@
 
     <link rel="shortcut icon" href="/images/favicon.png" type="image/x-icon" />
 
+    <link rel="stylesheet" href="https://libpasta.github.io/css/monokai.css">
     
     <title>PHP</title>
     <link href="https://libpasta.github.io//css/nucleus.css" rel="stylesheet">
@@ -238,6 +239,12 @@
         
         <ul>
           
+            <li class="dd-item " data-nav-id="/other-languages/overview/">
+              <a href="/other-languages/overview/">
+                <span>Overview     </i></span>
+              </a>
+            </li>
+          
             <li class="dd-item " data-nav-id="/other-languages/c/">
               <a href="/other-languages/c/">
                 <span>C     </i></span>
@@ -291,7 +298,7 @@
             
               <b>4. </b>
             
-             Techincal Details
+             Technical Details
             
            </span>
         </a>
@@ -371,7 +378,36 @@
                 <h1>PHP</h1>
                 
 
-<p>Lorem Ipsum</p>
+<p>For PHP, SWIG generates a <code>pasta.so</code> extension, which can be installed in
+the system directory (for example, <code>/etc/php/php.ini</code>), and must be enabled.
+SWIG also generates a <code>pasta.php</code> module file which loads the extension and
+defines the API for <code>libpasta</code>.</p>
+<div class="highlight"><pre><code class="language-php" data-lang="php"><span></span><span class="x">// In pasta.php</span>
+<span class="cp">&lt;?php</span>
+<span class="k">include</span><span class="p">(</span><span class="s2">&quot;pasta.php&quot;</span><span class="p">);</span>
+
+<span class="nv">$password</span> <span class="o">=</span> <span class="nv">$_POST</span><span class="p">[</span><span class="s1">&#39;password&#39;</span><span class="p">];</span>
+<span class="nv">$hash</span>     <span class="o">=</span> <span class="nx">pasta</span><span class="o">::</span><span class="na">hash_password</span><span class="p">(</span><span class="s2">&quot;hello123&quot;</span><span class="p">);</span>
+<span class="k">if</span> <span class="p">(</span><span class="nx">pasta</span><span class="o">::</span><span class="na">verify_password</span><span class="p">(</span><span class="nv">$hash</span><span class="p">,</span> <span class="nv">$password</span><span class="p">))</span> <span class="p">{</span>
+    <span class="k">echo</span> <span class="s2">&quot;Correct password.&quot;</span><span class="p">;</span>
+<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+    <span class="k">echo</span> <span class="s2">&quot;Sorry, that is incorrect&quot;</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="cp">?&gt;</span><span class="x"></span>
+</code></pre></div>
+<div class="highlight"><pre><code class="language-html" data-lang="html"><span></span><span class="p">&lt;</span><span class="nt">html</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">head</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">title</span><span class="p">&gt;</span>libpasta PHP example<span class="p">&lt;/</span><span class="nt">title</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">head</span><span class="p">&gt;</span>
+
+<span class="p">&lt;</span><span class="nt">body</span><span class="p">&gt;</span> 
+<span class="p">&lt;</span><span class="nt">form</span> <span class="na">action</span><span class="o">=</span><span class="s">&quot;pasta_form.php&quot;</span> <span class="na">method</span><span class="o">=</span><span class="s">&quot;post&quot;</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span>Please enter yor password (hint: hello123) <span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;password&quot;</span> <span class="na">name</span><span class="o">=</span><span class="s">&quot;password&quot;</span> <span class="p">/&gt;&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;submit&quot;</span> <span class="p">/&gt;&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">form</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">body</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">html</span><span class="p">&gt;</span>
+</code></pre></div>
 
 
       

@@ -9,6 +9,7 @@
 
     <link rel="shortcut icon" href="/images/favicon.png" type="image/x-icon" />
 
+    <link rel="stylesheet" href="https://libpasta.github.io/css/monokai.css">
     
     <title>Java</title>
     <link href="https://libpasta.github.io//css/nucleus.css" rel="stylesheet">
@@ -238,6 +239,12 @@
         
         <ul>
           
+            <li class="dd-item " data-nav-id="/other-languages/overview/">
+              <a href="/other-languages/overview/">
+                <span>Overview     </i></span>
+              </a>
+            </li>
+          
             <li class="dd-item " data-nav-id="/other-languages/c/">
               <a href="/other-languages/c/">
                 <span>C     </i></span>
@@ -291,7 +298,7 @@
             
               <b>4. </b>
             
-             Techincal Details
+             Technical Details
             
            </span>
         </a>
@@ -371,7 +378,31 @@
                 <h1>Java</h1>
                 
 
-<p>Lorem Ipsum</p>
+<p>SWIG generates a number of helper files for Java, and a JNI library for use.
+For convenience, we have packaged these in a <code>.jar</code> file, which can be compiled
+from scratch using the <code>make install_java</code> command.</p>
+
+<p>Hence, we need the following files: <code>libpasta.so</code>, <code>libpasta_jni.so</code>, and
+`libpasta.jar. Then, the following is sufficient to use the pasta functions:</p>
+<div class="highlight"><pre><code class="language-java" data-lang="java"><span></span><span class="kd">public</span> <span class="kd">class</span> <span class="nc">test</span> <span class="o">{</span>
+  <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span> <span class="n">argv</span><span class="o">[])</span> <span class="o">{</span>
+    <span class="n">String</span> <span class="n">hash</span> <span class="o">=</span> <span class="n">pasta</span><span class="o">.</span><span class="na">hash_password</span><span class="o">(</span><span class="s">&quot;hello123&quot;</span><span class="o">);</span>
+    <span class="n">String</span> <span class="n">password</span>  <span class="o">=</span> <span class="n">pasta</span><span class="o">.</span><span class="na">read_password</span><span class="o">(</span><span class="s">&quot;Please enter the password (hint: hello123):&quot;</span><span class="o">);</span>
+    <span class="k">if</span> <span class="o">(</span><span class="n">pasta</span><span class="o">.</span><span class="na">verify_password</span><span class="o">(</span><span class="n">hash</span><span class="o">,</span> <span class="n">password</span><span class="o">))</span> <span class="o">{</span>
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&quot;Correct password\n&quot;</span><span class="o">);</span>
+    <span class="o">}</span> <span class="k">else</span> <span class="o">{</span>
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&quot;Sorry, that is incorrect\n&quot;</span><span class="o">);</span>
+    <span class="o">}</span>
+  <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div>
+
+<p>And building the example with:</p>
+<div class="highlight"><pre><code class="language-c" data-lang="c"><span></span>    <span class="err">$</span> <span class="n">javac</span> <span class="o">-</span><span class="n">cp</span> <span class="p">.</span><span class="o">:</span><span class="p">..</span><span class="o">/</span><span class="p">..</span><span class="o">/</span><span class="n">libpasta</span><span class="p">.</span><span class="n">jar</span> <span class="n">test</span><span class="p">.</span><span class="n">java</span>
+    <span class="err">$</span> <span class="n">java</span> <span class="o">-</span><span class="n">cp</span> <span class="p">.</span><span class="o">:</span><span class="p">..</span><span class="o">/</span><span class="p">..</span><span class="o">/</span><span class="n">libpasta</span><span class="p">.</span><span class="n">jar</span> <span class="n">test</span>
+    <span class="n">Please</span> <span class="n">enter</span> <span class="n">the</span> <span class="n">password</span> <span class="p">(</span><span class="nl">hint</span><span class="p">:</span> <span class="n">hello123</span><span class="p">)</span><span class="o">:</span>
+    <span class="n">Correct</span> <span class="n">password</span>
+</code></pre></div>
 
 
       
