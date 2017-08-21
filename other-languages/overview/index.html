@@ -402,7 +402,6 @@ and a few important caveats:</p>
 <span class="nf">%module</span> <span class="n">pasta</span>
 <span class="o">%</span><span class="p">{</span>
 <span class="cp">#include</span> <span class="cpf">&lt;pasta.h&gt;</span><span class="cp"></span>
-
 <span class="o">%</span><span class="p">}</span>
 
 <span class="nf">%typemap</span><span class="p">(</span><span class="n">newfree</span><span class="p">)</span> <span class="kt">char</span> <span class="o">*</span> <span class="s">&quot;free_string($1);&quot;</span><span class="p">;</span>

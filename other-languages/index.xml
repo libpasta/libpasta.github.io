@@ -50,7 +50,7 @@ public class test { public static void main(String argv[]) { String hash = pasta
       
       <guid>https://libpasta.github.io/other-languages/php/</guid>
       <description>For PHP, SWIG generates a pasta.so extension, which can be installed in the system directory (for example, /etc/php/php.ini), and must be enabled. SWIG also generates a pasta.php module file which loads the extension and defines the API for libpasta.
-// In pasta.php &amp;lt;?php include(&amp;quot;pasta.php&amp;quot;); $password = $_POST[&amp;#39;password&amp;#39;]; $hash = pasta::hash_password(&amp;quot;hello123&amp;quot;); if (pasta::verify_password($hash, $password)) { echo &amp;quot;Correct password.&amp;quot;; } else { echo &amp;quot;Sorry, that is incorrect&amp;quot;; } ?&amp;gt;  &amp;lt;html&amp;gt; &amp;lt;head&amp;gt; &amp;lt;title&amp;gt;libpasta PHP example&amp;lt;/title&amp;gt; &amp;lt;/head&amp;gt; &amp;lt;body&amp;gt; &amp;lt;form action=&amp;quot;pasta_form.</description>
+// In pasta_form.php &amp;lt;?php include(&amp;quot;pasta.php&amp;quot;); $password = $_POST[&amp;#39;password&amp;#39;]; $hash = pasta::hash_password(&amp;quot;hello123&amp;quot;); if (pasta::verify_password($hash, $password)) { echo &amp;quot;Correct password.&amp;quot;; } else { echo &amp;quot;Sorry, that is incorrect&amp;quot;; } ?&amp;gt;  &amp;lt;html&amp;gt; &amp;lt;head&amp;gt; &amp;lt;title&amp;gt;libpasta PHP example&amp;lt;/title&amp;gt; &amp;lt;/head&amp;gt; &amp;lt;body&amp;gt; &amp;lt;form action=&amp;quot;pasta_form.</description>
     </item>
     
     <item>
@@ -59,7 +59,8 @@ public class test { public static void main(String argv[]) { String hash = pasta
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://libpasta.github.io/other-languages/python/</guid>
-      <description>Lorem Ipsum</description>
+      <description>In the future libpasta will be distributed for python through pypi. For now, we can use the _pasta.so and pasta.py files created by SWIG.
+from pasta import * hash = hash_password(&amp;quot;hello123&amp;quot;) password = read_password(&amp;quot;Please enter the password (hint: hello123):&amp;quot;) if verify_password(hash, password): print(&amp;quot;Correct password&amp;quot;) else: print(&amp;quot;Sorry, that is incorrect&amp;quot;)  </description>
     </item>
     
     <item>
@@ -68,7 +69,8 @@ public class test { public static void main(String argv[]) { String hash = pasta
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://libpasta.github.io/other-languages/ruby/</guid>
-      <description>Lorem Ipsum</description>
+      <description>In the future Ruby will be supported through a Ruby gem. For now, SWIG generates a pasta.so extension which can be used directly by Ruby:
+require &amp;#39;./pasta.so&amp;#39; hash = Pasta::hash_password(&amp;quot;hello123&amp;quot;) password = Pasta::read_password(&amp;quot;Please enter the password (hint: hello123):&amp;quot;) if Pasta::verify_password(hash, password) puts &amp;quot;Correct password&amp;quot; else puts &amp;quot;Sorry, that is incorrect&amp;quot; end  </description>
     </item>
     
   </channel>

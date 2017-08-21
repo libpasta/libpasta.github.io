@@ -382,12 +382,13 @@
 the system directory (for example, <code>/etc/php/php.ini</code>), and must be enabled.
 SWIG also generates a <code>pasta.php</code> module file which loads the extension and
 defines the API for <code>libpasta</code>.</p>
-<div class="highlight"><pre><code class="language-php" data-lang="php"><span></span><span class="x">// In pasta.php</span>
+<div class="highlight"><pre><code class="language-php" data-lang="php"><span></span><span class="x">// In pasta_form.php</span>
+
 <span class="cp">&lt;?php</span>
 <span class="k">include</span><span class="p">(</span><span class="s2">&quot;pasta.php&quot;</span><span class="p">);</span>
 
 <span class="nv">$password</span> <span class="o">=</span> <span class="nv">$_POST</span><span class="p">[</span><span class="s1">&#39;password&#39;</span><span class="p">];</span>
-<span class="nv">$hash</span>     <span class="o">=</span> <span class="nx">pasta</span><span class="o">::</span><span class="na">hash_password</span><span class="p">(</span><span class="s2">&quot;hello123&quot;</span><span class="p">);</span>
+<span class="nv">$hash</span> <span class="o">=</span> <span class="nx">pasta</span><span class="o">::</span><span class="na">hash_password</span><span class="p">(</span><span class="s2">&quot;hello123&quot;</span><span class="p">);</span>
 <span class="k">if</span> <span class="p">(</span><span class="nx">pasta</span><span class="o">::</span><span class="na">verify_password</span><span class="p">(</span><span class="nv">$hash</span><span class="p">,</span> <span class="nv">$password</span><span class="p">))</span> <span class="p">{</span>
     <span class="k">echo</span> <span class="s2">&quot;Correct password.&quot;</span><span class="p">;</span>
 <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>

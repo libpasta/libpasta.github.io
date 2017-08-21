@@ -378,7 +378,17 @@
                 <h1>Python</h1>
                 
 
-<p>Lorem Ipsum</p>
+<p>In the future <code>libpasta</code> will be distributed for python through pypi.
+For now, we can use the <code>_pasta.so</code> and <code>pasta.py</code> files created by SWIG.</p>
+<div class="highlight"><pre><code class="language-python" data-lang="python"><span></span><span class="kn">from</span> <span class="nn">pasta</span> <span class="kn">import</span> <span class="o">*</span>
+
+<span class="nb">hash</span> <span class="o">=</span> <span class="n">hash_password</span><span class="p">(</span><span class="s2">&quot;hello123&quot;</span><span class="p">)</span>
+<span class="n">password</span> <span class="o">=</span> <span class="n">read_password</span><span class="p">(</span><span class="s2">&quot;Please enter the password (hint: hello123):&quot;</span><span class="p">)</span>
+<span class="k">if</span> <span class="n">verify_password</span><span class="p">(</span><span class="nb">hash</span><span class="p">,</span> <span class="n">password</span><span class="p">):</span>
+    <span class="k">print</span><span class="p">(</span><span class="s2">&quot;Correct password&quot;</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="k">print</span><span class="p">(</span><span class="s2">&quot;Sorry, that is incorrect&quot;</span><span class="p">)</span>
+</code></pre></div>
 
 
       
