@@ -11,7 +11,7 @@
 
     <link rel="stylesheet" href="https://libpasta.github.io/css/monokai.css">
     
-    <title>Parameter Selection</title>
+    <title>Tuning &amp; Parameter Selection</title>
     <link href="https://libpasta.github.io//css/nucleus.css" rel="stylesheet">
     <link href="https://libpasta.github.io//css/font-awesome.min.css" rel="stylesheet">
     <link href="https://libpasta.github.io//css/hybrid.css" rel="stylesheet">
@@ -205,7 +205,7 @@
           
             <li class="dd-item active" data-nav-id="/advanced/tuning/">
               <a href="/advanced/tuning/">
-                <span>Parameter Selection     </i></span>
+                <span>Tuning &amp; Parameter Selection     </i></span>
               </a>
             </li>
           
@@ -359,7 +359,7 @@
                     
                   
                 
-                <span itemprop="title"> Parameter Selection</span>
+                <span itemprop="title"> Tuning &amp; Parameter Selection</span>
               </div>
               
                   <div class="progress">
@@ -375,10 +375,78 @@
             
               <div id="body-inner">
                 
-                <h1>Parameter Selection</h1>
+                <h1>Tuning &amp; Parameter Selection</h1>
                 
 
-<p>Lorem Ipsum</p>
+<p><code>libpasta</code> comes with a set of secure default algorithm and parameter choices.
+However, there is no single set of parameters which is suitable for all
+purposes and we provide tools to help with parameter selection.</p>
+
+<p>These tools also have the benefit of working as a benchmarking platform for the
+target system; if the system performs significantly worse than the expected
+times, this could result in suboptimal, or even insecure, parameters selected.</p>
+
+<p>Currently, running <code>tune -h</code> gives the following output:</p>
+<div class="highlight"><pre><code class="language-console" data-lang="console"><span></span><span class="gp">$</span> tune -h
+<span class="go">tune 0.0.1</span>
+<span class="go">Sam Scott</span>
+<span class="go">libpasta tuning tool</span>
+
+<span class="go">USAGE:</span>
+<span class="go">    tune [FLAGS] [OPTIONS]</span>
+
+<span class="go">FLAGS:</span>
+<span class="go">    -h, --help       Prints help information</span>
+<span class="go">    -p, --print      Output the final result in the configuration file format</span>
+<span class="go">    -V, --version    Prints version information</span>
+<span class="go">    -v, --verbose    Print test information verbosely</span>
+
+<span class="go">OPTIONS:</span>
+<span class="go">    -a, --algorithm &lt;algorithm&gt;    Choose the algorithm to tune (default: argon2i) [values: argon2i, bcrypt, scrypt]</span>
+<span class="go">    -t, --target &lt;target&gt;          Set the target number of verifications per second to support (defaut: 2)</span>
+</code></pre></div>
+
+<p>Running simple <code>tune</code> will benchmark various parameter choices (for the default
+options) until optimal values are found. Configuration options include the
+algorithm to target, and the default number of logins per second to be
+supported.</p>
+
+<p>Finally, the <code>-p</code> flag can be used to produce a libpasta-compatible configuration file.</p>
+<div class="highlight"><pre><code class="language-console" data-lang="console"><span></span><span class="gp">$</span> tune -a scrypt -p
+<span class="go">CPU speed: 2800</span>
+<span class="go">Predicted maximum parameter: 17, with time: 0.437s</span>
+<span class="go">logN = 5, parallel = 1, read size = 8 ~&gt; memory = 33 KiB 0.0001 s (estimated: 0.0001 s)</span>
+<span class="go">logN = 6, parallel = 1, read size = 8 ~&gt; memory = 65 KiB 0.0002 s (estimated: 0.0002 s)</span>
+<span class="go">logN = 7, parallel = 1, read size = 8 ~&gt; memory = 129 KiB 0.0004 s (estimated: 0.0004 s)</span>
+<span class="go">...</span>
+<span class="go">logN = 16, parallel = 1, read size = 8 ~&gt; memory = 65537 KiB 0.1791 s (estimated: 0.2186 s)</span>
+<span class="go">logN = 17, parallel = 1, read size = 8 ~&gt; memory = 131073 KiB 0.3581 s (estimated: 0.4372 s)</span>
+<span class="go">logN = 18, parallel = 1, read size = 8 ~&gt; memory = 262145 KiB 0.7151 s (estimated: 0.8743 s)</span>
+<span class="go">Maximum amount of memory (capped at 2036080 KiB) to achieve &lt; 0.50 s hash = 131088 KiB</span>
+<span class="go">Recommended: SCrypt, N: 131072, r: 8, p: 1</span>
+<span class="go">Default:     SCrypt, N: 16384, r: 8, p: 1</span>
+
+<span class="go">Algorithm in configuration format:</span>
+<span class="go">---</span>
+<span class="go">default: Custom</span>
+<span class="go">primitive: </span>
+<span class="go">  id: &quot;scrypt-mcf&quot;</span>
+<span class="go">  params: </span>
+<span class="go">    log_n: &quot;17&quot;</span>
+<span class="go">    r: &quot;8&quot;</span>
+<span class="go">    p: &quot;1&quot;</span>
+</code></pre></div>
+
+<p>There are a few interesting things to observe from the output. First of all, notice
+that the algorithm estimated maximum parameter choice to be 14, taking 0.055s, which
+is extremely close to the eventual value. This is a sense-check to ensure the system
+does not perform unexpectedly slow, which might indicate there is another process
+running which is consuming CPU time and skewing the benchmarks.</p>
+
+<p>We left the target number of logins/second (the <code>-t</code> flag) at the default value
+of 2. This is the recommended amount for interactive logins, such as for
+websites. For offline applications, for example key derivation for disk encryption,
+a better value is 1 login every 3 seconds, so <code>-t 0.33</code>.</p>
 
 
       

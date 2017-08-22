@@ -205,7 +205,7 @@
           
             <li class="dd-item " data-nav-id="/advanced/tuning/">
               <a href="/advanced/tuning/">
-                <span>Parameter Selection     </i></span>
+                <span>Tuning &amp; Parameter Selection     </i></span>
               </a>
             </li>
           
@@ -378,7 +378,58 @@
                 <h1>Password Migration</h1>
                 
 
-<p>Lorem Ipsum</p>
+<p>One of the core principles underlying <code>libpasta</code> is that it should be easy to
+use best practice password hashing algorithms. Unfortunately, many people are
+currently <em>not</em> using these algorithms, and furthermore, &ldquo;best practice&rdquo; seems
+to be very hard to pin down. To solve this, we include support for painless
+migration, which can even be enabled automatically.</p>
+
+<p>Migrating a password hash is a subtle problem. The whole point of password
+storage is that you cannot recover the password. To solve this, <code>libpasta</code> uses
+the onion approch.</p>
+
+<p>Suppose we have a password hash <code>H = f(password, salt)</code>, and wish to migrate from
+using algorithm <code>f</code> to algorithm <code>g</code>. Clearly we cannot compute <code>H' = g(password, salt)</code>
+without first knowing the password.</p>
+
+<p>Hence, we instead compute <code>H' = g(f(password, salt), salt)</code>, applying the new
+hash function on top of the old one.</p>
+
+<p>In <code>libpasta</code>, this is represented by a hash of the form:<br />
+<code>$!$argon2i$m=4096,t=3,p=1$$2y-mcf$cost=12$1hKt7q7c+grVXmLcaTrc1A$kVFouOipYHpVHXKT0vXZJLvvPztokcXuzAWoUT1Pxyg</code>
+Note we have both <code>argon2i</code> and <code>2y-mcf</code> (bcrypt) in the hash value. This is a
+bcrypt hash, with cost 12, which has then been further hashed using Argon2i.</p>
+
+<p>Once the user next successfully logs in, this double-hash can simply be
+updated once again to a standard, single hash.</p>
+
+<p>To change hashing algorithms incurs a one-off cost to go through an re-hash
+all passwords. Migration tools are coming soon. For example, for Ruby on Rails,
+the following Rake script could be used for password migration:</p>
+<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span></span><span class="n">namespace</span> <span class="ss">:pasta</span> <span class="k">do</span>
+    <span class="n">desc</span> <span class="s2">&quot;Updates all passwords to the default password algorithm&quot;</span>
+    <span class="n">task</span> <span class="ss">migrate_passwords</span><span class="p">:</span> <span class="ss">:environment</span> <span class="k">do</span>
+        <span class="no">User</span><span class="o">.</span><span class="n">all</span><span class="o">.</span><span class="n">each</span> <span class="k">do</span> <span class="o">|</span><span class="n">user</span><span class="o">|</span>
+            <span class="n">user</span><span class="o">.</span><span class="n">password_digest</span> <span class="o">=</span> <span class="no">Pasta</span><span class="o">::</span><span class="n">migrate_hash</span><span class="p">(</span><span class="n">user</span><span class="o">.</span><span class="n">password_digest</span><span class="p">)</span>
+            <span class="n">user</span><span class="o">.</span><span class="n">save</span>
+        <span class="k">end</span>
+    <span class="k">end</span>
+<span class="k">end</span>
+</code></pre></div>
+
+<p>On each subsequent user login, there is an additional overhead incurred:
+first the cost of computing <code>g(f(password))</code>, which is at worst the cost
+of two long hashes, plus an additional computation of <code>g(password)</code>. However,
+this migration step only need to happen once per customer, providing a
+seamless transition experience.</p>
+
+<p>Of course, there is the possibility that a user does not log in for such a long
+time that they end up having multiple layers <code>h4(h3(h2(h1(password))))</code>, which
+could potentially take a long time to migrate, and consume too much storage in
+the database. Note that the storage only grows linearly in the length of the
+parameters of <code>h1...h4</code>, since the salt/hash size is fixed. This additional time
+incurred for an infrequent user is a minor tradeoff for security and
+convenience.</p>
 
 
       
