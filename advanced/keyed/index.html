@@ -11,7 +11,7 @@
 
     <link rel="stylesheet" href="https://libpasta.github.io/css/monokai.css">
     
-    <title>C</title>
+    <title>Keyed Hashes</title>
     <link href="https://libpasta.github.io//css/nucleus.css" rel="stylesheet">
     <link href="https://libpasta.github.io//css/font-awesome.min.css" rel="stylesheet">
     <link href="https://libpasta.github.io//css/hybrid.css" rel="stylesheet">
@@ -26,7 +26,7 @@
     
 
   </head>
-  <body class="" data-url="/other-languages/c/">
+  <body class="" data-url="/advanced/keyed/">
     
     <nav id="sidebar">
   <div id="header-wrapper">
@@ -184,7 +184,7 @@
       
       
 
-      <li class="dd-item  " data-nav-id="/advanced/">
+      <li class="dd-item  parent" data-nav-id="/advanced/">
         <a href="/advanced/">
           <span>
             
@@ -197,7 +197,7 @@
         
         <ul>
           
-            <li class="dd-item " data-nav-id="/advanced/keyed/">
+            <li class="dd-item active" data-nav-id="/advanced/keyed/">
               <a href="/advanced/keyed/">
                 <span>Keyed Hashes     </i></span>
               </a>
@@ -232,7 +232,7 @@
       
       
 
-      <li class="dd-item  parent" data-nav-id="/other-languages/">
+      <li class="dd-item  " data-nav-id="/other-languages/">
         <a href="/other-languages/">
           <span>
             
@@ -251,7 +251,7 @@
               </a>
             </li>
           
-            <li class="dd-item active" data-nav-id="/other-languages/c/">
+            <li class="dd-item " data-nav-id="/other-languages/c/">
               <a href="/other-languages/c/">
                 <span>C     </i></span>
               </a>
@@ -361,11 +361,11 @@
                   
                     
                     
-                <a href="/other-languages/" itemprop="url"><span itemprop="title">Other Languages</span></a> <i class="fa fa-angle-right"></i>
+                <a href="/advanced/" itemprop="url"><span itemprop="title">Advanced Usage</span></a> <i class="fa fa-angle-right"></i>
                     
                   
                 
-                <span itemprop="title"> C</span>
+                <span itemprop="title"> Keyed Hashes</span>
               </div>
               
                   <div class="progress">
@@ -381,46 +381,33 @@
             
               <div id="body-inner">
                 
-                <h1>C</h1>
+                <h1>Keyed Hashes</h1>
                 
 
-<p>We can use the FFI definitions output by Rust directly in C code.
-However, unlike with the SWIG bindings, we are required to manually free
-the strings after use, as in the following simple example.</p>
-<div class="highlight"><pre><code class="language-c" data-lang="c"><span></span><span class="cp">### in pasta.h</span>
-<span class="cp">#include</span> <span class="cpf">&lt;stdbool.h&gt;</span><span class="cp"></span>
+<p>We are currently developing support for keyed hashes: whether through HMAC or
+encrypted values. For now, keys are generated and stored <em>locally in memory</em> in
+the running instance, which means that any passwords which are stored while the
+application is running will be useless if the application terminates and
+destroys the keys.</p>
 
-<span class="k">extern</span> <span class="kt">char</span> <span class="o">*</span> <span class="nf">hash_password</span><span class="p">(</span><span class="k">const</span> <span class="kt">char</span> <span class="o">*</span><span class="n">password</span><span class="p">);</span>
-<span class="k">extern</span> <span class="kt">bool</span> <span class="nf">verify_password</span><span class="p">(</span><span class="k">const</span> <span class="kt">char</span><span class="o">*</span> <span class="n">hash</span><span class="p">,</span> <span class="k">const</span> <span class="kt">char</span> <span class="o">*</span><span class="n">password</span><span class="p">);</span>
-<span class="k">extern</span> <span class="kt">void</span> <span class="nf">free_string</span><span class="p">(</span><span class="k">const</span> <span class="kt">char</span> <span class="o">*</span><span class="p">);</span>
-<span class="k">extern</span> <span class="kt">char</span> <span class="o">*</span> <span class="nf">read_password</span><span class="p">(</span><span class="k">const</span> <span class="kt">char</span> <span class="o">*</span><span class="n">prompt</span><span class="p">);</span>
-</code></pre></div>
-<div class="highlight"><pre><code class="language-c" data-lang="c"><span></span><span class="cp">#include</span> <span class="cpf">&quot;pasta.h&quot;</span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;</span><span class="cp"></span>
+<p>The goal is for this structure to be flexible to any kinds of environments with
+different sources.</p>
 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="p">{</span>
-    <span class="kt">char</span> <span class="o">*</span><span class="n">hash</span><span class="p">,</span> <span class="o">*</span><span class="n">password</span><span class="p">;</span>
-    <span class="n">hash</span> <span class="o">=</span> <span class="n">hash_password</span><span class="p">(</span><span class="s">&quot;hello123&quot;</span><span class="p">);</span>
-    <span class="n">password</span> <span class="o">=</span> <span class="n">read_password</span><span class="p">(</span><span class="s">&quot;Please enter the password (hint: hello123):&quot;</span><span class="p">);</span>
-    <span class="k">if</span> <span class="p">(</span><span class="n">verify_password</span><span class="p">(</span><span class="n">hash</span><span class="p">,</span> <span class="n">password</span><span class="p">))</span> <span class="p">{</span>
-        <span class="n">printf</span><span class="p">(</span><span class="s">&quot;Correct password</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
-    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
-        <span class="n">printf</span><span class="p">(</span><span class="s">&quot;Sorry, that is incorrect</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
-    <span class="p">}</span>
-    <span class="n">free_string</span><span class="p">(</span><span class="n">hash</span><span class="p">);</span>
-    <span class="n">free_string</span><span class="p">(</span><span class="n">password</span><span class="p">);</span>
-    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
-<span class="p">}</span>
+<p>For example, the following code configures a key for use in libpasta and
+sets up HMAC to be used as a wrapping function:</p>
+<div class="highlight"><pre><code class="language-rust" data-lang="rust"><span></span><span class="c1">// Some proper way of getting a key</span>
+<span class="kd">let</span><span class="w"> </span><span class="n">key</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">b&quot;yellow submarine&quot;</span><span class="p">;</span><span class="w"></span>
+<span class="n">libpasta</span><span class="o">::</span><span class="n">config</span><span class="o">::</span><span class="n">add_key</span><span class="p">(</span><span class="n">key</span><span class="p">);</span><span class="w"></span>
+
+<span class="c1">// Construct an HMAC instance and use this as the outer configuration</span>
+<span class="kd">let</span><span class="w"> </span><span class="n">keyed_function</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">libpasta</span><span class="o">::</span><span class="n">primitives</span><span class="o">::</span><span class="n">hmac</span><span class="o">::</span><span class="n">Hmac</span><span class="o">::</span><span class="n">with_key</span><span class="p">(</span><span class="o">&amp;</span><span class="n">digest</span><span class="o">::</span><span class="n">SHA256</span><span class="p">,</span><span class="w"> </span><span class="n">key</span><span class="p">);</span><span class="w"></span>
+<span class="n">libpasta</span><span class="o">::</span><span class="n">config</span><span class="o">::</span><span class="n">set_keyed_hash</span><span class="p">(</span><span class="n">keyed_function</span><span class="p">.</span><span class="n">into</span><span class="p">());</span><span class="w"></span>
 </code></pre></div>
 
-<p>Which is compiled in the usual way:</p>
-<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span></span>$ ls
-pasta.h     test.c
-$ gcc test.c -lpasta -otest
-$ ./test
-Please enter the password <span class="o">(</span>hint: hello123<span class="o">)</span>:
-Correct password
-</code></pre></div>
+<p>Using <code>libpasta::hash_function</code> will first hash using the default algorithm, and
+then afterwards apply the HMAC to the output hash.</p>
+
+<p>On the roadmap: support for alternative key sources.</p>
 
 
       

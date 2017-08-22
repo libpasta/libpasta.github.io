@@ -197,6 +197,12 @@
         
         <ul>
           
+            <li class="dd-item " data-nav-id="/advanced/keyed/">
+              <a href="/advanced/keyed/">
+                <span>Keyed Hashes     </i></span>
+              </a>
+            </li>
+          
             <li class="dd-item " data-nav-id="/advanced/migration/">
               <a href="/advanced/migration/">
                 <span>Password Migration     </i></span>
@@ -517,6 +523,15 @@ hardware such as an
 <a href="https://en.wikipedia.org/wiki/Hardware_security_module">HSM</a>.
 However, there exist <a href="https://www.usenix.org/system/files/conference/usenixsecurity15/sec15-paper-everspaugh.pdf">solutions (warning: PDF)</a> which can help in making
 keyed solutions more accessible.</p>
+
+<p>Another option is to involve a key in the storage mechanism is to encrypt the
+password hash after hashing. While this has a number of drawbacks compared to
+using HMAC, one benefit is that it becomes possible to perform key rotation. In
+the event that the password storage is compromised, but not the encryption key,
+the key used to store passwords can be updated, rendering the leaked passwords
+useless.</p>
+
+<p>We discuss how to use keys in <code>libpasta</code> in <a href="../../advanced/keyed">Keyed Hashes</a>.</p>
 
 <h2 id="memory-hard-password-hashes">Memory hard password hashes</h2>
 

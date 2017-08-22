@@ -74,6 +74,17 @@ public class test { public static void main(String argv[]) { String hash = pasta
     </item>
     
     <item>
+      <title>Keyed Hashes</title>
+      <link>https://libpasta.github.io/advanced/keyed/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://libpasta.github.io/advanced/keyed/</guid>
+      <description>We are currently developing support for keyed hashes: whether through HMAC or encrypted values. For now, keys are generated and stored locally in memory in the running instance, which means that any passwords which are stored while the application is running will be useless if the application terminates and destroys the keys.
+The goal is for this structure to be flexible to any kinds of environments with different sources.
+For example, the following code configures a key for use in libpasta and sets up HMAC to be used as a wrapping function:</description>
+    </item>
+    
+    <item>
       <title>PHP</title>
       <link>https://libpasta.github.io/other-languages/php/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
