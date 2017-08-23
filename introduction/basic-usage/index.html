@@ -511,11 +511,13 @@ requires updating the stored version of the hash.</p>
 <p><code>libpasta</code> supports configuration in two ways: directly in code, or using
 configuration files.</p>
 
-<p>For example, suppose we wish to use bcrypt as the default algorithm.</p>
+<p>For example, suppose we wish to use bcrypt with cost=15 as the default algorithm.</p>
 <div class="highlight"><pre><code class="language-rust" data-lang="rust"><span></span><span class="k">extern</span><span class="w"> </span><span class="k">crate</span><span class="w"> </span><span class="n">libpasta</span><span class="p">;</span><span class="w"></span>
 
+<span class="kn">use</span><span class="w"> </span><span class="n">libpasta</span><span class="o">::</span><span class="n">primitives</span><span class="o">::</span><span class="n">Bcrypt</span><span class="p">;</span><span class="w"></span>
+
 <span class="k">fn</span><span class="w"> </span><span class="n">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">    </span><span class="n">libpasta</span><span class="o">::</span><span class="n">config</span><span class="o">::</span><span class="n">set_primitive</span><span class="p">(</span><span class="n">libpasta</span><span class="o">::</span><span class="n">default_bcrypt</span><span class="p">());</span><span class="w"></span>
+<span class="w">    </span><span class="n">libpasta</span><span class="o">::</span><span class="n">config</span><span class="o">::</span><span class="n">set_primitive</span><span class="p">(</span><span class="n">Bcrypt</span><span class="o">::</span><span class="n">new</span><span class="p">(</span><span class="mi">15</span><span class="p">));</span><span class="w"></span>
 <span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="n">password_hash</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">libpasta</span><span class="o">::</span><span class="n">hash_password</span><span class="p">(</span><span class="s">&quot;hunter2&quot;</span><span class="p">.</span><span class="n">to_string</span><span class="p">());</span><span class="w"></span>
 <span class="w">    </span><span class="n">println</span><span class="o">!</span><span class="p">(</span><span class="s">&quot;The hashed password is: &#39;{}&#39;&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">password_hash</span><span class="p">);</span><span class="w"></span>
 <span class="w">    </span><span class="c1">// Prints bcrypt hash</span>
