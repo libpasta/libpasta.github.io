@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
     <meta name="generator" content="Hugo 0.21" />
-    <meta name="description" content="">
+    <meta name="description" content="libpasta - making passwords painless">
 
 
     <link rel="shortcut icon" href="/images/favicon.png" type="image/x-icon" />
@@ -409,12 +409,14 @@ different sources.</p>
 
 <p>For example, the following code configures a key for use in libpasta and
 sets up HMAC to be used as a wrapping function:</p>
-<div class="highlight"><pre><code class="language-rust" data-lang="rust"><span></span><span class="c1">// Some proper way of getting a key</span>
+<div class="highlight"><pre><code class="language-rust" data-lang="rust"><span></span><span class="kn">use</span><span class="w"> </span><span class="n">libpasta</span><span class="o">::</span><span class="n">primitives</span><span class="o">::</span><span class="n">hmac</span><span class="o">::</span><span class="n">Hmac</span><span class="p">;</span><span class="w"></span>
+
+<span class="c1">// Some proper way of getting a key</span>
 <span class="kd">let</span><span class="w"> </span><span class="n">key</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">b&quot;yellow submarine&quot;</span><span class="p">;</span><span class="w"></span>
 <span class="n">libpasta</span><span class="o">::</span><span class="n">config</span><span class="o">::</span><span class="n">add_key</span><span class="p">(</span><span class="n">key</span><span class="p">);</span><span class="w"></span>
 
 <span class="c1">// Construct an HMAC instance and use this as the outer configuration</span>
-<span class="kd">let</span><span class="w"> </span><span class="n">keyed_function</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">libpasta</span><span class="o">::</span><span class="n">primitives</span><span class="o">::</span><span class="n">hmac</span><span class="o">::</span><span class="n">Hmac</span><span class="o">::</span><span class="n">with_key</span><span class="p">(</span><span class="o">&amp;</span><span class="n">digest</span><span class="o">::</span><span class="n">SHA256</span><span class="p">,</span><span class="w"> </span><span class="n">key</span><span class="p">);</span><span class="w"></span>
+<span class="kd">let</span><span class="w"> </span><span class="n">keyed_function</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Hmac</span><span class="o">::</span><span class="n">with_key</span><span class="p">(</span><span class="o">&amp;</span><span class="n">digest</span><span class="o">::</span><span class="n">SHA256</span><span class="p">,</span><span class="w"> </span><span class="n">key</span><span class="p">);</span><span class="w"></span>
 <span class="n">libpasta</span><span class="o">::</span><span class="n">config</span><span class="o">::</span><span class="n">set_keyed_hash</span><span class="p">(</span><span class="n">keyed_function</span><span class="p">.</span><span class="n">into</span><span class="p">());</span><span class="w"></span>
 </code></pre></div>
 
@@ -430,8 +432,126 @@ then afterwards apply the HMAC to the output hash.</p>
     </div>
 
     
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+      
+    
+    
+    
+      
+        
+      
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+      
+        
+      
+      
+        
+      
+        
+      
+        
+      
+    
+      
+        
+      
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+      
+        
+      
+      
+        
+      
+        
+      
+    
+    
 
     <div id="navigation">
+        
+        
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+            
+              
+                <a class="nav nav-prev" href="/advanced/"> <i class="fa fa-chevron-left"></i></a>
+              
+            
+            
+              
+                <a class="nav nav-next" href="/advanced/migration/" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+              
+            
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
         
         
         
