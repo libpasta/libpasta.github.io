@@ -48,8 +48,8 @@ Furthermore, with the exception of Yahoo who eventually migrated to bcrypt in 20
       
       <guid>https://libpasta.github.io/introduction/basic-usage/</guid>
       <description>The following examples are for the core library written in Rust. See other languages for language bindings and examples. Where possible, the APIs exported by libpasta are identical to those used in the Rust library.
-Password Hashes A common scenario is that a particular user has password, which a service will check on each login to authenticate the user.
-externcratelibpasta; // We re-export the rpassword crate for CLI password input.</description>
+The full Rust API documentation can be found here. Or will be found on docs.rs once v0.1 is published.
+Password Hashes A common scenario is that a particular user has password, which a service will check on each login to authenticate the user.</description>
     </item>
     
     <item>
