@@ -15,15 +15,15 @@
   </url>
   
   <url>
-    <loc>https://libpasta.github.io/technical-details/algorithm-choice/</loc>
-  </url>
-  
-  <url>
     <loc>https://libpasta.github.io/technical-details/</loc>
   </url>
   
   <url>
     <loc>https://libpasta.github.io/introduction/what-is-libpasta/</loc>
+  </url>
+  
+  <url>
+    <loc>https://libpasta.github.io/technical-details/algorithm-choice/</loc>
   </url>
   
   <url>
@@ -52,6 +52,10 @@
   
   <url>
     <loc>https://libpasta.github.io/other-languages/python/</loc>
+  </url>
+  
+  <url>
+    <loc>https://libpasta.github.io/technical-details/randomness/</loc>
   </url>
   
   <url>
