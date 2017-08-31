@@ -1,0 +1,602 @@
+<!DOCTYPE html>
+<html lang="en" class="js csstransforms3d">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta name="generator" content="Hugo 0.21" />
+    <meta name="description" content="libpasta - making passwords painless">
+
+
+    <link rel="shortcut icon" href="/images/favicon.png" type="image/x-icon" />
+
+    <link rel="stylesheet" href="https://libpasta.github.io/css/monokai.css">
+    
+    <title>Randomness Problems</title>
+    <link href="https://libpasta.github.io//css/nucleus.css" rel="stylesheet">
+    <link href="https://libpasta.github.io//css/font-awesome.min.css" rel="stylesheet">
+    <link href="https://libpasta.github.io//css/hybrid.css" rel="stylesheet">
+    <link href="https://libpasta.github.io//css/featherlight.min.css" rel="stylesheet">
+    <link href="https://libpasta.github.io//css/perfect-scrollbar.min.css" rel="stylesheet">
+    <link href="https://libpasta.github.io//css/horsey.css" rel="stylesheet">
+    <link href="https://libpasta.github.io//css/theme.css" rel="stylesheet">
+    <link href="https://libpasta.github.io//css/hugo-theme.css" rel="stylesheet">
+    <script src="https://libpasta.github.io//js/jquery-2.x.min.js"></script>
+    <style type="text/css">:root #header + #content > #left > #rlblock_left
+    {display:none !important;}</style>
+    
+
+  </head>
+  <body class="" data-url="/technical-details/randomness/">
+    
+    <nav id="sidebar">
+  <div id="header-wrapper">
+    <div id="header">
+      <a id="logo" href="https://libpasta.github.io/">
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   id="svg8"
+   version="1.1"
+   viewBox="0 0 45.997559 10"
+   height="12.242269mm"
+   width="45.997559mm">
+  <defs
+     id="defs2" />
+  <metadata
+     id="metadata5">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     transform="translate(-66.952891,-67.060878)"
+     id="layer1">
+    <text
+       id="text4487"
+       y="100.10173"
+       x="68.955536"
+       style="font-style:normal;font-weight:normal;font-size:10.58333302px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       xml:space="preserve"><tspan
+         style="fill:#ffffff;stroke:#FFFFFF;stroke-width:0.26458332px"
+         y="76.10173"
+         x="68.955536"
+         id="tspan4485">libpasta</tspan></text>
+  </g>
+</svg>
+
+</a>
+
+    </div>
+    
+</div>
+
+
+  <div class="highlightable">
+    <ul class="topics">
+    <h4>Contents:</h4>
+      
+        
+        
+          
+          
+            
+          
+        
+          
+          
+            
+          
+        
+          
+          
+            
+          
+        
+          
+          
+            
+          
+        
+        
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+      
+      
+      
+
+      
+      
+      
+        
+          
+        
+      
+      
+      
+
+      <li class="dd-item  " data-nav-id="/introduction/">
+        <a href="/introduction/">
+          <span>
+            
+              <b>1. </b>
+            
+             Introduction
+            
+           </span>
+        </a>
+        
+        <ul>
+          
+            <li class="dd-item " data-nav-id="/introduction/what-is-libpasta/">
+              <a href="/introduction/what-is-libpasta/">
+                <span>What is libpasta?     </span>
+              </a>
+            </li>
+          
+            <li class="dd-item " data-nav-id="/introduction/basic-usage/">
+              <a href="/introduction/basic-usage/">
+                <span>Basic Usage     </span>
+              </a>
+            </li>
+          
+            <li class="dd-item " data-nav-id="/introduction/installation/">
+              <a href="/introduction/installation/">
+                <span>Installation     </span>
+              </a>
+            </li>
+          
+            <li class="dd-item " data-nav-id="/introduction/password-hashing-theory/">
+              <a href="/introduction/password-hashing-theory/">
+                <span>Password hashing theory     </span>
+              </a>
+            </li>
+          
+        </ul>
+        
+      </li>
+      
+      
+      
+
+      
+      
+      
+        
+          
+        
+      
+      
+      
+
+      <li class="dd-item  " data-nav-id="/advanced/">
+        <a href="/advanced/">
+          <span>
+            
+              <b>2. </b>
+            
+             Advanced Usage
+            
+           </span>
+        </a>
+        
+        <ul>
+          
+            <li class="dd-item " data-nav-id="/advanced/keyed/">
+              <a href="/advanced/keyed/">
+                <span>Keyed Hashes     </span>
+              </a>
+            </li>
+          
+            <li class="dd-item " data-nav-id="/advanced/migration/">
+              <a href="/advanced/migration/">
+                <span>Password Migration     </span>
+              </a>
+            </li>
+          
+            <li class="dd-item " data-nav-id="/advanced/tuning/">
+              <a href="/advanced/tuning/">
+                <span>Tuning &amp; Parameter Selection     </span>
+              </a>
+            </li>
+          
+        </ul>
+        
+      </li>
+      
+      
+      
+
+      
+      
+      
+        
+          
+        
+      
+      
+      
+
+      <li class="dd-item  " data-nav-id="/other-languages/">
+        <a href="/other-languages/">
+          <span>
+            
+              <b>3. </b>
+            
+             Other Languages
+            
+           </span>
+        </a>
+        
+        <ul>
+          
+            <li class="dd-item " data-nav-id="/other-languages/overview/">
+              <a href="/other-languages/overview/">
+                <span>Overview     </span>
+              </a>
+            </li>
+          
+            <li class="dd-item " data-nav-id="/other-languages/c/">
+              <a href="/other-languages/c/">
+                <span>C     </span>
+              </a>
+            </li>
+          
+            <li class="dd-item " data-nav-id="/other-languages/java/">
+              <a href="/other-languages/java/">
+                <span>Java     </span>
+              </a>
+            </li>
+          
+            <li class="dd-item " data-nav-id="/other-languages/php/">
+              <a href="/other-languages/php/">
+                <span>PHP     </span>
+              </a>
+            </li>
+          
+            <li class="dd-item " data-nav-id="/other-languages/python/">
+              <a href="/other-languages/python/">
+                <span>Python     </span>
+              </a>
+            </li>
+          
+            <li class="dd-item " data-nav-id="/other-languages/ruby/">
+              <a href="/other-languages/ruby/">
+                <span>Ruby     </span>
+              </a>
+            </li>
+          
+        </ul>
+        
+      </li>
+      
+      
+      
+
+      
+      
+      
+        
+          
+        
+      
+      
+      
+
+      <li class="dd-item  parent" data-nav-id="/technical-details/">
+        <a href="/technical-details/">
+          <span>
+            
+              <b>4. </b>
+            
+             Technical Details
+            
+           </span>
+        </a>
+        
+        <ul>
+          
+            <li class="dd-item " data-nav-id="/technical-details/algorithm-choice/">
+              <a href="/technical-details/algorithm-choice/">
+                <span>Algorithm Selection     </span>
+              </a>
+            </li>
+          
+            <li class="dd-item active" data-nav-id="/technical-details/randomness/">
+              <a href="/technical-details/randomness/">
+                <span>Randomness Problems     </span>
+              </a>
+            </li>
+          
+            <li class="dd-item " data-nav-id="/technical-details/phc-string-format/">
+              <a href="/technical-details/phc-string-format/">
+                <span>Serializing Hashes     </span>
+              </a>
+            </li>
+          
+        </ul>
+        
+      </li>
+      
+      
+    </ul>
+    <hr>
+     
+    <ul class="topics">
+    <h4>Useful links:</h4>
+      <li class="dd-item">
+        <a href="https://github.com/libpasta/libpasta">
+          <i class="fa fa-github" aria-hidden="true"></i> Github
+        </a>
+      </li>
+      <li>
+        <a href="https://libpasta.github.io/doc/libpasta/">
+          <i class="fa fa-book" aria-hidden="true"></i> Documentation
+        </a>
+      </li>
+    </ul>
+    <section id="footer">
+      <p>Built with <a href="https://github.com/matcornic/hugo-theme-learn"><i class="fa fa-heart"></i></a> from <a href="http://getgrav.org">Grav</a> and <a href="http://gohugo.io/">Hugo</a></p>
+
+    </section>
+  </div>
+</nav>
+
+        <section id="body">
+        <div id="overlay"></div>
+
+        <div class="padding highlightable sticky-parent">
+            
+            <div class="sticky-spacer">
+              <div id="top-bar">
+              
+              <div id="breadcrumbs" itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb">
+                  <span id="sidebar-toggle-span">
+                      <a href="#" id="sidebar-toggle" data-sidebar-toggle="">
+                        <i class="fa fa-bars"></i>
+                      </a>
+                  </span>
+                
+                <span id="toc-menu"><a href=""><i class="fa fa-list-alt"></i></a></span>
+                
+                
+                  
+                  
+                  
+                    
+                    
+                <a href="/technical-details/" itemprop="url"><span itemprop="title">Technical Details</span></a> <i class="fa fa-angle-right"></i>
+                    
+                  
+                
+                <span itemprop="title"> Randomness Problems</span>
+              </div>
+              
+                  <div class="progress">
+    <div class="wrapper">
+
+    </div>
+</div>
+
+              
+            </div>
+
+            </div>
+            
+              <div id="body-inner">
+                
+                <h1>Randomness Problems</h1>
+                
+
+<p>One benefit of Rust is that it enforces strict error handling in applications.
+Rust has <code>unwrap</code> and <code>expect</code> methods which are generally used to mean &ldquo;I have no
+idea how to recover from this particular error, please kill the program&rdquo;.</p>
+
+<p>For example, imagine some binary appliation which is used to count the lines of a file
+<code>cargo run --bin wc some_file.txt</code>
+it seems reasonable to panic if <code>some_file.txt</code> is not found, which would
+communicate this issue clearly.</p>
+
+<p>Abusing <code>unwrap</code> and <code>expect</code> leads to faulty software. If a password library
+panicked every time it receives a password hash which was too short (perhaps
+the database read was truncated for some reason) then it is going to cause
+significant issues down the road for the web application.</p>
+
+<p>In <code>libpasta</code>, there are currently two main sources of failures: hash
+de/serialization failures, and failure to generate random values. Here we focus
+on the latter, the former should be covered by a well-defined serialization
+format and thorough testing/fuzzing.</p>
+
+<p>When calling <code>libpasta::hash_password</code>, the library will attempt to generate a
+random salt for hashing. If this fails, it is not clear that there is any meaningful
+strategy which can be performed. Returning this error the the developer is significantly
+complicates the API, without a good chance they can do anything about it.
+Blocking until randomness is available is also a poor strategy. Hence we look
+to provide a reasonably fallback strategy.</p>
+
+<p>On first use <code>libpasta</code> initializes a number of configuration options
+(see <a href="../../introduction/basic-usage/#basic-configuration">basic configuration</a>).
+At this point, <code>libpasta</code> will also test out the default source of randomness
+(as configured by <a href="https://briansmith.org/rustdoc/ring/rand/struct.SystemRandom.html">ring</a>),
+and initialized a seed. This seed is used as the input to a PRNG, which can
+deterministically generate salts for new password hashes.
+If this seed is never recovered by an adversary, there is no problem, and all the
+salts are still pseudorandom. If, however, the current seed is compromised, all
+future salts are predictable. However it is still hopefully the case that
+salts will be per-user distinct which is the main property we wish to achieve.</p>
+
+<p>Hence, instead of failing, here we provide an acceptable fallback mechanism
+which guarantees the system can continue operating even in unexpected
+circumstances.</p>
+
+
+      
+      
+      </div>
+    </div>
+
+    
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+      
+    
+    
+    
+      
+        
+      
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+      
+        
+      
+      
+        
+      
+        
+      
+        
+      
+    
+      
+        
+      
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+      
+        
+      
+      
+        
+      
+        
+      
+        
+      
+    
+    
+
+    <div id="navigation">
+        
+        
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+            
+              
+                <a class="nav nav-prev" href="/technical-details/algorithm-choice/"> <i class="fa fa-chevron-left"></i></a>
+              
+            
+            
+              
+                <a class="nav nav-next" href="/technical-details/phc-string-format/" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+              
+            
+          
+        
+          
+        
+        
+        
+        
+    </div>
+
+    </section>
+    <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
+      <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
+    </div>
+    <script src="https://libpasta.github.io//js/perfect-scrollbar.min.js"></script>
+    <script src="https://libpasta.github.io//js/perfect-scrollbar.jquery.min.js"></script>
+    <script src="https://libpasta.github.io//js/jquery.sticky-kit.min.js"></script>
+    <script src="https://libpasta.github.io//js/featherlight.min.js"></script>
+    <script src="https://libpasta.github.io//js/html5shiv-printshiv.min.js"></script>
+    <script src="https://libpasta.github.io//js/highlight.pack.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <script src="https://libpasta.github.io//js/modernizr.custom.71422.js"></script>
+    <script src="https://libpasta.github.io//js/learn.js"></script>
+    <script src="https://libpasta.github.io//js/hugo-learn.js"></script>
+    
+
+  </body>
+</html>
+
