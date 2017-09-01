@@ -11,7 +11,7 @@
 
     <link rel="stylesheet" href="https://libpasta.github.io/css/monokai.css">
     
-    <title>Algorithm Selection</title>
+    <title>Supported Algorithms</title>
     <link href="https://libpasta.github.io//css/nucleus.css" rel="stylesheet">
     <link href="https://libpasta.github.io//css/font-awesome.min.css" rel="stylesheet">
     <link href="https://libpasta.github.io//css/hybrid.css" rel="stylesheet">
@@ -26,7 +26,7 @@
     
 
   </head>
-  <body class="" data-url="/technical-details/algorithm-choice/">
+  <body class="" data-url="/technical-details/supported/">
     
     <nav id="sidebar">
   <div id="header-wrapper">
@@ -312,7 +312,7 @@
         
         <ul>
           
-            <li class="dd-item active" data-nav-id="/technical-details/algorithm-choice/">
+            <li class="dd-item " data-nav-id="/technical-details/algorithm-choice/">
               <a href="/technical-details/algorithm-choice/">
                 <span>Algorithm Selection     </span>
               </a>
@@ -330,7 +330,7 @@
               </a>
             </li>
           
-            <li class="dd-item " data-nav-id="/technical-details/supported/">
+            <li class="dd-item active" data-nav-id="/technical-details/supported/">
               <a href="/technical-details/supported/">
                 <span>Supported Algorithms     </span>
               </a>
@@ -391,12 +391,20 @@
                     
                   
                 
-                <span itemprop="title"> Algorithm Selection</span>
+                <span itemprop="title"> Supported Algorithms</span>
               </div>
               
                   <div class="progress">
     <div class="wrapper">
-
+<nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li><a href="#formats">Formats</a></li>
+<li><a href="#algorithms">Algorithms</a></li>
+</ul></li>
+</ul>
+</nav>
     </div>
 </div>
 
@@ -407,20 +415,61 @@
             
               <div id="body-inner">
                 
-                <h1>Algorithm Selection</h1>
+                <h1>Supported Algorithms</h1>
                 
 
-<p>Currently, we use <a href="https://www.tarsnap.com/scrypt.html">scrypt</a> as the default algorithm in <code>libpasta</code>.
-The default parameters are:</p>
 
-<pre><code>N: 2^14
-r: 8
-p: 1
-</code></pre>
 
-<p>This results in a memory requirement of approximately 16MiB and about 0.01 - 0.1
-seconds to compute. For many systems, this can be increased, and we suggest
-using the <a href="../../advanced/tuning">tuning tools</a> to choose suitable parameters.</p>
+<p>This page lists the hash formats currently supported by <code>libpasta</code>, and
+the algorithms available for use. For any missing formats/algorithms, please
+<a href="https://github.com/libpasta/libpasta/issues">open an issue</a> and/or submit a
+pull request.</p>
+
+<h2 id="formats">Formats</h2>
+
+<p>The following hash-formats are supported automatically by <code>libpasta</code>:</p>
+
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Format</th>
+<th>Description</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>bcrypt legacy format</td>
+<td><code>$2[abxy]$&lt;cost&gt;$&lt;salthash&gt;</code></td>
+<td><code>salthash</code> is a non-standard base64 encoding</td>
+</tr>
+
+<tr>
+<td><a href="../phc-string-format">PHC format</a></td>
+<td><code>$&lt;id&gt;$&lt;params map&gt;$&lt;salt&gt;$&lt;hash&gt;</code></td>
+<td>Also referred to as modular crypt format</td>
+</tr>
+
+<tr>
+<td><code>libpasta</code> specific</td>
+<td><code>($!&lt;PHC hash&gt;)*$&lt;PHC hash&gt;</code></td>
+<td>nested MCF hash</td>
+</tr>
+</tbody>
+</table>
+
+<h2 id="algorithms">Algorithms</h2>
+
+<p>Currently, <code>libpasta</code> has support for:</p>
+
+<ul>
+<li><a href="https://github.com/P-H-C/phc-winner-argon2/">argon2</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Bcrypt">bcrypt</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Hash-based_message_authentication_code">HMAC</a></li>
+<li><a href="https://en.wikipedia.org/wiki/PBKDF2">PBKDF2</a></li>
+<li><a href="https://www.tarsnap.com/scrypt.html">scrypt</a></li>
+</ul>
 
 
       
@@ -539,22 +588,20 @@ using the <a href="../../advanced/tuning">tuning tools</a> to choose suitable pa
           
         
           
-            
-              
-                <a class="nav nav-prev" href="/technical-details/"> <i class="fa fa-chevron-left"></i></a>
-              
-            
-            
-              
-                <a class="nav nav-next" href="/technical-details/randomness/" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
-              
-            
-          
         
           
         
           
         
+          
+            
+              
+                <a class="nav nav-prev" href="/technical-details/phc-string-format/"> <i class="fa fa-chevron-left"></i></a>
+              
+            
+            
+              
+            
           
         
         

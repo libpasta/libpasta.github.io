@@ -330,6 +330,12 @@
               </a>
             </li>
           
+            <li class="dd-item " data-nav-id="/technical-details/supported/">
+              <a href="/technical-details/supported/">
+                <span>Supported Algorithms     </span>
+              </a>
+            </li>
+          
         </ul>
         
       </li>
@@ -408,7 +414,7 @@
 Rust has <code>unwrap</code> and <code>expect</code> methods which are generally used to mean &ldquo;I have no
 idea how to recover from this particular error, please kill the program&rdquo;.</p>
 
-<p>For example, imagine some binary appliation which is used to count the lines of a file
+<p>For example, imagine some binary application which is used to count the lines of a file
 <code>cargo run --bin wc some_file.txt</code>
 it seems reasonable to panic if <code>some_file.txt</code> is not found, which would
 communicate this issue clearly.</p>
@@ -425,7 +431,7 @@ format and thorough testing/fuzzing.</p>
 
 <p>When calling <code>libpasta::hash_password</code>, the library will attempt to generate a
 random salt for hashing. If this fails, it is not clear that there is any meaningful
-strategy which can be performed. Returning this error the the developer is significantly
+strategy which can be performed. Returning this error to the developer significantly
 complicates the API, without a good chance they can do anything about it.
 Blocking until randomness is available is also a poor strategy. Hence we look
 to provide a reasonably fallback strategy.</p>
@@ -434,7 +440,7 @@ to provide a reasonably fallback strategy.</p>
 (see <a href="../../introduction/basic-usage/#basic-configuration">basic configuration</a>).
 At this point, <code>libpasta</code> will also test out the default source of randomness
 (as configured by <a href="https://briansmith.org/rustdoc/ring/rand/struct.SystemRandom.html">ring</a>),
-and initialized a seed. This seed is used as the input to a PRNG, which can
+to initialize a seed. This seed is used as the input to a PRNG, which can
 deterministically generate salts for new password hashes.
 If this seed is never recovered by an adversary, there is no problem, and all the
 salts are still pseudorandom. If, however, the current seed is compromised, all
@@ -518,6 +524,8 @@ circumstances.</p>
       
         
       
+        
+      
     
     
 
@@ -572,6 +580,8 @@ circumstances.</p>
                 <a class="nav nav-next" href="/technical-details/phc-string-format/" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
               
             
+          
+        
           
         
           

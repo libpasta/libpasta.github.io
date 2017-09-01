@@ -16,7 +16,8 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://libpasta.github.io/technical-details/algorithm-choice/</guid>
-      <description>Currently, we use scrypt as the default algorithm in libpasta.</description>
+      <description>Currently, we use scrypt as the default algorithm in libpasta. The default parameters are:
+N: 2^14 r: 8 p: 1  This results in a memory requirement of approximately 16MiB and about 0.01 - 0.1 seconds to compute. For many systems, this can be increased, and we suggest using the tuning tools to choose suitable parameters.</description>
     </item>
     
     <item>
@@ -26,7 +27,7 @@
       
       <guid>https://libpasta.github.io/technical-details/randomness/</guid>
       <description>One benefit of Rust is that it enforces strict error handling in applications. Rust has unwrap and expect methods which are generally used to mean &amp;ldquo;I have no idea how to recover from this particular error, please kill the program&amp;rdquo;.
-For example, imagine some binary appliation which is used to count the lines of a file cargo run --bin wc some_file.txt it seems reasonable to panic if some_file.txt is not found, which would communicate this issue clearly.</description>
+For example, imagine some binary application which is used to count the lines of a file cargo run --bin wc some_file.txt it seems reasonable to panic if some_file.txt is not found, which would communicate this issue clearly.</description>
     </item>
     
     <item>
@@ -39,6 +40,17 @@ For example, imagine some binary appliation which is used to count the lines of 
 These take the following format:
  $&amp;lt;id&amp;gt;[$&amp;lt;param&amp;gt;=&amp;lt;value&amp;gt;(,&amp;lt;param&amp;gt;=&amp;lt;value&amp;gt;)*][$&amp;lt;salt&amp;gt;[$&amp;lt;hash&amp;gt;]]  where:
  &amp;lt;id&amp;gt; is the symbolic name for the function &amp;lt;param&amp;gt; is a parameter name &amp;lt;value&amp;gt; is a parameter value &amp;lt;salt&amp;gt; is an encoding of the salt &amp;lt;hash&amp;gt; is an encoding of the hash output  The string is then the concatenation, in that order, of:</description>
+    </item>
+    
+    <item>
+      <title>Supported Algorithms</title>
+      <link>https://libpasta.github.io/technical-details/supported/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://libpasta.github.io/technical-details/supported/</guid>
+      <description>This page lists the hash formats currently supported by libpasta, and the algorithms available for use. For any missing formats/algorithms, please open an issue and/or submit a pull request.
+Formats The following hash-formats are supported automatically by libpasta:
+   Name Format Description     bcrypt legacy format $2[abxy]$&amp;lt;cost&amp;gt;$&amp;lt;salthash&amp;gt; salthash is a non-standard base64 encoding   PHC format $&amp;lt;id&amp;gt;$&amp;lt;params map&amp;gt;$&amp;lt;salt&amp;gt;$&amp;lt;hash&amp;gt; Also referred to as modular crypt format   libpasta specific ($!</description>
     </item>
     
   </channel>
