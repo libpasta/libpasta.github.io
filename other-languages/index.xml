@@ -19,7 +19,7 @@
       <description>Our goal is for libpasta to be the clear choice for any developers requiring secure password storage. We target a number of languages, initially supported through the use of SWIG.
 So far, this means we have simple bindings for C, Java, PHP, python, and Ruby.
 The SWIG specification for libpasta reveals the simplicity of the API, and a few important caveats:
-# in pasta.h #include &amp;lt;stdbool.h&amp;gt; extern char * hash_password(const char *password); extern bool verify_password(const char* hash, const char *password); extern void free_string(const char *); extern char * read_password(const char *prompt);  These bind to the functions exported by the libpasta-ffi crate.</description>
+# in pasta.h  #include &amp;lt;stdbool.h&amp;gt;extern char * hash_password(const char *password); extern bool verify_password(const char* hash, const char *password); extern void free_string(const char *); extern char * read_password(const char *prompt); These bind to the functions exported by the libpasta-ffi crate.</description>
     </item>
     
     <item>
@@ -29,7 +29,7 @@ The SWIG specification for libpasta reveals the simplicity of the API, and a few
       
       <guid>https://libpasta.github.io/other-languages/c/</guid>
       <description>We can use the FFI definitions output by Rust directly in C code. However, unlike with the SWIG bindings, we are required to manually free the strings after use, as in the following simple example.
-### in pasta.h #include &amp;lt;stdbool.h&amp;gt; extern char * hash_password(const char *password); extern bool verify_password(const char* hash, const char *password); extern void free_string(const char *); extern char * read_password(const char *prompt);  #include &amp;quot;pasta.h&amp;quot; #include &amp;lt;stdio.h&amp;gt; int main(void) { char *hash, *password; hash = hash_password(&amp;quot;hello123&amp;quot;); password = read_password(&amp;quot;Please enter the password (hint: hello123):&amp;quot;); if (verify_password(hash, password)) { printf(&amp;quot;Correct password\n&amp;quot;); } else { printf(&amp;quot;Sorry, that is incorrect\n&amp;quot;); } free_string(hash); free_string(password); return 0; }  Which is compiled in the usual way:</description>
+### in pasta.h #include &amp;lt;stdbool.h&amp;gt; extern char * hash_password(const char *password); extern bool verify_password(const char* hash, const char *password); extern void free_string(const char *); extern char * read_password(const char *prompt);#include &amp;#34;pasta.h&amp;#34;#include &amp;lt;stdio.h&amp;gt; int main(void) { char *hash, *password; hash = hash_password(&amp;#34;hello123&amp;#34;); password = read_password(&amp;#34;Please enter the password (hint: hello123):&amp;#34;); if (verify_password(hash, password)) { printf(&amp;#34;Correct password\n&amp;#34;); } else { printf(&amp;#34;Sorry, that is incorrect\n&amp;#34;); } free_string(hash); free_string(password); return 0; } Which is compiled in the usual way:</description>
     </item>
     
     <item>
@@ -40,7 +40,7 @@ The SWIG specification for libpasta reveals the simplicity of the API, and a few
       <guid>https://libpasta.github.io/other-languages/java/</guid>
       <description>SWIG generates a number of helper files for Java, and a JNI library for use. For convenience, we have packaged these in a .jar file, which can be compiled from scratch using the make install_java command.
 Hence, we need the following files: libpasta.so, libpasta_jni.so, and `libpasta.jar. Then, the following is sufficient to use the pasta functions:
-public class test { public static void main(String argv[]) { String hash = pasta.hash_password(&amp;quot;hello123&amp;quot;); String password = pasta.</description>
+public class test { public static void main(String argv[]) { String hash = pasta.hash_password(&amp;#34;hello123&amp;#34;); String password = pasta.</description>
     </item>
     
     <item>
@@ -50,7 +50,7 @@ public class test { public static void main(String argv[]) { String hash = pasta
       
       <guid>https://libpasta.github.io/other-languages/php/</guid>
       <description>For PHP, SWIG generates a pasta.so extension, which can be installed in the system directory (for example, /etc/php/php.ini), and must be enabled. SWIG also generates a pasta.php module file which loads the extension and defines the API for libpasta.
-// In pasta_form.php &amp;lt;?php include(&amp;quot;pasta.php&amp;quot;); $password = $_POST[&amp;#39;password&amp;#39;]; $hash = pasta::hash_password(&amp;quot;hello123&amp;quot;); if (pasta::verify_password($hash, $password)) { echo &amp;quot;Correct password.&amp;quot;; } else { echo &amp;quot;Sorry, that is incorrect&amp;quot;; } ?&amp;gt;  &amp;lt;html&amp;gt; &amp;lt;head&amp;gt; &amp;lt;title&amp;gt;libpasta PHP example&amp;lt;/title&amp;gt; &amp;lt;/head&amp;gt; &amp;lt;body&amp;gt; &amp;lt;form action=&amp;quot;pasta_form.</description>
+// In pasta_form.php &amp;lt;?php include(&amp;#34;pasta.php&amp;#34;); $password = $_POST[&amp;#39;password&amp;#39;]; $hash = pasta::hash_password(&amp;#34;hello123&amp;#34;); if (pasta::verify_password($hash, $password)) { echo &amp;#34;Correct password.&amp;#34;; } else { echo &amp;#34;Sorry, that is incorrect&amp;#34;; } ?&amp;gt;&amp;lt;html&amp;gt; &amp;lt;head&amp;gt; &amp;lt;title&amp;gt;libpasta PHP example&amp;lt;/title&amp;gt; &amp;lt;/head&amp;gt; &amp;lt;body&amp;gt; &amp;lt;form action=&amp;#34;pasta_form.</description>
     </item>
     
     <item>
@@ -60,7 +60,7 @@ public class test { public static void main(String argv[]) { String hash = pasta
       
       <guid>https://libpasta.github.io/other-languages/python/</guid>
       <description>In the future libpasta will be distributed for python through pypi. For now, we can use the _pasta.so and pasta.py files created by SWIG.
-from pasta import * hash = hash_password(&amp;quot;hello123&amp;quot;) password = read_password(&amp;quot;Please enter the password (hint: hello123):&amp;quot;) if verify_password(hash, password): print(&amp;quot;Correct password&amp;quot;) else: print(&amp;quot;Sorry, that is incorrect&amp;quot;)  </description>
+from pasta import * hash = hash_password(&amp;#34;hello123&amp;#34;) password = read_password(&amp;#34;Please enter the password (hint: hello123):&amp;#34;) if verify_password(hash, password): print(&amp;#34;Correct password&amp;#34;) else: print(&amp;#34;Sorry, that is incorrect&amp;#34;)</description>
     </item>
     
     <item>
@@ -70,7 +70,7 @@ from pasta import * hash = hash_password(&amp;quot;hello123&amp;quot;) password 
       
       <guid>https://libpasta.github.io/other-languages/ruby/</guid>
       <description>In the future Ruby will be supported through a Ruby gem. For now, SWIG generates a pasta.so extension which can be used directly by Ruby:
-require &amp;#39;./pasta.so&amp;#39; hash = Pasta::hash_password(&amp;quot;hello123&amp;quot;) password = Pasta::read_password(&amp;quot;Please enter the password (hint: hello123):&amp;quot;) if Pasta::verify_password(hash, password) puts &amp;quot;Correct password&amp;quot; else puts &amp;quot;Sorry, that is incorrect&amp;quot; end  </description>
+require &amp;#39;./pasta.so&amp;#39; hash = Pasta::hash_password(&amp;#34;hello123&amp;#34;) password = Pasta::read_password(&amp;#34;Please enter the password (hint: hello123):&amp;#34;) if Pasta::verify_password(hash, password) puts &amp;#34;Correct password&amp;#34; else puts &amp;#34;Sorry, that is incorrect&amp;#34; end</description>
     </item>
     
   </channel>

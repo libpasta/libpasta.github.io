@@ -19,7 +19,7 @@
       <description>Our goal is for libpasta to be the clear choice for any developers requiring secure password storage. We target a number of languages, initially supported through the use of SWIG.
 So far, this means we have simple bindings for C, Java, PHP, python, and Ruby.
 The SWIG specification for libpasta reveals the simplicity of the API, and a few important caveats:
-# in pasta.h #include &amp;lt;stdbool.h&amp;gt; extern char * hash_password(const char *password); extern bool verify_password(const char* hash, const char *password); extern void free_string(const char *); extern char * read_password(const char *prompt);  These bind to the functions exported by the libpasta-ffi crate.</description>
+# in pasta.h  #include &amp;lt;stdbool.h&amp;gt;extern char * hash_password(const char *password); extern bool verify_password(const char* hash, const char *password); extern void free_string(const char *); extern char * read_password(const char *prompt); These bind to the functions exported by the libpasta-ffi crate.</description>
     </item>
     
     <item>
@@ -60,7 +60,7 @@ Password Hashes A common scenario is that a particular user has password, which 
       
       <guid>https://libpasta.github.io/other-languages/c/</guid>
       <description>We can use the FFI definitions output by Rust directly in C code. However, unlike with the SWIG bindings, we are required to manually free the strings after use, as in the following simple example.
-### in pasta.h #include &amp;lt;stdbool.h&amp;gt; extern char * hash_password(const char *password); extern bool verify_password(const char* hash, const char *password); extern void free_string(const char *); extern char * read_password(const char *prompt);  #include &amp;quot;pasta.h&amp;quot; #include &amp;lt;stdio.h&amp;gt; int main(void) { char *hash, *password; hash = hash_password(&amp;quot;hello123&amp;quot;); password = read_password(&amp;quot;Please enter the password (hint: hello123):&amp;quot;); if (verify_password(hash, password)) { printf(&amp;quot;Correct password\n&amp;quot;); } else { printf(&amp;quot;Sorry, that is incorrect\n&amp;quot;); } free_string(hash); free_string(password); return 0; }  Which is compiled in the usual way:</description>
+### in pasta.h #include &amp;lt;stdbool.h&amp;gt; extern char * hash_password(const char *password); extern bool verify_password(const char* hash, const char *password); extern void free_string(const char *); extern char * read_password(const char *prompt);#include &amp;#34;pasta.h&amp;#34;#include &amp;lt;stdio.h&amp;gt; int main(void) { char *hash, *password; hash = hash_password(&amp;#34;hello123&amp;#34;); password = read_password(&amp;#34;Please enter the password (hint: hello123):&amp;#34;); if (verify_password(hash, password)) { printf(&amp;#34;Correct password\n&amp;#34;); } else { printf(&amp;#34;Sorry, that is incorrect\n&amp;#34;); } free_string(hash); free_string(password); return 0; } Which is compiled in the usual way:</description>
     </item>
     
     <item>
@@ -70,8 +70,8 @@ Password Hashes A common scenario is that a particular user has password, which 
       
       <guid>https://libpasta.github.io/other-languages/java/</guid>
       <description>SWIG generates a number of helper files for Java, and a JNI library for use. For convenience, we have packaged these in a .jar file, which can be compiled from scratch using the make install_java command.
-Hence, we need the following files: libpasta.so, libpasta_jni.so, and `libpasta.jar. Then, the following is sufficient to use the pasta functions:
-public class test { public static void main(String argv[]) { String hash = pasta.hash_password(&amp;quot;hello123&amp;quot;); String password = pasta.</description>
+Hence, we need the following files: libpasta.so, libpasta_jni.so, and libpasta.jar. Then, the following is sufficient to use the pasta functions:
+public class test { public static void main(String argv[]) { String hash = pasta.hash_password(&amp;#34;hello123&amp;#34;); String password = pasta.</description>
     </item>
     
     <item>
@@ -92,7 +92,7 @@ For example, the following code configures a key for use in libpasta and sets up
       
       <guid>https://libpasta.github.io/other-languages/php/</guid>
       <description>For PHP, SWIG generates a pasta.so extension, which can be installed in the system directory (for example, /etc/php/php.ini), and must be enabled. SWIG also generates a pasta.php module file which loads the extension and defines the API for libpasta.
-// In pasta_form.php &amp;lt;?php include(&amp;quot;pasta.php&amp;quot;); $password = $_POST[&amp;#39;password&amp;#39;]; $hash = pasta::hash_password(&amp;quot;hello123&amp;quot;); if (pasta::verify_password($hash, $password)) { echo &amp;quot;Correct password.&amp;quot;; } else { echo &amp;quot;Sorry, that is incorrect&amp;quot;; } ?&amp;gt;  &amp;lt;html&amp;gt; &amp;lt;head&amp;gt; &amp;lt;title&amp;gt;libpasta PHP example&amp;lt;/title&amp;gt; &amp;lt;/head&amp;gt; &amp;lt;body&amp;gt; &amp;lt;form action=&amp;quot;pasta_form.</description>
+// In pasta_form.php &amp;lt;?php include(&amp;#34;pasta.php&amp;#34;); $password = $_POST[&amp;#39;password&amp;#39;]; $hash = pasta::hash_password(&amp;#34;hello123&amp;#34;); if (pasta::verify_password($hash, $password)) { echo &amp;#34;Correct password.&amp;#34;; } else { echo &amp;#34;Sorry, that is incorrect&amp;#34;; } ?&amp;gt;&amp;lt;html&amp;gt; &amp;lt;head&amp;gt; &amp;lt;title&amp;gt;libpasta PHP example&amp;lt;/title&amp;gt; &amp;lt;/head&amp;gt; &amp;lt;body&amp;gt; &amp;lt;form action=&amp;#34;pasta_form.</description>
     </item>
     
     <item>
@@ -112,7 +112,7 @@ Migrating a password hash is a subtle problem. The whole point of password stora
       
       <guid>https://libpasta.github.io/other-languages/python/</guid>
       <description>In the future libpasta will be distributed for python through pypi. For now, we can use the _pasta.so and pasta.py files created by SWIG.
-from pasta import * hash = hash_password(&amp;quot;hello123&amp;quot;) password = read_password(&amp;quot;Please enter the password (hint: hello123):&amp;quot;) if verify_password(hash, password): print(&amp;quot;Correct password&amp;quot;) else: print(&amp;quot;Sorry, that is incorrect&amp;quot;)  </description>
+from pasta import * hash = hash_password(&amp;#34;hello123&amp;#34;) password = read_password(&amp;#34;Please enter the password (hint: hello123):&amp;#34;) if verify_password(hash, password): print(&amp;#34;Correct password&amp;#34;) else: print(&amp;#34;Sorry, that is incorrect&amp;#34;)</description>
     </item>
     
     <item>
@@ -132,7 +132,7 @@ For example, imagine some binary application which is used to count the lines of
       
       <guid>https://libpasta.github.io/other-languages/ruby/</guid>
       <description>In the future Ruby will be supported through a Ruby gem. For now, SWIG generates a pasta.so extension which can be used directly by Ruby:
-require &amp;#39;./pasta.so&amp;#39; hash = Pasta::hash_password(&amp;quot;hello123&amp;quot;) password = Pasta::read_password(&amp;quot;Please enter the password (hint: hello123):&amp;quot;) if Pasta::verify_password(hash, password) puts &amp;quot;Correct password&amp;quot; else puts &amp;quot;Sorry, that is incorrect&amp;quot; end  </description>
+require &amp;#39;./pasta.so&amp;#39; hash = Pasta::hash_password(&amp;#34;hello123&amp;#34;) password = Pasta::read_password(&amp;#34;Please enter the password (hint: hello123):&amp;#34;) if Pasta::verify_password(hash, password) puts &amp;#34;Correct password&amp;#34; else puts &amp;#34;Sorry, that is incorrect&amp;#34; end</description>
     </item>
     
     <item>
@@ -154,7 +154,8 @@ These take the following format:
       
       <guid>https://libpasta.github.io/technical-details/supported/</guid>
       <description>This page lists the hash formats currently supported by libpasta, and the algorithms available for use. For any missing formats/algorithms, please open an issue and/or submit a pull request.
-Formats The following hash-formats are supported automatically by libpasta:
+Algorithms Currently, libpasta has support for:
+ argon2 bcrypt HMAC PBKDF2 scrypt  Formats The following hash-formats are supported automatically by libpasta:
    Name Format Description     bcrypt legacy format $2[abxy]$&amp;lt;cost&amp;gt;$&amp;lt;salthash&amp;gt; salthash is a non-standard base64 encoding   PHC format $&amp;lt;id&amp;gt;$&amp;lt;params map&amp;gt;$&amp;lt;salt&amp;gt;$&amp;lt;hash&amp;gt; Also referred to as modular crypt format   libpasta specific ($!</description>
     </item>
     
@@ -165,7 +166,7 @@ Formats The following hash-formats are supported automatically by libpasta:
       
       <guid>https://libpasta.github.io/introduction/installation/</guid>
       <description>libpasta is designed to be installed as a system library. Currently, this can be achieved by downloading the repository, compiling it, and moving the library to the system library, e.g /usr/lib.
-git clone https://github.com/libpasta/libpasta/ # NOT ACTUALLY HERE YET cd libpasta # compiles the library make libpasta # installs the library to ${INSTALL_DIR} - defaults to /usr/lib make install  For developing Rust applications, we recommend using it as usual through cargo.</description>
+git clone https://github.com/libpasta/libpasta/ # NOT ACTUALLY HERE YET cd libpasta # compiles the library make libpasta # installs the library to ${INSTALL_DIR} - defaults to /usr/lib make install For developing Rust applications, we recommend using it as usual through cargo.</description>
     </item>
     
     <item>

@@ -3,32 +3,43 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-    <meta name="generator" content="Hugo 0.21" />
+    <meta name="generator" content="Hugo 0.30" />
     <meta name="description" content="libpasta - making passwords painless">
 
 
     <link rel="shortcut icon" href="/images/favicon.png" type="image/x-icon" />
+<link rel="icon" href="/images/favicon.png" type="image/x-icon" />
 
-    <link rel="stylesheet" href="https://libpasta.github.io/css/monokai.css">
+    <title>Tuning &amp; Parameter Selection :: libpasta</title>
     
-    <title>Tuning &amp; Parameter Selection</title>
-    <link href="https://libpasta.github.io//css/nucleus.css" rel="stylesheet">
-    <link href="https://libpasta.github.io//css/font-awesome.min.css" rel="stylesheet">
-    <link href="https://libpasta.github.io//css/hybrid.css" rel="stylesheet">
-    <link href="https://libpasta.github.io//css/featherlight.min.css" rel="stylesheet">
-    <link href="https://libpasta.github.io//css/perfect-scrollbar.min.css" rel="stylesheet">
-    <link href="https://libpasta.github.io//css/horsey.css" rel="stylesheet">
-    <link href="https://libpasta.github.io//css/theme.css" rel="stylesheet">
-    <link href="https://libpasta.github.io//css/hugo-theme.css" rel="stylesheet">
-    <script src="https://libpasta.github.io//js/jquery-2.x.min.js"></script>
-    <style type="text/css">:root #header + #content > #left > #rlblock_left
-    {display:none !important;}</style>
+    
+    <link href="/css/nucleus.css?1509448991" rel="stylesheet">
+    <link href="/css/font-awesome.min.css?1509448991" rel="stylesheet">
+    <link href="/css/hybrid.css?1509448991" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1509448991" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1509448991" rel="stylesheet">
+    <link href="/css/auto-complete.css?1509448991" rel="stylesheet">
+    <link href="/css/theme.css?1509448991" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1509448991" rel="stylesheet">
+    
+      <link href="/css/theme-libpasta.css?1509448991" rel="stylesheet">
     
 
+    <script src="/js/jquery-2.x.min.js?1509448991"></script>
+    
+    <style type="text/css">
+      :root #header + #content > #left > #rlblock_left{ 
+          display:none !important;
+      }
+      
+    </style>
+    
   </head>
   <body class="" data-url="/advanced/tuning/">
-    
-    <nav id="sidebar">
+    <nav id="sidebar" class="">
+
+
+
   <div id="header-wrapper">
     <div id="header">
       <a id="logo" href="https://libpasta.github.io/">
@@ -77,286 +88,502 @@
 
     </div>
     
+        <div class="searchbox">
+    <label for="search-by"><i class="fa fa-search"></i></label>
+    <input data-search-input id="search-by" type="text" placeholder="Search...">
+    <span data-search-clear=""><i class="fa fa-close"></i></span>
 </div>
 
+<script type="text/javascript" src="/js/lunr.min.js?1509448991"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1509448991"></script>
+<script type="text/javascript">
+    
+        var baseurl = "https:\/\/libpasta.github.io\/";
+    
+</script>
+<script type="text/javascript" src="/js/search.js?1509448991"></script>
 
-  <div class="highlightable">
+    
+  </div>
+
+    <div class="highlightable">
     <ul class="topics">
-    <h4>Contents:</h4>
-      
-        
-        
-          
-          
-            
-          
-        
-          
-          
-            
-          
-        
-          
-          
-            
-          
-        
-          
-          
-            
-          
-        
-        
-        
-          
-        
-          
-        
-          
-        
-          
-        
-      
-      
-      
-      
 
-      
-      
-      
         
           
-        
-      
-      
-      
+          
 
-      <li class="dd-item  " data-nav-id="/introduction/">
-        <a href="/introduction/">
-          <span>
-            
-              <b>1. </b>
-            
-             Introduction
-            
-           </span>
-        </a>
+
+ 
+  
+    
+    <li data-nav-id="/introduction/" title="Introduction" class="dd-item 
         
+        
+        
+        ">
+      <a href="/introduction/">
+          <b>1. </b>Introduction
+          
+      </a>
+      
+      
         <ul>
           
-            <li class="dd-item " data-nav-id="/introduction/what-is-libpasta/">
-              <a href="/introduction/what-is-libpasta/">
-                <span>What is libpasta?     </span>
-              </a>
-            </li>
           
-            <li class="dd-item " data-nav-id="/introduction/basic-usage/">
-              <a href="/introduction/basic-usage/">
-                <span>Basic Usage     </span>
-              </a>
-            </li>
           
-            <li class="dd-item " data-nav-id="/introduction/installation/">
-              <a href="/introduction/installation/">
-                <span>Installation     </span>
-              </a>
-            </li>
           
-            <li class="dd-item " data-nav-id="/introduction/password-hashing-theory/">
-              <a href="/introduction/password-hashing-theory/">
-                <span>Password hashing theory     </span>
-              </a>
-            </li>
-          
-        </ul>
         
-      </li>
-      
-      
-      
+          
+            
+            
 
-      
-      
-      
-        
-          
-        
-      
-      
-      
 
-      <li class="dd-item  parent" data-nav-id="/advanced/">
-        <a href="/advanced/">
-          <span>
-            
-              <b>2. </b>
-            
-             Advanced Usage
-            
-           </span>
+ 
+  
+    
+      <li data-nav-id="/introduction/what-is-libpasta/" title="What is libpasta?" class="dd-item ">
+        <a href="/introduction/what-is-libpasta/">
+        What is libpasta?
+        
         </a>
-        
-        <ul>
-          
-            <li class="dd-item " data-nav-id="/advanced/keyed/">
-              <a href="/advanced/keyed/">
-                <span>Keyed Hashes     </span>
-              </a>
-            </li>
-          
-            <li class="dd-item " data-nav-id="/advanced/migration/">
-              <a href="/advanced/migration/">
-                <span>Password Migration     </span>
-              </a>
-            </li>
-          
-            <li class="dd-item active" data-nav-id="/advanced/tuning/">
-              <a href="/advanced/tuning/">
-                <span>Tuning &amp; Parameter Selection     </span>
-              </a>
-            </li>
-          
-        </ul>
-        
-      </li>
-      
-      
-      
-
-      
-      
-      
-        
-          
-        
-      
-      
-      
-
-      <li class="dd-item  " data-nav-id="/other-languages/">
-        <a href="/other-languages/">
-          <span>
-            
-              <b>3. </b>
-            
-             Other Languages
-            
-           </span>
-        </a>
-        
-        <ul>
-          
-            <li class="dd-item " data-nav-id="/other-languages/overview/">
-              <a href="/other-languages/overview/">
-                <span>Overview     </span>
-              </a>
-            </li>
-          
-            <li class="dd-item " data-nav-id="/other-languages/c/">
-              <a href="/other-languages/c/">
-                <span>C     </span>
-              </a>
-            </li>
-          
-            <li class="dd-item " data-nav-id="/other-languages/java/">
-              <a href="/other-languages/java/">
-                <span>Java     </span>
-              </a>
-            </li>
-          
-            <li class="dd-item " data-nav-id="/other-languages/php/">
-              <a href="/other-languages/php/">
-                <span>PHP     </span>
-              </a>
-            </li>
-          
-            <li class="dd-item " data-nav-id="/other-languages/python/">
-              <a href="/other-languages/python/">
-                <span>Python     </span>
-              </a>
-            </li>
-          
-            <li class="dd-item " data-nav-id="/other-languages/ruby/">
-              <a href="/other-languages/ruby/">
-                <span>Ruby     </span>
-              </a>
-            </li>
-          
-        </ul>
-        
-      </li>
-      
-      
-      
-
-      
-      
-      
-        
-          
-        
-      
-      
-      
-
-      <li class="dd-item  " data-nav-id="/technical-details/">
-        <a href="/technical-details/">
-          <span>
-            
-              <b>4. </b>
-            
-             Technical Details
-            
-           </span>
-        </a>
-        
-        <ul>
-          
-            <li class="dd-item " data-nav-id="/technical-details/algorithm-choice/">
-              <a href="/technical-details/algorithm-choice/">
-                <span>Algorithm Selection     </span>
-              </a>
-            </li>
-          
-            <li class="dd-item " data-nav-id="/technical-details/randomness/">
-              <a href="/technical-details/randomness/">
-                <span>Randomness Problems     </span>
-              </a>
-            </li>
-          
-            <li class="dd-item " data-nav-id="/technical-details/phc-string-format/">
-              <a href="/technical-details/phc-string-format/">
-                <span>Serializing Hashes     </span>
-              </a>
-            </li>
-          
-            <li class="dd-item " data-nav-id="/technical-details/supported/">
-              <a href="/technical-details/supported/">
-                <span>Supported Algorithms     </span>
-              </a>
-            </li>
-          
-        </ul>
-        
-      </li>
-      
-      
-    </ul>
-    <hr>
+    </li>
      
-    <ul class="topics">
-    <h4>Useful links:</h4>
-      <li class="dd-item">
-        <a href="https://github.com/libpasta/libpasta">
-          <i class="fa fa-github" aria-hidden="true"></i> Github
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/introduction/basic-usage/" title="Basic Usage" class="dd-item ">
+        <a href="/introduction/basic-usage/">
+        Basic Usage
+        
         </a>
-      </li>
-      <li>
-        <a href="https://libpasta.github.io/doc/libpasta/">
-          <i class="fa fa-book" aria-hidden="true"></i> Documentation
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/introduction/installation/" title="Installation" class="dd-item ">
+        <a href="/introduction/installation/">
+        Installation
+        
         </a>
-      </li>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/introduction/password-hashing-theory/" title="Password hashing theory" class="dd-item ">
+        <a href="/introduction/password-hashing-theory/">
+        Password hashing theory
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+        
+        </ul>
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+ 
+  
+    
+    <li data-nav-id="/advanced/" title="Advanced Usage" class="dd-item 
+        parent
+        
+        
+        ">
+      <a href="/advanced/">
+          <b>2. </b>Advanced Usage
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+          
+          
+        
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/advanced/keyed/" title="Keyed Hashes" class="dd-item ">
+        <a href="/advanced/keyed/">
+        Keyed Hashes
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/advanced/migration/" title="Password Migration" class="dd-item ">
+        <a href="/advanced/migration/">
+        Password Migration
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/advanced/tuning/" title="Tuning &amp; Parameter Selection" class="dd-item active">
+        <a href="/advanced/tuning/">
+        Tuning &amp; Parameter Selection
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+        
+        </ul>
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+ 
+  
+    
+    <li data-nav-id="/other-languages/" title="Other Languages" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/other-languages/">
+          <b>3. </b>Other Languages
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+          
+          
+        
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/other-languages/overview/" title="Overview" class="dd-item ">
+        <a href="/other-languages/overview/">
+        Overview
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/other-languages/c/" title="C" class="dd-item ">
+        <a href="/other-languages/c/">
+        C
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/other-languages/java/" title="Java" class="dd-item ">
+        <a href="/other-languages/java/">
+        Java
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/other-languages/php/" title="PHP" class="dd-item ">
+        <a href="/other-languages/php/">
+        PHP
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/other-languages/python/" title="Python" class="dd-item ">
+        <a href="/other-languages/python/">
+        Python
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/other-languages/ruby/" title="Ruby" class="dd-item ">
+        <a href="/other-languages/ruby/">
+        Ruby
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+        
+        </ul>
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+ 
+  
+    
+    <li data-nav-id="/technical-details/" title="Technical Details" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/technical-details/">
+          <b>4. </b>Technical Details
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+          
+          
+        
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/technical-details/algorithm-choice/" title="Algorithm Selection" class="dd-item ">
+        <a href="/technical-details/algorithm-choice/">
+        Algorithm Selection
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/technical-details/randomness/" title="Randomness Problems" class="dd-item ">
+        <a href="/technical-details/randomness/">
+        Randomness Problems
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/technical-details/phc-string-format/" title="Serializing Hashes" class="dd-item ">
+        <a href="/technical-details/phc-string-format/">
+        Serializing Hashes
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/technical-details/supported/" title="Supported Algorithms" class="dd-item ">
+        <a href="/technical-details/supported/">
+        Supported Algorithms
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+        
+        </ul>
+              
+    </li>
+  
+ 
+
+          
+         
     </ul>
+
+    
+    
+      <section id="shortcuts">
+        <h3>More</h3>
+        <ul>
+          
+              <li class="" role=""> 
+                  <a class="padding" href="https://github.com/libpasta/libpasta"><i class='fa fa-github'></i> Github repo</a>
+              </li>
+          
+              <li class="" role=""> 
+                  <a class="padding" href="https://libpasta.github.io/doc/libpasta/"><i class='fa fa-book'></i> Documentation</a>
+              </li>
+          
+        </ul>
+      </section>
+    
+
+    
     <section id="footer">
       <p>Built with <a href="https://github.com/matcornic/hugo-theme-learn"><i class="fa fa-heart"></i></a> from <a href="http://getgrav.org">Grav</a> and <a href="http://gohugo.io/">Hugo</a></p>
 
@@ -364,51 +591,68 @@
   </div>
 </nav>
 
+
+
+
+
         <section id="body">
         <div id="overlay"></div>
-
         <div class="padding highlightable sticky-parent">
+              
+              <div class="sticky-spacer">
+                <div id="top-bar">
+                
+                
+                <div id="breadcrumbs" itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb">
+                    <span id="sidebar-toggle-span">
+                        <a href="#" id="sidebar-toggle" data-sidebar-toggle="">
+                          <i class="fa fa-bars"></i>
+                        </a>
+                    </span>
+                  
+                  <span id="toc-menu"><i class="fa fa-list-alt"></i></span>
+                  
+                  <span class="links">
+                    
+          
+          
             
-            <div class="sticky-spacer">
-              <div id="top-bar">
-              
-              <div id="breadcrumbs" itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb">
-                  <span id="sidebar-toggle-span">
-                      <a href="#" id="sidebar-toggle" data-sidebar-toggle="">
-                        <i class="fa fa-bars"></i>
-                      </a>
+            
+          
+          
+            
+            
+          
+          
+            <a href='/'>libpasta</a> > <a href='/advanced/'>Advanced Usage</a> > Tuning & Parameter Selection
+          
+         
+          
+         
+          
+           
                   </span>
+                </div>
                 
-                <span id="toc-menu"><a href=""><i class="fa fa-list-alt"></i></a></span>
-                
-                
-                  
-                  
-                  
-                    
-                    
-                <a href="/advanced/" itemprop="url"><span itemprop="title">Advanced Usage</span></a> <i class="fa fa-angle-right"></i>
-                    
-                  
-                
-                <span itemprop="title"> Tuning &amp; Parameter Selection</span>
-              </div>
-              
-                  <div class="progress">
+                    <div class="progress">
     <div class="wrapper">
 
     </div>
 </div>
 
-              
-            </div>
-
+                
+              </div>
             </div>
             
-              <div id="body-inner">
-                
-                <h1>Tuning &amp; Parameter Selection</h1>
-                
+
+        
+        <div id="body-inner">
+          
+            <h1>Tuning &amp; Parameter Selection</h1>
+          
+
+        
+
 
 <p><code>libpasta</code> comes with a set of secure default algorithm and parameter choices.
 However, there is no single set of parameters which is suitable for all
@@ -419,56 +663,52 @@ target system; if the system performs significantly worse than the expected
 times, this could result in suboptimal, or even insecure, parameters selected.</p>
 
 <p>Currently, running <code>tune -h</code> gives the following output:</p>
-<div class="highlight"><pre><code class="language-console" data-lang="console"><span></span><span class="gp">$</span> tune -h
-<span class="go">tune 0.0.1</span>
-<span class="go">Sam Scott</span>
-<span class="go">libpasta tuning tool</span>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-console" data-lang="console">$ tune -h
+tune 0.0.1
+Sam Scott
+libpasta tuning tool
 
-<span class="go">USAGE:</span>
-<span class="go">    tune [FLAGS] [OPTIONS]</span>
+USAGE:
+    tune [FLAGS] [OPTIONS]
 
-<span class="go">FLAGS:</span>
-<span class="go">    -h, --help       Prints help information</span>
-<span class="go">    -p, --print      Output the final result in the configuration file format</span>
-<span class="go">    -V, --version    Prints version information</span>
-<span class="go">    -v, --verbose    Print test information verbosely</span>
+FLAGS:
+    -h, --help       Prints help information
+    -p, --print      Output the final result in the configuration file format
+    -V, --version    Prints version information
+    -v, --verbose    Print test information verbosely
 
-<span class="go">OPTIONS:</span>
-<span class="go">    -a, --algorithm &lt;algorithm&gt;    Choose the algorithm to tune (default: argon2i) [values: argon2i, bcrypt, scrypt]</span>
-<span class="go">    -t, --target &lt;target&gt;          Set the target number of verifications per second to support (defaut: 2)</span>
-</code></pre></div>
-
+OPTIONS:
+    -a, --algorithm &lt;algorithm&gt;    Choose the algorithm to tune (default: argon2i) [values: argon2i, bcrypt, scrypt]
+    -t, --target &lt;target&gt;          Set the target number of verifications per second to support (defaut: 2)</code></pre></div>
 <p>Running simple <code>tune</code> will benchmark various parameter choices (for the default
 options) until optimal values are found. Configuration options include the
 algorithm to target, and the default number of logins per second to be
 supported.</p>
 
 <p>Finally, the <code>-p</code> flag can be used to produce a libpasta-compatible configuration file.</p>
-<div class="highlight"><pre><code class="language-console" data-lang="console"><span></span><span class="gp">$</span> tune -a scrypt -p
-<span class="go">CPU speed: 2800</span>
-<span class="go">Predicted maximum parameter: 17, with time: 0.437s</span>
-<span class="go">logN = 5, parallel = 1, read size = 8 ~&gt; memory = 33 KiB 0.0001 s (estimated: 0.0001 s)</span>
-<span class="go">logN = 6, parallel = 1, read size = 8 ~&gt; memory = 65 KiB 0.0002 s (estimated: 0.0002 s)</span>
-<span class="go">logN = 7, parallel = 1, read size = 8 ~&gt; memory = 129 KiB 0.0004 s (estimated: 0.0004 s)</span>
-<span class="go">...</span>
-<span class="go">logN = 16, parallel = 1, read size = 8 ~&gt; memory = 65537 KiB 0.1791 s (estimated: 0.2186 s)</span>
-<span class="go">logN = 17, parallel = 1, read size = 8 ~&gt; memory = 131073 KiB 0.3581 s (estimated: 0.4372 s)</span>
-<span class="go">logN = 18, parallel = 1, read size = 8 ~&gt; memory = 262145 KiB 0.7151 s (estimated: 0.8743 s)</span>
-<span class="go">Maximum amount of memory (capped at 2036080 KiB) to achieve &lt; 0.50 s hash = 131088 KiB</span>
-<span class="go">Recommended: SCrypt, N: 131072, r: 8, p: 1</span>
-<span class="go">Default:     SCrypt, N: 16384, r: 8, p: 1</span>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-console" data-lang="console">$ tune -a scrypt -p
+CPU speed: 2800
+Predicted maximum parameter: 17, with time: 0.437s
+logN = 5, parallel = 1, read size = 8 ~&gt; memory = 33 KiB 0.0001 s (estimated: 0.0001 s)
+logN = 6, parallel = 1, read size = 8 ~&gt; memory = 65 KiB 0.0002 s (estimated: 0.0002 s)
+logN = 7, parallel = 1, read size = 8 ~&gt; memory = 129 KiB 0.0004 s (estimated: 0.0004 s)
+...
+logN = 16, parallel = 1, read size = 8 ~&gt; memory = 65537 KiB 0.1791 s (estimated: 0.2186 s)
+logN = 17, parallel = 1, read size = 8 ~&gt; memory = 131073 KiB 0.3581 s (estimated: 0.4372 s)
+logN = 18, parallel = 1, read size = 8 ~&gt; memory = 262145 KiB 0.7151 s (estimated: 0.8743 s)
+Maximum amount of memory (capped at 2036080 KiB) to achieve &lt; 0.50 s hash = 131088 KiB
+Recommended: SCrypt, N: 131072, r: 8, p: 1
+Default:     SCrypt, N: 16384, r: 8, p: 1
 
-<span class="go">Algorithm in configuration format:</span>
-<span class="go">---</span>
-<span class="go">default: Custom</span>
-<span class="go">primitive: </span>
-<span class="go">  id: &quot;scrypt-mcf&quot;</span>
-<span class="go">  params: </span>
-<span class="go">    log_n: &quot;17&quot;</span>
-<span class="go">    r: &quot;8&quot;</span>
-<span class="go">    p: &quot;1&quot;</span>
-</code></pre></div>
-
+Algorithm in configuration format:
+---
+default: Custom
+primitive: 
+  id: &#34;scrypt-mcf&#34;
+  params: 
+    log_n: &#34;17&#34;
+    r: &#34;8&#34;
+    p: &#34;1&#34;</code></pre></div>
 <p>There are a few interesting things to observe from the output. First of all, notice
 that the algorithm estimated maximum parameter choice to be 14, taking 0.055s, which
 is extremely close to the eventual value. This is a sense-check to ensure the system
@@ -481,159 +721,418 @@ websites. For offline applications, for example key derivation for disk encrypti
 a better value is 1 login every 3 seconds, so <code>-t 0.33</code>.</p>
 
 
-      
-      
-      </div>
-    </div>
+<footer class=" footline" >
+	
+</footer>
 
-    
-    
-    
-      
+
         
-      
-        
-      
-        
-      
-        
-      
-      
-    
-    
-    
-      
-        
-      
-      
-        
-      
-        
-      
-        
-      
-        
-      
-    
-      
-        
-      
-      
-        
-      
-        
-      
-        
-      
-    
-      
-        
-      
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-    
-      
-        
-      
-      
-        
-      
-        
-      
-        
-      
-        
-      
-    
-    
+        </div> 
+      </div>
 
     <div id="navigation">
         
         
         
-          
         
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-            
-              
-                <a class="nav nav-prev" href="/advanced/migration/"> <i class="fa fa-chevron-left"></i></a>
-              
             
             
-              
-                <a class="nav nav-next" href="/other-languages/" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
-              
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
             
-          
+            
+                
+                    
+                        
+                        
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
         
-          
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
         
-          
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
         
-          
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
         
-          
+                    
+            
         
-          
+                    
+                        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
         
-          
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
         
-          
+                    
+                        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
         
-          
+                    
+            
         
-          
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
         
-          
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
         
-          
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
         
-          
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+            
         
         
         
+
+
+        
+            <a class="nav nav-prev" href="/advanced/migration/" title="Password Migration"> <i class="fa fa-chevron-left"></i></a>
+        
+        
+            <a class="nav nav-next" href="/other-languages/" title="Other Languages" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
         
     </div>
 
     </section>
+    
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="https://libpasta.github.io//js/perfect-scrollbar.min.js"></script>
-    <script src="https://libpasta.github.io//js/perfect-scrollbar.jquery.min.js"></script>
-    <script src="https://libpasta.github.io//js/jquery.sticky-kit.min.js"></script>
-    <script src="https://libpasta.github.io//js/featherlight.min.js"></script>
-    <script src="https://libpasta.github.io//js/html5shiv-printshiv.min.js"></script>
-    <script src="https://libpasta.github.io//js/highlight.pack.js"></script>
+    <script src="/js/clipboard.min.js?1509448991"></script>
+    <script src="/js/perfect-scrollbar.min.js?1509448991"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1509448991"></script>
+    <script src="/js/jquery.sticky-kit.min.js?1509448991"></script>
+    <script src="/js/featherlight.min.js?1509448991"></script>
+    <script src="/js/html5shiv-printshiv.min.js?1509448991"></script>
+    <script src="/js/highlight.pack.js?1509448991"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="https://libpasta.github.io//js/modernizr.custom.71422.js"></script>
-    <script src="https://libpasta.github.io//js/learn.js"></script>
-    <script src="https://libpasta.github.io//js/hugo-learn.js"></script>
+    <script src="/js/modernizr.custom.71422.js?1509448991"></script>
+    <script src="/js/learn.js?1509448991"></script>
+    <script src="/js/hugo-learn.js?1509448991"></script>
+
+    <link href="/mermaid/mermaid.css?1509448991" type="text/css" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1509448991"></script>
+    <script>
+        mermaid.initialize({ startOnLoad: true });
+    </script>
     
 
   </body>
