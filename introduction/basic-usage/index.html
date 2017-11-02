@@ -13,19 +13,19 @@
     <title>Basic Usage :: libpasta</title>
     
     
-    <link href="/css/nucleus.css?1509621893" rel="stylesheet">
-    <link href="/css/font-awesome.min.css?1509621893" rel="stylesheet">
-    <link href="/css/hybrid.css?1509621893" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1509621893" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1509621893" rel="stylesheet">
-    <link href="/css/auto-complete.css?1509621893" rel="stylesheet">
-    <link href="/css/theme.css?1509621893" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1509621893" rel="stylesheet">
+    <link href="/css/nucleus.css?1509637316" rel="stylesheet">
+    <link href="/css/font-awesome.min.css?1509637316" rel="stylesheet">
+    <link href="/css/hybrid.css?1509637316" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1509637316" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1509637316" rel="stylesheet">
+    <link href="/css/auto-complete.css?1509637316" rel="stylesheet">
+    <link href="/css/theme.css?1509637316" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1509637316" rel="stylesheet">
     
-      <link href="/css/theme-libpasta.css?1509621893" rel="stylesheet">
+      <link href="/css/theme-libpasta.css?1509637316" rel="stylesheet">
     
 
-    <script src="/js/jquery-2.x.min.js?1509621893"></script>
+    <script src="/js/jquery-2.x.min.js?1509637316"></script>
     
     <style type="text/css">
       :root #header + #content > #left > #rlblock_left{ 
@@ -96,14 +96,14 @@
     <span data-search-clear=""><i class="fa fa-close"></i></span>
 </div>
 
-<script type="text/javascript" src="/js/lunr.min.js?1509621893"></script>
-<script type="text/javascript" src="/js/auto-complete.js?1509621893"></script>
+<script type="text/javascript" src="/js/lunr.min.js?1509637316"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1509637316"></script>
 <script type="text/javascript">
     
         var baseurl = "https:\/\/libpasta.github.io\/";
     
 </script>
-<script type="text/javascript" src="/js/search.js?1509621893"></script>
+<script type="text/javascript" src="/js/search.js?1509637316"></script>
 
     
   </div>
@@ -684,6 +684,7 @@ Or will be found on <a href="https://docs.rs/">docs.rs</a> once v0.1 is publishe
 
 <p>A common scenario is that a particular user has password, which a service will check on each login to authenticate the user.</p>
 
+<div>
 
 
 
@@ -739,6 +740,7 @@ hash <span style="color:#f92672">=</span>  hash_password(password)
 </div>
  </div></div>
 
+</div>
 
 <p>The above code randomly generates a salt, and outputs the hash in the following format:
 <code>$$scrypt-mcf$log_n=14,r=8,p=1$pfJFg/hVSthuA5l...</code>.</p>
@@ -752,6 +754,7 @@ outputs a variable-length string.</p>
 
 <p>Now that you have the hashed output, verifying that an inputted password is correct can be done as follows:</p>
 
+<div>
 
 
 
@@ -830,6 +833,7 @@ outputs a variable-length string.</p>
 </div>
  </div></div>
 
+</div>
 
 <h4 id="password-migration">Password migration</h4>
 
@@ -909,40 +913,61 @@ requires updating the stored version of the hash.</p>
 
 <h4 id="basic-configuration">Basic configuration</h4>
 
-<p><code>libpasta</code> supports configuration in two ways: directly in code, or using
-configuration files.</p>
+<p><code>libpasta</code> is designed to work out-of-the box with strong defaults. However,
+other configurations are supported through use of the <code>Config</code> object.
+In particular, this is necessary to use <a href="../../advanced/keyed">keyed functions</a>.</p>
 
-<p>For example, suppose we wish to use bcrypt with <code>cost=15</code> as the default algorithm.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-rust" data-lang="rust"><span style="color:#66d9ef">extern</span> <span style="color:#66d9ef">crate</span> libpasta;
+<p>This comes with the additional overheard that the config must be explicitly
+used.</p>
+
+<p>For example, suppose we wish to use bcrypt with <code>cost=15</code> as the default
+algorithm.</p>
+
+<div>
+
+
+
+
+<div class="code-tab config"> 
+<div class="tab">
+
+
+
+
+<button class="tablinks active" onclick="changeTab(event, 'config', 'Rust')">Rust</button>
+
+
+</div>
+<div class="tab-pane"><div class="tabcontent Rust" style="display: block" ><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-rust" data-lang="rust"><span style="color:#66d9ef">extern</span> <span style="color:#66d9ef">crate</span> libpasta;
 
 <span style="color:#66d9ef">use</span> libpasta::primitives::Bcrypt;
+<span style="color:#66d9ef">use</span> libpasta::config::Config;
 
 <span style="color:#66d9ef">fn</span> <span style="color:#a6e22e">main</span>() {
-    libpasta::config::set_primitive(Bcrypt::new(<span style="color:#ae81ff">15</span>));
-    <span style="color:#66d9ef">let</span> password_hash <span style="color:#f92672">=</span> libpasta::hash_password(<span style="color:#e6db74">&#34;hunter2&#34;</span>.to_string());
+    <span style="color:#66d9ef">let</span> config <span style="color:#f92672">=</span> Config::with_primitive(Bcrypt::new(<span style="color:#ae81ff">15</span>));
+    <span style="color:#66d9ef">let</span> password_hash <span style="color:#f92672">=</span> config.hash_password(<span style="color:#e6db74">&#34;hunter2&#34;</span>.to_string());
     println<span style="color:#f92672">!</span>(<span style="color:#e6db74">&#34;The hashed password is: &#39;{}&#39;&#34;</span>, password_hash);
     <span style="color:#75715e">// Prints bcrypt hash
 </span><span style="color:#75715e"></span>}</code></pre></div>
-<p>Note that once the library is in use, the configuration can no longer be
-changed.</p>
+</div>
+
+<div class="tabcontent Python" style="display: none" ></div>
+ </div></div>
+
+</div>
 
 <p>Additionally, values may be set using a configuration file. Written in YAML,
 these look as follows:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml">default_primitive:
-  id: scrypt-mcf
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml">default: Custom
+keyed: ~
+primitive: 
+  id: <span style="color:#e6db74">&#34;scrypt&#34;</span>
   params: 
-    log_n: <span style="color:#ae81ff">12</span>
+    ln: <span style="color:#ae81ff">11</span>
     r: <span style="color:#ae81ff">8</span>
     p: <span style="color:#ae81ff">1</span></code></pre></div>
-<p>This specifies the algorithm to use, in this case, scrypt.</p>
-
-<p>By default, <code>libpasta</code> will search the current directory for a file with the name
-<code>.libpasta.yaml</code>. Alternatively, a specific (relative or absolute) directory
-can be supplied by running: <code>LIBPASTA_CFG=path/to/cfg/ &lt;app-name&gt;</code>.</p>
-
-<p><code>libpasta</code> will use any parameters set directly, then use any values
-specified in configuration files, and finally all remaining variables are set
-to defaults.</p>
+<p>This specifies the algorithm to use, in this case, scrypt. Similar to the above,
+to use this config use the <code>Config::from_file</code> method.</p>
 
 <p><code>libpasta</code> also has a <a href="../../advanced/tuning">parameter selection tool</a> which
 can optionally output configuration values.</p>
@@ -1340,18 +1365,18 @@ can optionally output configuration values.</p>
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1509621893"></script>
-    <script src="/js/perfect-scrollbar.min.js?1509621893"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1509621893"></script>
-    <script src="/js/jquery.sticky-kit.min.js?1509621893"></script>
-    <script src="/js/featherlight.min.js?1509621893"></script>
-    <script src="/js/html5shiv-printshiv.min.js?1509621893"></script>
-    <script src="/js/modernizr.custom.71422.js?1509621893"></script>
-    <script src="/js/learn.js?1509621893"></script>
-    <script src="/js/hugo-learn.js?1509621893"></script>
+    <script src="/js/clipboard.min.js?1509637316"></script>
+    <script src="/js/perfect-scrollbar.min.js?1509637316"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1509637316"></script>
+    <script src="/js/jquery.sticky-kit.min.js?1509637316"></script>
+    <script src="/js/featherlight.min.js?1509637316"></script>
+    <script src="/js/html5shiv-printshiv.min.js?1509637316"></script>
+    <script src="/js/modernizr.custom.71422.js?1509637316"></script>
+    <script src="/js/learn.js?1509637316"></script>
+    <script src="/js/hugo-learn.js?1509637316"></script>
 
-    <link href="/mermaid/mermaid.css?1509621893" type="text/css" rel="stylesheet" />
-    <script src="/mermaid/mermaid.js?1509621893"></script>
+    <link href="/mermaid/mermaid.css?1509637316" type="text/css" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1509637316"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>

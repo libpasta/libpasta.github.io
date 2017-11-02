@@ -13,19 +13,19 @@
     <title>Keyed Hashes :: libpasta</title>
     
     
-    <link href="/css/nucleus.css?1509621893" rel="stylesheet">
-    <link href="/css/font-awesome.min.css?1509621893" rel="stylesheet">
-    <link href="/css/hybrid.css?1509621893" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1509621893" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1509621893" rel="stylesheet">
-    <link href="/css/auto-complete.css?1509621893" rel="stylesheet">
-    <link href="/css/theme.css?1509621893" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1509621893" rel="stylesheet">
+    <link href="/css/nucleus.css?1509637316" rel="stylesheet">
+    <link href="/css/font-awesome.min.css?1509637316" rel="stylesheet">
+    <link href="/css/hybrid.css?1509637316" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1509637316" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1509637316" rel="stylesheet">
+    <link href="/css/auto-complete.css?1509637316" rel="stylesheet">
+    <link href="/css/theme.css?1509637316" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1509637316" rel="stylesheet">
     
-      <link href="/css/theme-libpasta.css?1509621893" rel="stylesheet">
+      <link href="/css/theme-libpasta.css?1509637316" rel="stylesheet">
     
 
-    <script src="/js/jquery-2.x.min.js?1509621893"></script>
+    <script src="/js/jquery-2.x.min.js?1509637316"></script>
     
     <style type="text/css">
       :root #header + #content > #left > #rlblock_left{ 
@@ -96,14 +96,14 @@
     <span data-search-clear=""><i class="fa fa-close"></i></span>
 </div>
 
-<script type="text/javascript" src="/js/lunr.min.js?1509621893"></script>
-<script type="text/javascript" src="/js/auto-complete.js?1509621893"></script>
+<script type="text/javascript" src="/js/lunr.min.js?1509637316"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1509637316"></script>
 <script type="text/javascript">
     
         var baseurl = "https:\/\/libpasta.github.io\/";
     
 </script>
-<script type="text/javascript" src="/js/search.js?1509621893"></script>
+<script type="text/javascript" src="/js/search.js?1509637316"></script>
 
     
   </div>
@@ -668,15 +668,18 @@ different sources.</p>
 <p>For example, the following code configures a key for use in libpasta and
 sets up HMAC to be used as a wrapping function:</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-rust" data-lang="rust"><span style="color:#66d9ef">use</span> libpasta::primitives::hmac::Hmac;
+<span style="color:#66d9ef">use</span> libpasta::config::Config;
+
+<span style="color:#66d9ef">let</span> <span style="color:#66d9ef">mut</span> config <span style="color:#f92672">=</span> Config::default();
 
 <span style="color:#75715e">// Some proper way of getting a key
 </span><span style="color:#75715e"></span><span style="color:#66d9ef">let</span> key <span style="color:#f92672">=</span> <span style="color:#e6db74">b&#34;yellow submarine&#34;</span>;
-libpasta::config::add_key(key);
+config.add_key(key);
 
 <span style="color:#75715e">// Construct an HMAC instance and use this as the outer configuration
 </span><span style="color:#75715e"></span><span style="color:#66d9ef">let</span> keyed_function <span style="color:#f92672">=</span> Hmac::with_key(<span style="color:#f92672">&amp;</span>digest::SHA256, key);
-libpasta::config::set_keyed_hash(keyed_function.into());</code></pre></div>
-<p>Using <code>libpasta::hash_function</code> will first hash using the default algorithm, and
+config.set_keyed_hash(keyed_function);</code></pre></div>
+<p>Using <code>config.hash_function</code> will first hash using the default algorithm, and
 then afterwards apply the HMAC to the output hash.</p>
 
 <p>On the roadmap: support for alternative key sources.</p>
@@ -1074,18 +1077,18 @@ then afterwards apply the HMAC to the output hash.</p>
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1509621893"></script>
-    <script src="/js/perfect-scrollbar.min.js?1509621893"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1509621893"></script>
-    <script src="/js/jquery.sticky-kit.min.js?1509621893"></script>
-    <script src="/js/featherlight.min.js?1509621893"></script>
-    <script src="/js/html5shiv-printshiv.min.js?1509621893"></script>
-    <script src="/js/modernizr.custom.71422.js?1509621893"></script>
-    <script src="/js/learn.js?1509621893"></script>
-    <script src="/js/hugo-learn.js?1509621893"></script>
+    <script src="/js/clipboard.min.js?1509637316"></script>
+    <script src="/js/perfect-scrollbar.min.js?1509637316"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1509637316"></script>
+    <script src="/js/jquery.sticky-kit.min.js?1509637316"></script>
+    <script src="/js/featherlight.min.js?1509637316"></script>
+    <script src="/js/html5shiv-printshiv.min.js?1509637316"></script>
+    <script src="/js/modernizr.custom.71422.js?1509637316"></script>
+    <script src="/js/learn.js?1509637316"></script>
+    <script src="/js/hugo-learn.js?1509637316"></script>
 
-    <link href="/mermaid/mermaid.css?1509621893" type="text/css" rel="stylesheet" />
-    <script src="/mermaid/mermaid.js?1509621893"></script>
+    <link href="/mermaid/mermaid.css?1509637316" type="text/css" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1509637316"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>
