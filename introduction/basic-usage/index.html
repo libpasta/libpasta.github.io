@@ -13,19 +13,19 @@
     <title>Basic Usage :: libpasta</title>
     
     
-    <link href="/css/nucleus.css?1509448991" rel="stylesheet">
-    <link href="/css/font-awesome.min.css?1509448991" rel="stylesheet">
-    <link href="/css/hybrid.css?1509448991" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1509448991" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1509448991" rel="stylesheet">
-    <link href="/css/auto-complete.css?1509448991" rel="stylesheet">
-    <link href="/css/theme.css?1509448991" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1509448991" rel="stylesheet">
+    <link href="/css/nucleus.css?1509621893" rel="stylesheet">
+    <link href="/css/font-awesome.min.css?1509621893" rel="stylesheet">
+    <link href="/css/hybrid.css?1509621893" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1509621893" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1509621893" rel="stylesheet">
+    <link href="/css/auto-complete.css?1509621893" rel="stylesheet">
+    <link href="/css/theme.css?1509621893" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1509621893" rel="stylesheet">
     
-      <link href="/css/theme-libpasta.css?1509448991" rel="stylesheet">
+      <link href="/css/theme-libpasta.css?1509621893" rel="stylesheet">
     
 
-    <script src="/js/jquery-2.x.min.js?1509448991"></script>
+    <script src="/js/jquery-2.x.min.js?1509621893"></script>
     
     <style type="text/css">
       :root #header + #content > #left > #rlblock_left{ 
@@ -34,6 +34,8 @@
       
     </style>
     
+    <script src="/js/tabs.js"></script>
+
   </head>
   <body class="" data-url="/introduction/basic-usage/">
     <nav id="sidebar" class="">
@@ -94,14 +96,14 @@
     <span data-search-clear=""><i class="fa fa-close"></i></span>
 </div>
 
-<script type="text/javascript" src="/js/lunr.min.js?1509448991"></script>
-<script type="text/javascript" src="/js/auto-complete.js?1509448991"></script>
+<script type="text/javascript" src="/js/lunr.min.js?1509621893"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1509621893"></script>
 <script type="text/javascript">
     
         var baseurl = "https:\/\/libpasta.github.io\/";
     
 </script>
-<script type="text/javascript" src="/js/search.js?1509448991"></script>
+<script type="text/javascript" src="/js/search.js?1509621893"></script>
 
     
   </div>
@@ -682,7 +684,49 @@ Or will be found on <a href="https://docs.rs/">docs.rs</a> once v0.1 is publishe
 
 <p>A common scenario is that a particular user has password, which a service will check on each login to authenticate the user.</p>
 
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-rust" data-lang="rust"><span style="color:#66d9ef">extern</span> <span style="color:#66d9ef">crate</span> libpasta;
+
+
+
+
+<div class="code-tab hash"> 
+<div class="tab">
+
+
+
+
+<button class="tablinks " onclick="changeTab(event, 'hash', 'Java')">Java</button>
+
+
+
+
+
+<button class="tablinks " onclick="changeTab(event, 'hash', 'Python')">Python</button>
+
+
+
+
+
+<button class="tablinks active" onclick="changeTab(event, 'hash', 'Rust')">Rust</button>
+
+
+</div>
+<div class="tab-pane"><div class="tabcontent Java" style="display: none" ><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">test</span> <span style="color:#f92672">{</span>
+  <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">main</span><span style="color:#f92672">(</span>String argv<span style="color:#f92672">[])</span> <span style="color:#f92672">{</span>
+    String password  <span style="color:#f92672">=</span> pasta<span style="color:#f92672">.</span><span style="color:#a6e22e">read_password</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;Please enter your password:&#34;</span><span style="color:#f92672">);</span>
+<span style="background-color:#3c3d38;display:block;width:100%">    String hash <span style="color:#f92672">=</span> pasta<span style="color:#f92672">.</span><span style="color:#a6e22e">hash_password</span><span style="color:#f92672">(</span>password<span style="color:#f92672">);</span>
+</span>    System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;The hashed password is: &#34;</span> <span style="color:#f92672">+</span> hash<span style="color:#f92672">);</span>
+  <span style="color:#f92672">}</span>
+<span style="color:#f92672">}</span></code></pre></div>
+</div>
+
+<div class="tabcontent Python" style="display: none" ><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">from</span> pasta <span style="color:#f92672">import</span> <span style="color:#f92672">*</span>
+
+password <span style="color:#f92672">=</span> read_password(<span style="color:#e6db74"></span><span style="color:#e6db74">&#34;Please enter your password:&#34;</span>)
+hash <span style="color:#f92672">=</span>  hash_password(password)
+<span style="color:#66d9ef">print</span>(<span style="color:#e6db74"></span><span style="color:#e6db74">&#34;The hashed password is: &#34;</span>, hash)</code></pre></div>
+</div>
+
+<div class="tabcontent Rust" style="display: block" ><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-rust" data-lang="rust"><span style="color:#66d9ef">extern</span> <span style="color:#66d9ef">crate</span> libpasta;
 
 <span style="color:#75715e">// We re-export the rpassword crate for CLI password input.
 </span><span style="color:#75715e"></span><span style="color:#66d9ef">use</span> libpasta::rpassword::<span style="color:#f92672">*</span>;
@@ -692,6 +736,9 @@ Or will be found on <a href="https://docs.rs/">docs.rs</a> once v0.1 is publishe
 <span style="background-color:#3c3d38;display:block;width:100%">    <span style="color:#66d9ef">let</span> password_hash <span style="color:#f92672">=</span> libpasta::hash_password(password);
 </span>    println<span style="color:#f92672">!</span>(<span style="color:#e6db74">&#34;The hashed password is: &#39;{}&#39;&#34;</span>, password_hash);
 }</code></pre></div>
+</div>
+ </div></div>
+
 
 <p>The above code randomly generates a salt, and outputs the hash in the following format:
 <code>$$scrypt-mcf$log_n=14,r=8,p=1$pfJFg/hVSthuA5l...</code>.</p>
@@ -705,7 +752,33 @@ outputs a variable-length string.</p>
 
 <p>Now that you have the hashed output, verifying that an inputted password is correct can be done as follows:</p>
 
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-rust" data-lang="rust"><span style="color:#66d9ef">extern</span> <span style="color:#66d9ef">crate</span> libpasta;
+
+
+
+
+<div class="code-tab verify"> 
+<div class="tab">
+
+
+
+
+<button class="tablinks " onclick="changeTab(event, 'verify', 'Java')">Java</button>
+
+
+
+
+
+<button class="tablinks " onclick="changeTab(event, 'verify', 'Python')">Python</button>
+
+
+
+
+
+<button class="tablinks active" onclick="changeTab(event, 'verify', 'Rust')">Rust</button>
+
+
+</div>
+<div class="tab-pane"><div class="tabcontent Rust" style="display: block" ><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-rust" data-lang="rust"><span style="color:#66d9ef">extern</span> <span style="color:#66d9ef">crate</span> libpasta;
 <span style="color:#66d9ef">use</span> libpasta::rpassword::<span style="color:#f92672">*</span>;
 
 <span style="color:#66d9ef">struct</span> <span style="color:#a6e22e">User</span> {
@@ -723,6 +796,40 @@ outputs a variable-length string.</p>
         <span style="color:#75715e">// ~&gt; Handle incorrect password
 </span><span style="color:#75715e"></span>    }
 }</code></pre></div>
+</div>
+
+<div class="tabcontent Python" style="display: none" ><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">from</span> pasta <span style="color:#f92672">import</span> <span style="color:#f92672">*</span>
+
+<span style="color:#66d9ef">class</span> <span style="color:#a6e22e">User</span>:
+    password_hash <span style="color:#f92672">=</span> <span style="color:#e6db74"></span><span style="color:#e6db74">&#34;&#34;</span>
+
+    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">auth_user</span>():
+        password <span style="color:#f92672">=</span> read_password(<span style="color:#e6db74"></span><span style="color:#e6db74">&#34;Enter password:&#34;</span>)
+        <span style="color:#66d9ef">if</span> verify_password(self<span style="color:#f92672">.</span>password_hash, password):
+            <span style="color:#66d9ef">print</span>(<span style="color:#e6db74"></span><span style="color:#e6db74">&#34;The password is correct!&#34;</span>)
+            <span style="color:#75715e"># ~&gt; Handle correct password</span>
+        <span style="color:#66d9ef">else</span>:
+            <span style="color:#66d9ef">print</span>(<span style="color:#e6db74"></span><span style="color:#e6db74">&#34;Incorrect password.&#34;</span>)
+            <span style="color:#75715e"># ~&gt; Handle incorrect password</span></code></pre></div>
+</div>
+
+<div class="tabcontent Java" style="display: none" ><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">User</span> <span style="color:#f92672">{</span>
+    <span style="color:#66d9ef">private</span> String password_hash<span style="color:#f92672">;</span>
+
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">authUser</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+        String password <span style="color:#f92672">=</span> pasta<span style="color:#f92672">.</span><span style="color:#a6e22e">read_password</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;Enter password:&#34;</span><span style="color:#f92672">);</span>
+<span style="background-color:#3c3d38;display:block;width:100%">        <span style="color:#66d9ef">if</span><span style="color:#f92672">(</span>pasta<span style="color:#f92672">.</span><span style="color:#a6e22e">verify_password</span><span style="color:#f92672">(</span>self<span style="color:#f92672">.</span><span style="color:#a6e22e">password_hash</span><span style="color:#f92672">,</span> password<span style="color:#f92672">))</span> <span style="color:#f92672">{</span>
+</span>            System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;The password is correct!&#34;</span><span style="color:#f92672">);</span>
+            <span style="color:#75715e">// ~&gt; Handle correct password
+</span><span style="color:#75715e"></span>        <span style="color:#f92672">}</span> <span style="color:#66d9ef">else</span> <span style="color:#f92672">{</span>
+            System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;Incorrect password.&#34;</span><span style="color:#f92672">);</span>
+            <span style="color:#75715e">// ~&gt; Handle incorrect password
+</span><span style="color:#75715e"></span>        <span style="color:#f92672">}</span>
+    <span style="color:#f92672">}</span>
+<span style="color:#f92672">}</span></code></pre></div>
+</div>
+ </div></div>
+
 
 <h4 id="password-migration">Password migration</h4>
 
@@ -743,7 +850,22 @@ with the new algorithm.</p>
 <p>The following code first wraps an existing hash, and then a move to just using
 the new algorithm:</p>
 
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-rust" data-lang="rust"><span style="color:#66d9ef">extern</span> <span style="color:#66d9ef">crate</span> libpasta;
+<div>
+
+
+
+
+<div class="code-tab migrate"> 
+<div class="tab">
+
+
+
+
+<button class="tablinks active" onclick="changeTab(event, 'migrate', 'Rust')">Rust</button>
+
+
+</div>
+<div class="tab-pane"><div class="tabcontent Rust" style="display: block" ><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-rust" data-lang="rust"><span style="color:#66d9ef">extern</span> <span style="color:#66d9ef">crate</span> libpasta;
 <span style="color:#66d9ef">use</span> libpasta::rpassword::<span style="color:#f92672">*</span>;
 
 <span style="color:#66d9ef">struct</span> <span style="color:#a6e22e">User</span> {
@@ -767,6 +889,12 @@ the new algorithm:</p>
         println<span style="color:#f92672">!</span>(<span style="color:#e6db74">&#34;Password incorrect, hash unchanged: </span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">{}&#34;</span>, user.password_hash);
     }
 }</code></pre></div>
+</div>
+
+<div class="tabcontent Python" style="display: none" ></div>
+ </div></div>
+
+</div>
 
 <p>In the first step, we do not need the user&rsquo;s password (and can therefore
 apply this to all user passwords when desired). However, the password hash is now
@@ -1212,20 +1340,18 @@ can optionally output configuration values.</p>
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1509448991"></script>
-    <script src="/js/perfect-scrollbar.min.js?1509448991"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1509448991"></script>
-    <script src="/js/jquery.sticky-kit.min.js?1509448991"></script>
-    <script src="/js/featherlight.min.js?1509448991"></script>
-    <script src="/js/html5shiv-printshiv.min.js?1509448991"></script>
-    <script src="/js/highlight.pack.js?1509448991"></script>
-    <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom.71422.js?1509448991"></script>
-    <script src="/js/learn.js?1509448991"></script>
-    <script src="/js/hugo-learn.js?1509448991"></script>
+    <script src="/js/clipboard.min.js?1509621893"></script>
+    <script src="/js/perfect-scrollbar.min.js?1509621893"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1509621893"></script>
+    <script src="/js/jquery.sticky-kit.min.js?1509621893"></script>
+    <script src="/js/featherlight.min.js?1509621893"></script>
+    <script src="/js/html5shiv-printshiv.min.js?1509621893"></script>
+    <script src="/js/modernizr.custom.71422.js?1509621893"></script>
+    <script src="/js/learn.js?1509621893"></script>
+    <script src="/js/hugo-learn.js?1509621893"></script>
 
-    <link href="/mermaid/mermaid.css?1509448991" type="text/css" rel="stylesheet" />
-    <script src="/mermaid/mermaid.js?1509448991"></script>
+    <link href="/mermaid/mermaid.css?1509621893" type="text/css" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1509621893"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>
