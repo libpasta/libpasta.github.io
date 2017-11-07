@@ -11,13 +11,36 @@
     
     
     <item>
+      <title>Contributing</title>
+      <link>https://libpasta.github.io/libpasta-dev/contributing/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://libpasta.github.io/libpasta-dev/contributing/</guid>
+      <description>Some areas which are looking for contribution:
+ Improving these docs - source The core Rust library - source Adding more languages - see adding languages Writing more utility tools - source  </description>
+    </item>
+    
+    <item>
       <title>Overview</title>
       <link>https://libpasta.github.io/other-languages/overview/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://libpasta.github.io/other-languages/overview/</guid>
-      <description>Our goal is for libpasta to be the clear choice for any developers requiring secure password storage. We target a number of languages, initially supported through the use of SWIG.
+      <description>Our goal is for libpasta to be the clear choice for any developers requiring secure password storage. Hence we have initial support for a number of languages.
+For any missing languages, please open an issue or click &amp;ldquo;Edit this page&amp;rdquo; and submit a pull request.
+Here we list the support:
+   Language Supported? Repository Documentation     C Y TODO TODO   Java Y TODO TODO   PHP Y TODO TODO   Python Y TODO TODO   Ruby Y TODO TODO   Rust Native Link Link    </description>
+    </item>
+    
+    <item>
+      <title>Adding Languages</title>
+      <link>https://libpasta.github.io/libpasta-dev/adding-languages/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://libpasta.github.io/libpasta-dev/adding-languages/</guid>
+      <description>Our initial support for other languages is through the use of SWIG.
 So far, this means we have simple bindings for C, Java, PHP, python, and Ruby.
+If you want to add new language bindings, this is a good place to start.
 The SWIG specification for libpasta reveals the simplicity of the API, and a few important caveats:
 # in pasta.h  #include &amp;lt;stdbool.h&amp;gt;extern char * hash_password(const char *password); extern bool verify_password(const char* hash, const char *password); extern void free_string(const char *); extern char * read_password(const char *prompt); These bind to the functions exported by the libpasta-ffi crate.</description>
     </item>
@@ -48,7 +71,7 @@ N: 2^14 r: 8 p: 1  This results in a memory requirement of approximately 16MiB a
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://libpasta.github.io/introduction/basic-usage/</guid>
-      <description>The following examples are for the core library written in Rust. See other languages for language bindings and examples. Where possible, the APIs exported by libpasta are identical to those used in the Rust library.
+      <description>Here we give an overview of the core functionality of libpasta. Examples can be viewed in different languages, with the full list of language support found in other languages.
 The full Rust API documentation can be found here. Or will be found on docs.rs once v0.1 is published.
 Password Hashes A common scenario is that a particular user has password, which a service will check on each login to authenticate the user.</description>
     </item>
