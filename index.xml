@@ -29,7 +29,7 @@
       <description>Our goal is for libpasta to be the clear choice for any developers requiring secure password storage. Hence we have initial support for a number of languages.
 For any missing languages, please open an issue or click &amp;ldquo;Edit this page&amp;rdquo; and submit a pull request.
 Here we list the support:
-   Language Supported? Repository Documentation     C Y TODO TODO   Java Y TODO TODO   PHP Y TODO TODO   Python Y TODO TODO   Ruby Y TODO TODO   Rust Native Link Link    </description>
+   Language Supported? Repository Documentation     C Y TODO TODO   Java Y Link [Link][jdoc]   PHP Y TODO TODO   Python Y TODO TODO   Ruby Y TODO TODO   Rust Native Link [Link][rsdoc]    [jdoc]: {{ .</description>
     </item>
     
     <item>
@@ -72,8 +72,9 @@ N: 2^14 r: 8 p: 1  This results in a memory requirement of approximately 16MiB a
       
       <guid>https://libpasta.github.io/introduction/basic-usage/</guid>
       <description>Here we give an overview of the core functionality of libpasta. Examples can be viewed in different languages, with the full list of language support found in other languages.
-The full Rust API documentation can be found here. Or will be found on docs.rs once v0.1 is published.
-Password Hashes A common scenario is that a particular user has password, which a service will check on each login to authenticate the user.</description>
+The full Rust API documentation can be found here.
+Password Hashes A common scenario is that a particular user has password, which a service will check on each login to authenticate the user.
+ Java Python Rust  public class test { public static void main(String argv[]) { String password = pasta.</description>
     </item>
     
     <item>
@@ -92,9 +93,10 @@ Password Hashes A common scenario is that a particular user has password, which 
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://libpasta.github.io/other-languages/java/</guid>
-      <description>SWIG generates a number of helper files for Java, and a JNI library for use. For convenience, we have packaged these in a .jar file, which can be compiled from scratch using the make install_java command.
-Hence, we need the following files: libpasta.so, libpasta_jni.so, and libpasta.jar. Then, the following is sufficient to use the pasta functions:
-public class test { public static void main(String argv[]) { String hash = pasta.hash_password(&amp;#34;hello123&amp;#34;); String password = pasta.</description>
+      <description>There is currently support for the base functionality in Java.
+The library can be obtained by following the instruction in the repository. The simplest being to obtain the precompiled jar file from the releases page.
+Once obtained a simple example such as the following can be constructed:
+import io.github.libpasta.*; public class test { public static void main(String argv[]) { String hash = pasta.hash_password(&amp;#34;hello123&amp;#34;); String password = pasta.read_password(&amp;#34;Please enter the password (hint: hello123):&amp;#34;); if (pasta.</description>
     </item>
     
     <item>

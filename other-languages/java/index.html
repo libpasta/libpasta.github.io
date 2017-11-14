@@ -13,19 +13,19 @@
     <title>Java :: libpasta</title>
     
     
-    <link href="/css/nucleus.css?1510053697" rel="stylesheet">
-    <link href="/css/font-awesome.min.css?1510053697" rel="stylesheet">
-    <link href="/css/hybrid.css?1510053697" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1510053697" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1510053697" rel="stylesheet">
-    <link href="/css/auto-complete.css?1510053697" rel="stylesheet">
-    <link href="/css/theme.css?1510053697" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1510053697" rel="stylesheet">
+    <link href="/css/nucleus.css?1510685986" rel="stylesheet">
+    <link href="/css/font-awesome.min.css?1510685986" rel="stylesheet">
+    <link href="/css/hybrid.css?1510685986" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1510685986" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1510685986" rel="stylesheet">
+    <link href="/css/auto-complete.css?1510685986" rel="stylesheet">
+    <link href="/css/theme.css?1510685986" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1510685986" rel="stylesheet">
     
-      <link href="/css/theme-libpasta.css?1510053697" rel="stylesheet">
+      <link href="/css/theme-libpasta.css?1510685986" rel="stylesheet">
     
 
-    <script src="/js/jquery-2.x.min.js?1510053697"></script>
+    <script src="/js/jquery-2.x.min.js?1510685986"></script>
     
     <style type="text/css">
       :root #header + #content > #left > #rlblock_left{ 
@@ -96,14 +96,14 @@
     <span data-search-clear=""><i class="fa fa-close"></i></span>
 </div>
 
-<script type="text/javascript" src="/js/lunr.min.js?1510053697"></script>
-<script type="text/javascript" src="/js/auto-complete.js?1510053697"></script>
+<script type="text/javascript" src="/js/lunr.min.js?1510685986"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1510685986"></script>
 <script type="text/javascript">
     
         var baseurl = "https:\/\/libpasta.github.io\/";
     
 </script>
-<script type="text/javascript" src="/js/search.js?1510053697"></script>
+<script type="text/javascript" src="/js/search.js?1510685986"></script>
 
     
   </div>
@@ -648,7 +648,7 @@
               </li>
           
               <li class="" role=""> 
-                  <a class="padding" href="https://libpasta.github.io/doc/libpasta/"><i class='fa fa-book'></i> Documentation (Rust)</a>
+                  <a class="padding" href="https://docs.rs/libpasta/"><i class='fa fa-book'></i> Documentation (Rust)</a>
               </li>
           
         </ul>
@@ -737,13 +737,17 @@
         
 
 
-<p>SWIG generates a number of helper files for Java, and a JNI library for use.
-For convenience, we have packaged these in a <code>.jar</code> file, which can be compiled
-from scratch using the <code>make install_java</code> command.</p>
+<p>There is currently support for the base functionality in Java.</p>
 
-<p>Hence, we need the following files: <code>libpasta.so</code>, <code>libpasta_jni.so</code>, and
-<code>libpasta.jar</code>. Then, the following is sufficient to use the pasta functions:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">test</span> <span style="color:#f92672">{</span>
+<p>The library can be obtained by following the instruction in the
+<a href="https://github.com/libpasta/libpasta-java/">repository</a>. The simplest
+being to obtain the precompiled jar file from the
+<a href="https://github.com/libpasta/libpasta-java/releases">releases page</a>.</p>
+
+<p>Once obtained a simple example such as the following can be constructed:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#f92672">import</span> io.github.libpasta.*<span style="color:#f92672">;</span>
+
+<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">test</span> <span style="color:#f92672">{</span>
   <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">main</span><span style="color:#f92672">(</span>String argv<span style="color:#f92672">[])</span> <span style="color:#f92672">{</span>
     String hash <span style="color:#f92672">=</span> pasta<span style="color:#f92672">.</span><span style="color:#a6e22e">hash_password</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;hello123&#34;</span><span style="color:#f92672">);</span>
     String password  <span style="color:#f92672">=</span> pasta<span style="color:#f92672">.</span><span style="color:#a6e22e">read_password</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;Please enter the password (hint: hello123):&#34;</span><span style="color:#f92672">);</span>
@@ -755,10 +759,20 @@ from scratch using the <code>make install_java</code> command.</p>
   <span style="color:#f92672">}</span>
 <span style="color:#f92672">}</span></code></pre></div>
 <p>And building the example with:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c" data-lang="c">    <span style="color:#960050;background-color:#1e0010">$</span> javac <span style="color:#f92672">-</span>cp .<span style="color:#f92672">:</span>..<span style="color:#f92672">/</span>..<span style="color:#f92672">/</span>libpasta.jar test.java
-    <span style="color:#960050;background-color:#1e0010">$</span> java <span style="color:#f92672">-</span>cp .<span style="color:#f92672">:</span>..<span style="color:#f92672">/</span>..<span style="color:#f92672">/</span>libpasta.jar test
-    Please enter the password (hint: hello123)<span style="color:#f92672">:</span>
-    Correct password</code></pre></div>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ javac -cp .:libpasta-java.<span style="color:#f92672">{</span>version<span style="color:#f92672">}</span>.jar test.java
+$ java -cp .:libpasta.jar test
+Please enter the password <span style="color:#f92672">(</span>hint: hello123<span style="color:#f92672">)</span>:
+Correct password</code></pre></div>
+<p>If you see the following:</p>
+
+<pre><code>SLF4J: Failed to load class &quot;org.slf4j.impl.StaticLoggerBinder&quot;.
+SLF4J: Defaulting to no-operation (NOP) logger implementation
+SLF4J: See http://www.slf4j.org/codes.html#StaticLoggerBinder for further details.
+</code></pre>
+
+<p>Make sure to add a SLF4J logger jar to the classpath. For example, the slf4j-nop
+logger, which simply ignores all logging messages, can be run with</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ java -cp .:libpasta.jar:slf4j-nop-1.7.25.jar test</code></pre></div>
 
 <footer class=" footline" >
 	
@@ -1203,18 +1217,18 @@ from scratch using the <code>make install_java</code> command.</p>
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1510053697"></script>
-    <script src="/js/perfect-scrollbar.min.js?1510053697"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1510053697"></script>
-    <script src="/js/jquery.sticky-kit.min.js?1510053697"></script>
-    <script src="/js/featherlight.min.js?1510053697"></script>
-    <script src="/js/html5shiv-printshiv.min.js?1510053697"></script>
-    <script src="/js/modernizr.custom.71422.js?1510053697"></script>
-    <script src="/js/learn.js?1510053697"></script>
-    <script src="/js/hugo-learn.js?1510053697"></script>
+    <script src="/js/clipboard.min.js?1510685986"></script>
+    <script src="/js/perfect-scrollbar.min.js?1510685986"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1510685986"></script>
+    <script src="/js/jquery.sticky-kit.min.js?1510685986"></script>
+    <script src="/js/featherlight.min.js?1510685986"></script>
+    <script src="/js/html5shiv-printshiv.min.js?1510685986"></script>
+    <script src="/js/modernizr.custom.71422.js?1510685986"></script>
+    <script src="/js/learn.js?1510685986"></script>
+    <script src="/js/hugo-learn.js?1510685986"></script>
 
-    <link href="/mermaid/mermaid.css?1510053697" type="text/css" rel="stylesheet" />
-    <script src="/mermaid/mermaid.js?1510053697"></script>
+    <link href="/mermaid/mermaid.css?1510685986" type="text/css" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1510685986"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>
