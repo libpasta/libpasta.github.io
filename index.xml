@@ -29,7 +29,7 @@
       <description>Our goal is for libpasta to be the clear choice for any developers requiring secure password storage. Hence we have initial support for a number of languages.
 For any missing languages, please open an issue or click &amp;ldquo;Edit this page&amp;rdquo; and submit a pull request.
 Here we list the support:
-   Language Supported? Repository Documentation     C Y TODO TODO   Java Y Link [Link][jdoc]   PHP Y TODO TODO   Python Y TODO TODO   Ruby Y TODO TODO   Rust Native Link [Link][rsdoc]    [jdoc]: {{ .</description>
+   Language Supported? Repository Documentation     C Y TODO TODO   Java Y Link Link   PHP Y TODO TODO   Python Y TODO TODO   Ruby Y TODO TODO   Rust Native Link Link    </description>
     </item>
     
     <item>

@@ -18,7 +18,7 @@
 	"title": "Overview",
 	"tags": [],
 	"description": "",
-	"content": "Our goal is for libpasta to be the clear choice for any developers requiring secure password storage. Hence we have initial support for a number of languages.\nFor any missing languages, please open an issue or click \u0026ldquo;Edit this page\u0026rdquo; and submit a pull request.\nHere we list the support:\n   Language Supported? Repository Documentation     C Y TODO TODO   Java Y Link [Link][jdoc]   PHP Y TODO TODO   Python Y TODO TODO   Ruby Y TODO TODO   Rust Native Link [Link][rsdoc]    [jdoc]: {{ .Site.BaseURL }}javadoc/\n[rsdoc]: {{ .Site.BaseURL }}rustdoc/libpasta/\n"
+	"content": "Our goal is for libpasta to be the clear choice for any developers requiring secure password storage. Hence we have initial support for a number of languages.\nFor any missing languages, please open an issue or click \u0026ldquo;Edit this page\u0026rdquo; and submit a pull request.\nHere we list the support:\n   Language Supported? Repository Documentation     C Y TODO TODO   Java Y Link Link   PHP Y TODO TODO   Python Y TODO TODO   Ruby Y TODO TODO   Rust Native Link Link    "
 },
 {
 	"uri": "https://libpasta.github.io/libpasta-dev/adding-languages/",
