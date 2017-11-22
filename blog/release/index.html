@@ -1,0 +1,1277 @@
+<!DOCTYPE html>
+<html lang="en" class="js csstransforms3d">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta name="generator" content="Hugo 0.30.2" />
+    <meta name="description" content="libpasta - making passwords painless">
+
+
+    <link rel="shortcut icon" href="/images/favicon.png" type="image/x-icon" />
+<link rel="icon" href="/images/favicon.png" type="image/x-icon" />
+
+    <title>Announcing libpasta :: libpasta</title>
+    
+    
+    <link href="/css/nucleus.css?1511384357" rel="stylesheet">
+    <link href="/css/hybrid.css?1511384357" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1511384357" rel="stylesheet">
+    <link href="/css/auto-complete.css?1511384357" rel="stylesheet">
+    <link href="/css/theme.css?1511384357" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1511384357" rel="stylesheet">
+    
+      <link href="/css/theme-libpasta.css?1511384357" rel="stylesheet">
+    
+
+    <script src="/js/jquery-2.x.min.js?1511384357"></script>
+    
+    <style type="text/css">
+      :root #header + #content > #left > #rlblock_left{ 
+          display:none !important;
+      }
+      
+    </style>
+    
+    <script src="/js/tabs.js"></script>
+<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400" rel="stylesheet"> 
+<link rel="stylesheet" href="https://use.fontawesome.com/a927138ec7.css">
+
+  </head>
+  <body class="" data-url="/blog/release/">
+    <nav id="sidebar" class="">
+
+
+
+  <div id="header-wrapper">
+    <div id="header">
+      <a id="logo" href="https://libpasta.github.io/">
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   id="svg8"
+   version="1.1"
+   viewBox="0 0 45.997559 10"
+   height="12.242269mm"
+   width="45.997559mm">
+  <defs
+     id="defs2" />
+  <metadata
+     id="metadata5">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     transform="translate(-66.952891,-67.060878)"
+     id="layer1">
+    <text
+       id="text4487"
+       y="100.10173"
+       x="68.955536"
+       style="font-style:normal;font-weight:normal;font-size:10.58333302px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       xml:space="preserve"><tspan
+         style="fill:#ffffff;stroke:#FFFFFF;stroke-width:0.26458332px"
+         y="76.10173"
+         x="68.955536"
+         id="tspan4485">libpasta</tspan></text>
+  </g>
+</svg>
+
+</a>
+
+    </div>
+    
+        <div class="searchbox">
+    <label for="search-by"><i class="fa fa-search"></i></label>
+    <input data-search-input id="search-by" type="text" placeholder="Search...">
+    <span data-search-clear=""><i class="fa fa-close"></i></span>
+</div>
+
+<script type="text/javascript" src="/js/lunr.min.js?1511384357"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1511384357"></script>
+<script type="text/javascript">
+    
+        var baseurl = "https:\/\/libpasta.github.io\/";
+    
+</script>
+<script type="text/javascript" src="/js/search.js?1511384357"></script>
+
+    
+  </div>
+
+    <div class="highlightable">
+    <ul class="topics">
+
+        
+          
+          
+
+
+ 
+  
+    
+    <li data-nav-id="/introduction/" title="Introduction" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/introduction/">
+          <b>1. </b>Introduction
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+          
+          
+        
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/introduction/what-is-libpasta/" title="What is libpasta?" class="dd-item ">
+        <a href="/introduction/what-is-libpasta/">
+        What is libpasta?
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/introduction/basic-usage/" title="Basic Usage" class="dd-item ">
+        <a href="/introduction/basic-usage/">
+        Basic Usage
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/introduction/installation/" title="Installation" class="dd-item ">
+        <a href="/introduction/installation/">
+        Installation
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/introduction/password-hashing-theory/" title="Password hashing theory" class="dd-item ">
+        <a href="/introduction/password-hashing-theory/">
+        Password hashing theory
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+        
+        </ul>
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+ 
+  
+    
+    <li data-nav-id="/advanced/" title="Advanced Usage" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/advanced/">
+          <b>2. </b>Advanced Usage
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+          
+          
+        
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/advanced/keyed/" title="Keyed Hashes" class="dd-item ">
+        <a href="/advanced/keyed/">
+        Keyed Hashes
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/advanced/migration/" title="Password Migration" class="dd-item ">
+        <a href="/advanced/migration/">
+        Password Migration
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/advanced/tuning/" title="Tuning &amp; Parameter Selection" class="dd-item ">
+        <a href="/advanced/tuning/">
+        Tuning &amp; Parameter Selection
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+        
+        </ul>
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+ 
+  
+    
+    <li data-nav-id="/other-languages/" title="Other Languages" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/other-languages/">
+          <b>3. </b>Other Languages
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+          
+          
+        
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/other-languages/overview/" title="Overview" class="dd-item ">
+        <a href="/other-languages/overview/">
+        Overview
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/other-languages/c/" title="C" class="dd-item ">
+        <a href="/other-languages/c/">
+        C
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/other-languages/java/" title="Java" class="dd-item ">
+        <a href="/other-languages/java/">
+        Java
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/other-languages/php/" title="PHP" class="dd-item ">
+        <a href="/other-languages/php/">
+        PHP
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/other-languages/python/" title="Python" class="dd-item ">
+        <a href="/other-languages/python/">
+        Python
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/other-languages/ruby/" title="Ruby" class="dd-item ">
+        <a href="/other-languages/ruby/">
+        Ruby
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+        
+        </ul>
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+ 
+  
+    
+    <li data-nav-id="/technical-details/" title="Technical Details" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/technical-details/">
+          <b>4. </b>Technical Details
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+          
+          
+        
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/technical-details/algorithm-choice/" title="Algorithm Selection" class="dd-item ">
+        <a href="/technical-details/algorithm-choice/">
+        Algorithm Selection
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/technical-details/randomness/" title="Randomness Problems" class="dd-item ">
+        <a href="/technical-details/randomness/">
+        Randomness Problems
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/technical-details/phc-string-format/" title="Serializing Hashes" class="dd-item ">
+        <a href="/technical-details/phc-string-format/">
+        Serializing Hashes
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/technical-details/supported/" title="Supported Algorithms" class="dd-item ">
+        <a href="/technical-details/supported/">
+        Supported Algorithms
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+        
+        </ul>
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+ 
+  
+    
+    <li data-nav-id="/libpasta-dev/" title="Developing libpasta" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/libpasta-dev/">
+          <b>5. </b>Developing libpasta
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+          
+          
+        
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/libpasta-dev/contributing/" title="Contributing" class="dd-item ">
+        <a href="/libpasta-dev/contributing/">
+        Contributing
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/libpasta-dev/adding-languages/" title="Adding Languages" class="dd-item ">
+        <a href="/libpasta-dev/adding-languages/">
+        Adding Languages
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+        
+        </ul>
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+ 
+  
+    
+  
+ 
+
+          
+         
+    </ul>
+
+    
+    
+      <section id="shortcuts">
+        <h4>More</h4>
+        <ul>
+          
+              <li class="" role=""> 
+                  <a class="padding" href="https://libpasta.github.io/blog/"><i class='fa fa-rss'></i> Blog</a>
+              </li>
+          
+              <li class="" role=""> 
+                  <a class="padding" href="https://github.com/libpasta/libpasta"><i class='fa fa-github'></i> Github (Rust)</a>
+              </li>
+          
+              <li class="" role=""> 
+                  <a class="padding" href="https://docs.rs/libpasta/"><i class='fa fa-book'></i> Documentation (Rust)</a>
+              </li>
+          
+        </ul>
+      </section>
+    
+
+    
+    <section id="footer">
+      <p>Built with <a href="https://github.com/matcornic/hugo-theme-learn"><i class="fa fa-heart"></i></a> from <a href="http://getgrav.org">Grav</a> and <a href="http://gohugo.io/">Hugo</a></p>
+
+    </section>
+  </div>
+</nav>
+
+
+
+
+
+        <section id="body">
+        <div id="overlay"></div>
+        <div class="padding highlightable sticky-parent">
+              
+              <div class="sticky-spacer">
+                <div id="top-bar">
+                
+                  
+                  
+                  
+                  <div id="top-github-link">
+                    <a class="github-link" href="https://github.com/libpasta/libpasta-hugo/edit/master/content/blog/release.md" target="blank">
+                      <i class="fa fa-code-fork"></i>
+                      Edit this page
+                    </a>
+                  </div>
+                  
+                
+                
+                <div id="breadcrumbs" itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb">
+                    <span id="sidebar-toggle-span">
+                        <a href="#" id="sidebar-toggle" data-sidebar-toggle="">
+                          <i class="fa fa-bars"></i>
+                        </a>
+                    </span>
+                  
+                  <span id="toc-menu"><i class="fa fa-list-alt"></i></span>
+                  
+                  <span class="links">
+                    
+          
+          
+            
+            
+          
+          
+            
+            
+          
+          
+            <a href='/'>libpasta</a> > <a href='/blog/'>Blog</a> > Announcing libpasta
+          
+         
+          
+         
+          
+           
+                  </span>
+                </div>
+                
+                    <div class="progress">
+    <div class="wrapper">
+<nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li><a href="#current-status">Current status</a></li>
+<li><a href="#roadmap">Roadmap</a></li>
+<li><a href="#who-we-are">Who we are</a></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul>
+</nav>
+    </div>
+</div>
+
+                
+              </div>
+            </div>
+            
+
+        
+        <div id="body-inner">
+          
+            <h1>Announcing libpasta</h1>
+          
+
+        
+
+
+
+<div style="text-align: center; color: #8c8c8c":>
+22nd November, 2017
+</div>
+<hr>
+
+
+
+
+<p>Today we are announcing the <strong>alpha release of libpasta!</strong></p>
+
+<p>libpasta is intended to be an cross-language, cross-platform, <strong>easy-to-use</strong>
+password hashing library for developers. In particular, libpasta offers a
+<strong>simple API</strong>, which uses sane defaults, offering a relatively high security
+level with zero configuration or parameter choice for the developer.
+Storing/verifying a password is as simple as <code>libpasta.hash_password(pw)</code> and
+<code>libpasta.verify_password(hash, pw)</code>.</p>
+
+<p>Furthermore, libpasta is built to handle <strong>migrating from old hashes</strong>, finally
+allowing developers to move away from old, outdated algorithms and parameters.
+Once libpasta is in place, it will happily</p>
+
+<p>Our vision for libpasta, is to be available across many platforms, offering
+accessible password storage functionality to all applications. The core of
+libpasta is written in Rust, and we have already written a number of bindings
+for different languages.</p>
+
+<p>To find out more, dive into some of the menu items on the left covering
+more about <a href="../../introduction/what-is-libpasta">what is libpasta</a>,
+<a href="../../introduction/password-hashing-theory">password hashing theory</a>,
+or <a href="../../introduction/basic-usage">getting started with libpasta</a>.</p>
+
+<h4 id="current-status">Current status</h4>
+
+<p>libpasta is still in its early stages. The main functionality is written in
+Rust, with support for other languages following close behind. However, the core
+code needs to be audited/optimised.</p>
+
+<p><strong>We are currently looking for testing and feedback on the library.</strong></p>
+
+<h4 id="roadmap">Roadmap</h4>
+
+<ul>
+<li>Implement more hashing algorithms (for migration compatibility).</li>
+<li>Support for more platforms - OSX, 32-bit Linux, Windows</li>
+<li>Support for more languages - Ruby, JavaScript.</li>
+<li>More tools! We have built a basic <a href="https://github.com/libpasta/pasta-tools">tuning tool</a>
+in Rust to generate optimal parameter sets, and can expand this out.</li>
+</ul>
+
+<h4 id="who-we-are">Who we are</h4>
+
+<p>So far, libpasta is being developed by <a href="https://twitter.com/sam_js_/">samjs</a>
+as part of a NSF-funded project at Cornell Tech. We are actively looking for
+new contributors, with the possibility of offering part and full-time
+positions to continue the work.</p>
+
+
+<footer class=" footline" >
+    
+</footer>
+
+
+        
+        </div> 
+      </div>
+
+    <div id="navigation">
+        
+        
+        
+        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+        
+                    
+            
+        
+        
+        
+
+
+        
+        
+            <a class="nav nav-next" href="/introduction/" title="Introduction" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+        
+    </div>
+
+    </section>
+    
+    <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
+      <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
+    </div>
+    <script src="/js/clipboard.min.js?1511384357"></script>
+    <script src="/js/jquery.sticky-kit.min.js?1511384357"></script>
+    <script src="/js/featherlight.min.js?1511384357"></script>
+    <script src="/js/html5shiv-printshiv.min.js?1511384357"></script>
+    <script src="/js/modernizr.custom.71422.js?1511384357"></script>
+    <script src="/js/learn.js?1511384357"></script>
+    <script src="/js/hugo-learn.js?1511384357"></script>
+
+    
+
+  </body>
+</html>
+
