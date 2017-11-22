@@ -227,7 +227,7 @@ id | username | password | creation-date | .</description>
       
       <guid>https://libpasta.github.io/blog/release/</guid>
       <description>Today we are announcing the alpha release of libpasta!
-libpasta is intended to be an cross-language, cross-platform, easy-to-use password hashing library for developers. In particular, libpasta offers a simple API, which uses sane defaults, offering a relatively high security level with zero configuration or parameter choice for the developer. Storing/verifying a password is as simple as libpasta.hash_password(pw) and libpasta.verify_password(hash, pw).
+libpasta is intended to be a cross-language, cross-platform, easy-to-use password hashing library for developers. In particular, libpasta offers a simple API, which uses sane defaults, offering a relatively high security level with zero configuration or parameter choice for the developer. Storing/verifying a password is as simple as libpasta.hash_password(pw) and libpasta.verify_password(hash, pw).
 Furthermore, libpasta is built to handle migrating from old hashes, finally allowing developers to move away from old, outdated algorithms and parameters.</description>
     </item>
     
