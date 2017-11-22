@@ -1,1 +1,0 @@
-initSidebarItems({"struct":[["KEY_STORE","Global key storage"],["LocalStore","Structure used as a global store for keys."]],"trait":[["Store","A key storage source. Permits retrieving and storing keys."]]});

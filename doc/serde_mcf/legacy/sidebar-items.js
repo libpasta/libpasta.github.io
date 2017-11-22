@@ -1,1 +1,0 @@
-initSidebarItems({"struct":[["BcryptHash","MCF style `Bcrypt` hash"]]});
