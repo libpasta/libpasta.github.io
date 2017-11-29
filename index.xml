@@ -6,7 +6,7 @@
     <description>Recent content on libpasta</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-gb</language>
-    <lastBuildDate>Wed, 22 Nov 2017 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 29 Nov 2017 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://libpasta.github.io/index.xml" rel="self" type="application/rss+xml" />
     
@@ -64,7 +64,9 @@ Furthermore, with the exception of Yahoo who eventually migrated to bcrypt in 20
       
       <guid>https://libpasta.github.io/technical-details/algorithm-choice/</guid>
       <description>Currently, we use scrypt as the default algorithm in libpasta. The default parameters are:
-N: 2^14 r: 8 p: 1  This results in a memory requirement of approximately 16MiB and about 0.01 - 0.1 seconds to compute. For many systems, this can be increased, and we suggest using the tuning tools to choose suitable parameters.</description>
+N: 2^15 r: 8 p: 1  This results in a memory requirement of approximately 32MiB and about 0.1 seconds to compute. For many systems, this can be increased, and we suggest using the tuning tools to choose suitable parameters.
+For more information on the scrypt parameters, see: https://blog.filippo.io/the-scrypt-parameters/
+Why scrypt? Scrypt was introduced in 2009 as a memory-hard hash function, designed to reduce the advantage gained by using custom hardware (e.</description>
     </item>
     
     <item>
@@ -223,7 +225,7 @@ id | username | password | creation-date | .</description>
     <item>
       <title>Announcing libpasta</title>
       <link>https://libpasta.github.io/blog/release/</link>
-      <pubDate>Wed, 22 Nov 2017 00:00:00 +0000</pubDate>
+      <pubDate>Wed, 29 Nov 2017 00:00:00 +0000</pubDate>
       
       <guid>https://libpasta.github.io/blog/release/</guid>
       <description>Today we are announcing the alpha release of libpasta!

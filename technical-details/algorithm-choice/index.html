@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-    <meta name="generator" content="Hugo 0.30.2" />
+    <meta name="generator" content="Hugo 0.31" />
     <meta name="description" content="libpasta - making passwords painless">
 
 
@@ -13,17 +13,17 @@
     <title>Algorithm Selection :: libpasta</title>
     
     
-    <link href="/css/nucleus.css?1511385226" rel="stylesheet">
-    <link href="/css/hybrid.css?1511385226" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1511385226" rel="stylesheet">
-    <link href="/css/auto-complete.css?1511385226" rel="stylesheet">
-    <link href="/css/theme.css?1511385226" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1511385226" rel="stylesheet">
+    <link href="/css/nucleus.css?1511964265" rel="stylesheet">
+    <link href="/css/hybrid.css?1511964265" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1511964265" rel="stylesheet">
+    <link href="/css/auto-complete.css?1511964265" rel="stylesheet">
+    <link href="/css/theme.css?1511964265" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1511964265" rel="stylesheet">
     
-      <link href="/css/theme-libpasta.css?1511385226" rel="stylesheet">
+      <link href="/css/theme-libpasta.css?1511964265" rel="stylesheet">
     
 
-    <script src="/js/jquery-2.x.min.js?1511385226"></script>
+    <script src="/js/jquery-2.x.min.js?1511964265"></script>
     
     <style type="text/css">
       :root #header + #content > #left > #rlblock_left{ 
@@ -96,14 +96,14 @@
     <span data-search-clear=""><i class="fa fa-close"></i></span>
 </div>
 
-<script type="text/javascript" src="/js/lunr.min.js?1511385226"></script>
-<script type="text/javascript" src="/js/auto-complete.js?1511385226"></script>
+<script type="text/javascript" src="/js/lunr.min.js?1511964265"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1511964265"></script>
 <script type="text/javascript">
     
         var baseurl = "https:\/\/libpasta.github.io\/";
     
 </script>
-<script type="text/javascript" src="/js/search.js?1511385226"></script>
+<script type="text/javascript" src="/js/search.js?1511964265"></script>
 
     
   </div>
@@ -733,7 +733,17 @@
                 
                     <div class="progress">
     <div class="wrapper">
-
+<nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li><a href="#why-scrypt">Why scrypt?</a>
+<ul>
+<li><a href="#scrypt-vs-argon2">scrypt vs Argon2</a></li>
+</ul></li>
+</ul></li>
+</ul>
+</nav>
     </div>
 </div>
 
@@ -751,17 +761,73 @@
         
 
 
+
+
 <p>Currently, we use <a href="https://www.tarsnap.com/scrypt.html">scrypt</a> as the default algorithm in <code>libpasta</code>.
 The default parameters are:</p>
 
-<pre><code>N: 2^14
+<pre><code>N: 2^15
 r: 8
 p: 1
 </code></pre>
 
-<p>This results in a memory requirement of approximately 16MiB and about 0.01 - 0.1
+<p>This results in a memory requirement of approximately 32MiB and about 0.1
 seconds to compute. For many systems, this can be increased, and we suggest
 using the <a href="../../advanced/tuning">tuning tools</a> to choose suitable parameters.</p>
+
+<p>For more information on the scrypt parameters, see: <a href="https://blog.filippo.io/the-scrypt-parameters/">https://blog.filippo.io/the-scrypt-parameters/</a></p>
+
+<h2 id="why-scrypt">Why scrypt?</h2>
+
+<p>Scrypt was introduced in 2009 as a memory-hard hash function, designed to
+reduce the advantage gained by using custom hardware (e.g. ASICs) over general
+purpose CPUs. Recently, it was shown in <a href="https://eprint.iacr.org/2016/989">[ACPRT16]</a> that scrypt is in
+fact <em>optimally</em> memory-hard, when measured as the cumulative memory
+requirement of the algorithm (i.e., the &ldquo;area&rdquo; of the memory/time graph).
+While this result does not comprehensively thwart ASIC attacks, it is a
+definite step in the right direction for scrypt.</p>
+
+<p>Other memory-hard hash functions include <a href="https://www.argon2.com/">Argon2</a>, which was the
+winner of the recent <a href="https://password-hashing.net/">password hashing competition</a>. Argon2 currently
+has three modes: data-dependent Argon2d, data-independent Argon2i, and a mix
+of the two, Argon2id.</p>
+
+<p>Both scrypt and Argon2 with <em>decent</em> parameter choices are vastly preferable to
+using any of the older algorithms, bcrypt, PBKDF2, etc. Therefore we are mostly
+interested in addressing Argon2 vs scrypt.</p>
+
+<h3 id="scrypt-vs-argon2">scrypt vs Argon2</h3>
+
+<p><strong>tl:dr</strong> Argon2 is more modern, with nice features and a higher potential,
+but scrypt is the conservative choice.</p>
+
+<p>In detail:</p>
+
+<p>scrypt has been around for longer, giving it more exposure, and more time
+to iron out any bugs or kinks. Furthermore, recent theoretical results about
+the memory hardness shows scrypt is well-designed and reduces the chance of
+a catastrophic failure.</p>
+
+<p>On the other hand, scrypt has two large weaknesses. The algorithm is data-dependent
+which means there is the possibility of a side-channel attack (cache
+timings across VMs for example). In addition, scrypt has a trivial
+time-memory tradeoff attack, which means that ASICs still offer a
+significant speedup.</p>
+
+<p>Argon2 was recently chosen as the password-hashing competition winner. It has
+easily tunable parameters, and a number of modes suitable for different
+purposes. Argon2d is data-dependent and has a higher (potential) memory
+hardness, whereas Argon2i is data-independent and aims to eliminate side-
+channel attacks. Argon2id combines the two, attempting to offer the best of
+both worlds.</p>
+
+<p>However, Argon2 has only recently been developed/specified/implemented and is
+still in draft status with the CFRG. Furthermore, there are some
+<a href="https://eprint.iacr.org/2016/759">recent attacks</a> which are resulting in tweaking of the recommended
+parameter choices. Hence we opt for scrypt as the conservative choice.</p>
+
+<p>Future possibility: support a scrypt-argon2 hybrid mode, e.g.
+a few rounds of Argon2i followed by scrypt.</p>
 
 
 <footer class=" footline" >
@@ -1209,13 +1275,13 @@ using the <a href="../../advanced/tuning">tuning tools</a> to choose suitable pa
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1511385226"></script>
-    <script src="/js/jquery.sticky-kit.min.js?1511385226"></script>
-    <script src="/js/featherlight.min.js?1511385226"></script>
-    <script src="/js/html5shiv-printshiv.min.js?1511385226"></script>
-    <script src="/js/modernizr.custom.71422.js?1511385226"></script>
-    <script src="/js/learn.js?1511385226"></script>
-    <script src="/js/hugo-learn.js?1511385226"></script>
+    <script src="/js/clipboard.min.js?1511964265"></script>
+    <script src="/js/jquery.sticky-kit.min.js?1511964265"></script>
+    <script src="/js/featherlight.min.js?1511964265"></script>
+    <script src="/js/html5shiv-printshiv.min.js?1511964265"></script>
+    <script src="/js/modernizr.custom.71422.js?1511964265"></script>
+    <script src="/js/learn.js?1511964265"></script>
+    <script src="/js/hugo-learn.js?1511964265"></script>
 
     
 
