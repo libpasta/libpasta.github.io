@@ -10,7 +10,7 @@
     <link rel="shortcut icon" href="/images/favicon.png" type="image/x-icon" />
 <link rel="icon" href="/images/favicon.png" type="image/x-icon" />
 
-    <title>Adding Languages :: libpasta</title>
+    <title>Alternatives :: libpasta</title>
     
     
     <link href="/css/nucleus.css?1518645205" rel="stylesheet">
@@ -37,7 +37,7 @@
 <link rel="stylesheet" href="https://use.fontawesome.com/a927138ec7.css">
 
   </head>
-  <body class="" data-url="/libpasta-dev/adding-languages/">
+  <body class="" data-url="/introduction/alternatives/">
     <nav id="sidebar" class="">
 
 
@@ -120,7 +120,7 @@
   
     
     <li data-nav-id="/introduction/" title="Introduction" class="dd-item 
-        
+        parent
         
         
         ">
@@ -220,7 +220,7 @@
  
   
     
-      <li data-nav-id="/introduction/alternatives/" title="Alternatives" class="dd-item ">
+      <li data-nav-id="/introduction/alternatives/" title="Alternatives" class="dd-item active">
         <a href="/introduction/alternatives/">
         Alternatives
         
@@ -590,7 +590,7 @@
   
     
     <li data-nav-id="/libpasta-dev/" title="Developing libpasta" class="dd-item 
-        parent
+        
         
         
         ">
@@ -633,7 +633,7 @@
  
   
     
-      <li data-nav-id="/libpasta-dev/adding-languages/" title="Adding Languages" class="dd-item active">
+      <li data-nav-id="/libpasta-dev/adding-languages/" title="Adding Languages" class="dd-item ">
         <a href="/libpasta-dev/adding-languages/">
         Adding Languages
         
@@ -711,7 +711,7 @@
                   
                   
                   <div id="top-github-link">
-                    <a class="github-link" href="https://github.com/libpasta/libpasta-hugo/edit/master/content/libpasta-dev/adding-languages.md" target="blank">
+                    <a class="github-link" href="https://github.com/libpasta/libpasta-hugo/edit/master/content/introduction/alternatives.md" target="blank">
                       <i class="fa fa-code-fork"></i>
                       Edit this page
                     </a>
@@ -740,7 +740,7 @@
             
           
           
-            <a href='/'>libpasta</a> > <a href='/libpasta-dev/'>Developing libpasta</a> > Adding Languages
+            <a href='/'>libpasta</a> > <a href='/introduction/'>Introduction</a> > Alternatives
           
          
           
@@ -752,7 +752,33 @@
                 
                     <div class="progress">
     <div class="wrapper">
-
+<nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li><a href="#libsodium">libsodium</a>
+<ul>
+<li>
+<ul>
+<li><a href="#pros">Pros</a></li>
+<li><a href="#cons">Cons</a></li>
+<li><a href="#summary">Summary</a></li>
+</ul></li>
+</ul></li>
+<li><a href="#passlib">passlib</a>
+<ul>
+<li>
+<ul>
+<li><a href="#pros-1">Pros</a></li>
+<li><a href="#cons-1">Cons</a></li>
+</ul></li>
+</ul></li>
+<li><a href="#django-password-hashers">Django password hashers</a></li>
+<li><a href="#php-password-hash">PHP password_hash</a></li>
+<li><a href="#ruby-on-rails-bcrypt">Ruby on Rails - Bcrypt</a></li>
+</ul></li>
+</ul>
+</nav>
     </div>
 </div>
 
@@ -764,63 +790,130 @@
         
         <div id="body-inner">
           
-            <h1>Adding Languages</h1>
+            <h1>Alternatives</h1>
           
 
         
 
 
-<p>Our initial support for other languages is through the use of
-<a href="http://www.swig.org/">SWIG</a>.</p>
 
-<p>So far, this means we have simple bindings for <a href="../../other-languages/c">C</a>, <a href="../../other-languages/java">Java</a>,
-<a href="../../other-languages/php">PHP</a>, <a href="../../other-languages/python">python</a>, and <a href="../../other-languages/ruby">Ruby</a>.</p>
 
-<p>If you want to add new language bindings, this is a good place to start.</p>
+<p>There are currently a few options for password hashing. These vary from
+general crypto libraries, to specific password hashing libraries, to
+in-built helpers. The functionality, security, ease-of-use and compatibility
+of these varies, and we compare them to libpasta here.</p>
 
-<p>The SWIG specification for <code>libpasta</code> reveals the simplicity of the API,
-and a few important caveats:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c" data-lang="c"><span style="color:#75715e"># in pasta.h
+<p>The design of libpasta was inspired by libsodium (a cross-platform, cross-
+language crypto library), and passlib (a python-based password hashing
+library). libpasta is an effort to take the best features of these two libraries
+combined into one, and more.</p>
+
+<h2 id="libsodium">libsodium</h2>
+
+<p><a href="https://download.libsodium.org/doc/">libsodium</a> is a well designed cryptography
+library, targeting security and ease-of-use. Much of the design of libpasta was
+inspired by libsodium.</p>
+
+<p>Furthermore, libsodium includes <a href="https://download.libsodium.org/doc/password_hashing/">password hashing</a>,
+so why choose libpasta over libsodium?</p>
+
+<h4 id="pros">Pros</h4>
+
+<p>Well-designed, mature library. Available for install on many operating systems,
+and with many bindings for other languages.</p>
+
+<h4 id="cons">Cons</h4>
+
+<p>No support for migrating from weak hashes &ndash; one of the main needs for libpasta.
+While the <em>coverage</em> of supported languages is great, there are <a href="https://download.libsodium.org/doc/bindings_for_other_languages/">multiple
+bindings</a>
+for each language, of varying quality.</p>
+
+<p>Furthermore, compare the difficulty of using libsodium:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-C" data-lang="C"><span style="color:#75715e">#define PASSWORD &#34;Correct Horse Battery Staple&#34;
 </span><span style="color:#75715e"></span>
-<span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;stdbool.h&gt;</span><span style="color:#75715e">
-</span><span style="color:#75715e"></span><span style="color:#66d9ef">extern</span> <span style="color:#66d9ef">char</span> <span style="color:#f92672">*</span> <span style="color:#a6e22e">hash_password</span>(<span style="color:#66d9ef">const</span> <span style="color:#66d9ef">char</span> <span style="color:#f92672">*</span>password);
-<span style="color:#66d9ef">extern</span> <span style="color:#66d9ef">bool</span> <span style="color:#a6e22e">verify_password</span>(<span style="color:#66d9ef">const</span> <span style="color:#66d9ef">char</span><span style="color:#f92672">*</span> hash, <span style="color:#66d9ef">const</span> <span style="color:#66d9ef">char</span> <span style="color:#f92672">*</span>password);
-<span style="color:#66d9ef">extern</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">free_string</span>(<span style="color:#66d9ef">const</span> <span style="color:#66d9ef">char</span> <span style="color:#f92672">*</span>);
-<span style="color:#66d9ef">extern</span> <span style="color:#66d9ef">char</span> <span style="color:#f92672">*</span> <span style="color:#a6e22e">read_password</span>(<span style="color:#66d9ef">const</span> <span style="color:#66d9ef">char</span> <span style="color:#f92672">*</span>prompt);</code></pre></div>
-<p>These bind to the functions exported by the <a href="https://github.com/libpasta/libpasta-ffi">libpasta-ffi</a> crate.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-swig" data-lang="swig"># in pasta.i
+<span style="color:#66d9ef">char</span> hashed_password[crypto_pwhash_STRBYTES];
 
-%module pasta
-%{
-#include &lt;pasta.h&gt;
-%}
+<span style="color:#66d9ef">if</span> (crypto_pwhash_str
+    (hashed_password, PASSWORD, strlen(PASSWORD),
+     crypto_pwhash_OPSLIMIT_SENSITIVE, crypto_pwhash_MEMLIMIT_SENSITIVE) <span style="color:#f92672">!=</span> <span style="color:#ae81ff">0</span>) {
+    <span style="color:#75715e">/* out of memory */</span>
+}
 
-%typemap(newfree) char * &#34;free_string($1);&#34;;
-%newobject hash_password;
-%newobject read_password;
+<span style="color:#66d9ef">if</span> (crypto_pwhash_str_verify
+    (hashed_password, PASSWORD, strlen(PASSWORD)) <span style="color:#f92672">!=</span> <span style="color:#ae81ff">0</span>) {
+    <span style="color:#75715e">/* wrong password */</span>
+}</code></pre></div>
+<p>compared to the equivalent code in libpasta:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-C" data-lang="C"><span style="color:#75715e">#define PASSWORD &#34;Correct Horse Battery Staple&#34;
+</span><span style="color:#75715e"></span>
+<span style="color:#66d9ef">char</span> <span style="color:#f92672">*</span>hashed_password;
 
+hashed_password <span style="color:#f92672">=</span> hash_password(PASSWORD);
 
-%pragma(java) jniclasscode=%{
-  static {
-    try {
-        System.loadLibrary(&#34;pasta_jni&#34;);
-    } catch (UnsatisfiedLinkError e) {
-      System.err.println(&#34;Native code library failed to load. \n&#34; + e);
-      System.exit(1);
-    }
-  }
-%}
+<span style="color:#66d9ef">if</span> (verify_password(hashed_password, PASSWORD)) {
+    <span style="color:#75715e">/* wrong password */</span>
+}</code></pre></div>
+<h4 id="summary">Summary</h4>
 
-#include &lt;pasta.h&gt;</code></pre></div>
-<p>An important caveat, and reason why these bindings should be preferred,
-is that the values returned by <code>hash_password</code> and <code>read_password</code> are
-technically still Rust <code>CString</code>s. Although these are in the correct layout
-to be read as string pointers in C, we must take care to return the pointer
-to Rust so that it can handle freeing the <code>CString</code>. Otherwise we are left
-with a memory leak.</p>
+<p>libpasta is aiming to be the &ldquo;libsodium for password hashing&rdquo; &ndash; a ubiquitous
+systems library with wide support. In its early development, libpasta is not at
+the same maturity level as libsodium. However, libpasta is specifically
+designed for password hashing, has a wider feature set, and a simpler API.</p>
 
-<p>Notice that the SWIG bindings have handled this: on returning a <code>CString</code>,
-the bindings create a new object, and then call <code>free_string</code> on the pointer.</p>
+<h2 id="passlib">passlib</h2>
+
+<p><a href="https://passlib.readthedocs.io/en/stable/">passlib</a> is a password hashing
+library for Python 2 &amp; 3. It has a wide feature set, and supports multiple
+platforms.</p>
+
+<p>passlib allows configuring a <code>CryptContext</code> object to specify a hashing &ldquo;policy&rdquo;
+(our words). That is, it supports whitelisting/blacklisting hashing algorithms,
+and even supports hash migration. However, this is only the full migration, not
+the partial migration libpasta additionally supports.</p>
+
+<h4 id="pros-1">Pros</h4>
+
+<p>Python library, easily supported across mutliple platforms. Good support for
+outdated algorithms, and ability to update hashes.</p>
+
+<h4 id="cons-1">Cons</h4>
+
+<p>Only for Python. Documentation is not particularly friendly for newbies, and
+seems to suggest PBKDF2 is the best algorithm. Scrypt is supported, but not
+recommended. Only supports the Argon2i variant.</p>
+
+<h2 id="django-password-hashers">Django password hashers</h2>
+
+<ul>
+<li>(+) Easy-to-use defaults</li>
+<li>(+) Good alg support</li>
+<li>(+) Support full/wrapped migrations by hard coded classes</li>
+<li>(-) Only for Django</li>
+<li>(-) Uses PBKDF2 by default with 100000 iterations.</li>
+<li>(-) Requires defining new subclass to configure &ndash; awkward config.</li>
+</ul>
+
+<p><a href="https://docs.djangoproject.com/en/2.0/topics/auth/passwords/">https://docs.djangoproject.com/en/2.0/topics/auth/passwords/</a></p>
+
+<h2 id="php-password-hash">PHP password_hash</h2>
+
+<p>As of version 5.5, PHP supports password hashing natively through
+<a href="http://php.net/manual/en/function.password-hash.php"><code>password_hash</code></a>.</p>
+
+<ul>
+<li>(+) Default bcrypt, supports Argon2i as well.</li>
+<li>(+) Easy-to-use defaults.</li>
+<li>(-) PHP only.</li>
+</ul>
+
+<h2 id="ruby-on-rails-bcrypt">Ruby on Rails - Bcrypt</h2>
+
+<ul>
+<li>(+) Easy-to-use defaults.</li>
+<li>(-) Rails only</li>
+<li>(-) Default bcrypt, cost is just 10.</li>
+</ul>
 
 
 <footer class=" footline" >
@@ -857,8 +950,6 @@ the bindings create a new object, and then call <code>free_string</code> on the 
             
                 
                     
-                        
-                        
                     
                 
                 
@@ -872,6 +963,9 @@ the bindings create a new object, and then call <code>free_string</code> on the 
             
             
                 
+                    
+                        
+                        
                     
                 
                 
@@ -937,69 +1031,6 @@ the bindings create a new object, and then call <code>free_string</code> on the 
             
                 
                     
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
                     
                 
                 
@@ -1020,34 +1051,8 @@ the bindings create a new object, and then call <code>free_string</code> on the 
             
                 
                     
-                
-                
-
-                    
-                    
-                    
-
-                    
                         
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
                         
-            
-            
-                
                     
                 
                 
@@ -1056,25 +1061,6 @@ the bindings create a new object, and then call <code>free_string</code> on the 
                     
                     
 
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
                     
                         
             
@@ -1204,30 +1190,10 @@ the bindings create a new object, and then call <code>free_string</code> on the 
             
         
                     
-            
-        
-                    
                         
             
             
                 
-                    
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-                        
-            
-            
-                
-                    
-                        
-                        
                     
                 
                 
@@ -1244,7 +1210,6 @@ the bindings create a new object, and then call <code>free_string</code> on the 
             
             
                 
-                    
                     
                 
                 
@@ -1263,6 +1228,134 @@ the bindings create a new object, and then call <code>free_string</code> on the 
                         
             
             
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
         
                     
             
@@ -1272,10 +1365,10 @@ the bindings create a new object, and then call <code>free_string</code> on the 
 
 
         
-            <a class="nav nav-prev" href="/libpasta-dev/contributing/" title="Contributing"> <i class="fa fa-chevron-left"></i></a>
+            <a class="nav nav-prev" href="/introduction/password-hashing-theory/" title="Password hashing theory"> <i class="fa fa-chevron-left"></i></a>
         
         
-            <a class="nav nav-next" href="/libpasta-dev/contributing/" title="Contributing" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+            <a class="nav nav-next" href="/advanced/" title="Advanced Usage" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
         
     </div>
 

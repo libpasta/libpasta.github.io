@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-    <meta name="generator" content="Hugo 0.31" />
+    <meta name="generator" content="Hugo 0.36" />
     <meta name="description" content="libpasta - making passwords painless">
 
 
@@ -13,17 +13,17 @@
     <title>Basic Usage :: libpasta</title>
     
     
-    <link href="/css/nucleus.css?1511972713" rel="stylesheet">
-    <link href="/css/hybrid.css?1511972713" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1511972713" rel="stylesheet">
-    <link href="/css/auto-complete.css?1511972713" rel="stylesheet">
-    <link href="/css/theme.css?1511972713" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1511972713" rel="stylesheet">
+    <link href="/css/nucleus.css?1518645205" rel="stylesheet">
+    <link href="/css/hybrid.css?1518645205" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1518645205" rel="stylesheet">
+    <link href="/css/auto-complete.css?1518645205" rel="stylesheet">
+    <link href="/css/theme.css?1518645205" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1518645205" rel="stylesheet">
     
-      <link href="/css/theme-libpasta.css?1511972713" rel="stylesheet">
+      <link href="/css/theme-libpasta.css?1518645205" rel="stylesheet">
     
 
-    <script src="/js/jquery-2.x.min.js?1511972713"></script>
+    <script src="/js/jquery-2.x.min.js?1518645205"></script>
     
     <style type="text/css">
       :root #header + #content > #left > #rlblock_left{ 
@@ -96,14 +96,14 @@
     <span data-search-clear=""><i class="fa fa-close"></i></span>
 </div>
 
-<script type="text/javascript" src="/js/lunr.min.js?1511972713"></script>
-<script type="text/javascript" src="/js/auto-complete.js?1511972713"></script>
+<script type="text/javascript" src="/js/lunr.min.js?1518645205"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1518645205"></script>
 <script type="text/javascript">
     
         var baseurl = "https:\/\/libpasta.github.io\/";
     
 </script>
-<script type="text/javascript" src="/js/search.js?1511972713"></script>
+<script type="text/javascript" src="/js/search.js?1518645205"></script>
 
     
   </div>
@@ -204,6 +204,25 @@
       <li data-nav-id="/introduction/password-hashing-theory/" title="Password hashing theory" class="dd-item ">
         <a href="/introduction/password-hashing-theory/">
         Password hashing theory
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/introduction/alternatives/" title="Alternatives" class="dd-item ">
+        <a href="/introduction/alternatives/">
+        Alternatives
         
         </a>
     </li>
@@ -807,18 +826,18 @@ found in <a href="../../other-languages/">other languages</a>.</p>
 </div>
 <div class="tab-pane"><div class="tabcontent Java" style="display: none" ><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">test</span> <span style="color:#f92672">{</span>
   <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">main</span><span style="color:#f92672">(</span>String argv<span style="color:#f92672">[])</span> <span style="color:#f92672">{</span>
-    String password  <span style="color:#f92672">=</span> pasta<span style="color:#f92672">.</span><span style="color:#a6e22e">read_password</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;Please enter your password:&#34;</span><span style="color:#f92672">);</span>
-<span style="background-color:#3c3d38;display:block;width:100%">    String hash <span style="color:#f92672">=</span> pasta<span style="color:#f92672">.</span><span style="color:#a6e22e">hash_password</span><span style="color:#f92672">(</span>password<span style="color:#f92672">);</span>
-</span>    System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;The hashed password is: &#34;</span> <span style="color:#f92672">+</span> hash<span style="color:#f92672">);</span>
+    String password  <span style="color:#f92672">=</span> pasta<span style="color:#f92672">.</span><span style="color:#a6e22e">read_password</span><span style="color:#f92672">(&amp;</span><span style="color:#960050;background-color:#1e0010">#</span>34<span style="color:#f92672">;</span>Please enter your password:<span style="color:#f92672">&amp;</span><span style="color:#960050;background-color:#1e0010">#</span>34<span style="color:#f92672">;);</span>
+<span style="display:block;width:100%;background-color:#3c3d38">    String hash <span style="color:#f92672">=</span> pasta<span style="color:#f92672">.</span><span style="color:#a6e22e">hash_password</span><span style="color:#f92672">(</span>password<span style="color:#f92672">);</span>
+</span>    System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(&amp;</span><span style="color:#960050;background-color:#1e0010">#</span>34<span style="color:#f92672">;</span>The hashed password is: <span style="color:#f92672">&amp;</span><span style="color:#960050;background-color:#1e0010">#</span>34<span style="color:#f92672">;</span> <span style="color:#f92672">&amp;</span><span style="color:#960050;background-color:#1e0010">#</span>43<span style="color:#f92672">;</span> hash<span style="color:#f92672">);</span>
   <span style="color:#f92672">}</span>
 <span style="color:#f92672">}</span></code></pre></div>
 </div>
 
 <div class="tabcontent Python" style="display: none" ><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">from</span> lippasta <span style="color:#f92672">import</span> <span style="color:#f92672">*</span>
 
-password <span style="color:#f92672">=</span> read_password(<span style="color:#e6db74"></span><span style="color:#e6db74">&#34;Please enter your password:&#34;</span>)
+password <span style="color:#f92672">=</span> read_password(<span style="color:#f92672">&amp;</span><span style="color:#75715e">#34;Please enter your password:&amp;#34;)</span>
 hash <span style="color:#f92672">=</span>  hash_password(password)
-<span style="color:#66d9ef">print</span>(<span style="color:#e6db74"></span><span style="color:#e6db74">&#34;The hashed password is: &#34;</span>, hash)</code></pre></div>
+<span style="color:#66d9ef">print</span>(<span style="color:#f92672">&amp;</span><span style="color:#75715e">#34;The hashed password is: &amp;#34;, hash)</span></code></pre></div>
 </div>
 
 <div class="tabcontent Rust" style="display: block" ><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-rust" data-lang="rust"><span style="color:#66d9ef">extern</span> <span style="color:#66d9ef">crate</span> libpasta;
@@ -827,9 +846,9 @@ hash <span style="color:#f92672">=</span>  hash_password(password)
 </span><span style="color:#75715e"></span><span style="color:#66d9ef">use</span> libpasta::rpassword::<span style="color:#f92672">*</span>;
 
 <span style="color:#66d9ef">fn</span> <span style="color:#a6e22e">main</span>() {
-    <span style="color:#66d9ef">let</span> password <span style="color:#f92672">=</span> prompt_password_stdout(<span style="color:#e6db74">&#34;Please enter your password:&#34;</span>).unwrap();
-<span style="background-color:#3c3d38;display:block;width:100%">    <span style="color:#66d9ef">let</span> password_hash <span style="color:#f92672">=</span> libpasta::hash_password(password);
-</span>    println<span style="color:#f92672">!</span>(<span style="color:#e6db74">&#34;The hashed password is: &#39;{}&#39;&#34;</span>, password_hash);
+    <span style="color:#66d9ef">let</span> password <span style="color:#f92672">=</span> prompt_password_stdout(<span style="color:#f92672">&amp;</span><span style="color:#960050;background-color:#1e0010">#</span><span style="color:#ae81ff">34</span>;Please enter your password:<span style="color:#66d9ef">&amp;</span><span style="color:#960050;background-color:#1e0010">#</span><span style="color:#ae81ff">34</span>;).unwrap();
+<span style="display:block;width:100%;background-color:#3c3d38">    <span style="color:#66d9ef">let</span> password_hash <span style="color:#f92672">=</span> libpasta::hash_password(<span style="color:#f92672">&amp;</span>amp;password);
+</span>    println<span style="color:#f92672">!</span>(<span style="color:#f92672">&amp;</span><span style="color:#960050;background-color:#1e0010">#</span><span style="color:#ae81ff">34</span>;The hashed password is: <span style="color:#66d9ef">&amp;</span><span style="color:#960050;background-color:#1e0010">#</span><span style="color:#ae81ff">39</span>;{}<span style="color:#f92672">&amp;</span><span style="color:#960050;background-color:#1e0010">#</span><span style="color:#ae81ff">39</span>;<span style="color:#f92672">&amp;</span><span style="color:#960050;background-color:#1e0010">#</span><span style="color:#ae81ff">34</span>;, password_hash);
 }</code></pre></div>
 </div>
  </div></div>
@@ -883,14 +902,14 @@ outputs a variable-length string.</p>
 </span><span style="color:#75715e"></span>    password_hash: String,
 }
 
-<span style="color:#66d9ef">fn</span> <span style="color:#a6e22e">auth_user</span>(user: <span style="color:#66d9ef">&amp;</span><span style="color:#a6e22e">User</span>) {
-    <span style="color:#66d9ef">let</span> password <span style="color:#f92672">=</span> prompt_password_stdout(<span style="color:#e6db74">&#34;Enter password:&#34;</span>).unwrap();
-<span style="background-color:#3c3d38;display:block;width:100%">    <span style="color:#66d9ef">if</span> libpasta::verify_password(<span style="color:#f92672">&amp;</span>user.password_hash, password) {
-</span>        println<span style="color:#f92672">!</span>(<span style="color:#e6db74">&#34;The password is correct!&#34;</span>);
-        <span style="color:#75715e">// ~&gt; Handle correct password
+<span style="color:#66d9ef">fn</span> <span style="color:#a6e22e">auth_user</span>(user: <span style="color:#66d9ef">&amp;</span><span style="color:#a6e22e">amp</span>;User) {
+    <span style="color:#66d9ef">let</span> password <span style="color:#f92672">=</span> prompt_password_stdout(<span style="color:#f92672">&amp;</span><span style="color:#960050;background-color:#1e0010">#</span><span style="color:#ae81ff">34</span>;Enter password:<span style="color:#66d9ef">&amp;</span><span style="color:#960050;background-color:#1e0010">#</span><span style="color:#ae81ff">34</span>;).unwrap();
+<span style="display:block;width:100%;background-color:#3c3d38">    <span style="color:#66d9ef">if</span> libpasta::verify_password(<span style="color:#f92672">&amp;</span>amp;user.password_hash, <span style="color:#f92672">&amp;</span>amp;password) {
+</span>        println<span style="color:#f92672">!</span>(<span style="color:#f92672">&amp;</span><span style="color:#960050;background-color:#1e0010">#</span><span style="color:#ae81ff">34</span>;The password is correct<span style="color:#f92672">!&amp;</span><span style="color:#960050;background-color:#1e0010">#</span><span style="color:#ae81ff">34</span>;);
+        <span style="color:#75715e">// ~&amp;gt; Handle correct password
 </span><span style="color:#75715e"></span>    } <span style="color:#66d9ef">else</span> {
-        println<span style="color:#f92672">!</span>(<span style="color:#e6db74">&#34;Incorrect password.&#34;</span>);
-        <span style="color:#75715e">// ~&gt; Handle incorrect password
+        println<span style="color:#f92672">!</span>(<span style="color:#f92672">&amp;</span><span style="color:#960050;background-color:#1e0010">#</span><span style="color:#ae81ff">34</span>;Incorrect password.<span style="color:#f92672">&amp;</span><span style="color:#960050;background-color:#1e0010">#</span><span style="color:#ae81ff">34</span>;);
+        <span style="color:#75715e">// ~&amp;gt; Handle incorrect password
 </span><span style="color:#75715e"></span>    }
 }</code></pre></div>
 </div>
@@ -898,29 +917,29 @@ outputs a variable-length string.</p>
 <div class="tabcontent Python" style="display: none" ><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">from</span> lippasta <span style="color:#f92672">import</span> <span style="color:#f92672">*</span>
 
 <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">User</span>:
-    password_hash <span style="color:#f92672">=</span> <span style="color:#e6db74"></span><span style="color:#e6db74">&#34;&#34;</span>
+    password_hash <span style="color:#f92672">=</span> <span style="color:#f92672">&amp;</span><span style="color:#75715e">#34;&amp;#34;</span>
 
     <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">auth_user</span>():
-        password <span style="color:#f92672">=</span> read_password(<span style="color:#e6db74"></span><span style="color:#e6db74">&#34;Enter password:&#34;</span>)
+        password <span style="color:#f92672">=</span> read_password(<span style="color:#f92672">&amp;</span><span style="color:#75715e">#34;Enter password:&amp;#34;)</span>
         <span style="color:#66d9ef">if</span> verify_password(self<span style="color:#f92672">.</span>password_hash, password):
-            <span style="color:#66d9ef">print</span>(<span style="color:#e6db74"></span><span style="color:#e6db74">&#34;The password is correct!&#34;</span>)
-            <span style="color:#75715e"># ~&gt; Handle correct password</span>
+            <span style="color:#66d9ef">print</span>(<span style="color:#f92672">&amp;</span><span style="color:#75715e">#34;The password is correct!&amp;#34;)</span>
+            <span style="color:#75715e"># ~&amp;gt; Handle correct password</span>
         <span style="color:#66d9ef">else</span>:
-            <span style="color:#66d9ef">print</span>(<span style="color:#e6db74"></span><span style="color:#e6db74">&#34;Incorrect password.&#34;</span>)
-            <span style="color:#75715e"># ~&gt; Handle incorrect password</span></code></pre></div>
+            <span style="color:#66d9ef">print</span>(<span style="color:#f92672">&amp;</span><span style="color:#75715e">#34;Incorrect password.&amp;#34;)</span>
+            <span style="color:#75715e"># ~&amp;gt; Handle incorrect password</span></code></pre></div>
 </div>
 
 <div class="tabcontent Java" style="display: none" ><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">User</span> <span style="color:#f92672">{</span>
     <span style="color:#66d9ef">private</span> String password_hash<span style="color:#f92672">;</span>
 
     <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">authUser</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
-        String password <span style="color:#f92672">=</span> pasta<span style="color:#f92672">.</span><span style="color:#a6e22e">read_password</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;Enter password:&#34;</span><span style="color:#f92672">);</span>
-<span style="background-color:#3c3d38;display:block;width:100%">        <span style="color:#66d9ef">if</span><span style="color:#f92672">(</span>pasta<span style="color:#f92672">.</span><span style="color:#a6e22e">verify_password</span><span style="color:#f92672">(</span>self<span style="color:#f92672">.</span><span style="color:#a6e22e">password_hash</span><span style="color:#f92672">,</span> password<span style="color:#f92672">))</span> <span style="color:#f92672">{</span>
-</span>            System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;The password is correct!&#34;</span><span style="color:#f92672">);</span>
-            <span style="color:#75715e">// ~&gt; Handle correct password
+        String password <span style="color:#f92672">=</span> pasta<span style="color:#f92672">.</span><span style="color:#a6e22e">read_password</span><span style="color:#f92672">(&amp;</span><span style="color:#960050;background-color:#1e0010">#</span>34<span style="color:#f92672">;</span>Enter password:<span style="color:#f92672">&amp;</span><span style="color:#960050;background-color:#1e0010">#</span>34<span style="color:#f92672">;);</span>
+<span style="display:block;width:100%;background-color:#3c3d38">        <span style="color:#66d9ef">if</span><span style="color:#f92672">(</span>pasta<span style="color:#f92672">.</span><span style="color:#a6e22e">verify_password</span><span style="color:#f92672">(</span>self<span style="color:#f92672">.</span><span style="color:#a6e22e">password_hash</span><span style="color:#f92672">,</span> password<span style="color:#f92672">))</span> <span style="color:#f92672">{</span>
+</span>            System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(&amp;</span><span style="color:#960050;background-color:#1e0010">#</span>34<span style="color:#f92672">;</span>The password is correct<span style="color:#f92672">!&amp;</span><span style="color:#960050;background-color:#1e0010">#</span>34<span style="color:#f92672">;);</span>
+            <span style="color:#75715e">// ~&amp;gt; Handle correct password
 </span><span style="color:#75715e"></span>        <span style="color:#f92672">}</span> <span style="color:#66d9ef">else</span> <span style="color:#f92672">{</span>
-            System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;Incorrect password.&#34;</span><span style="color:#f92672">);</span>
-            <span style="color:#75715e">// ~&gt; Handle incorrect password
+            System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(&amp;</span><span style="color:#960050;background-color:#1e0010">#</span>34<span style="color:#f92672">;</span>Incorrect password<span style="color:#f92672">.&amp;</span><span style="color:#960050;background-color:#1e0010">#</span>34<span style="color:#f92672">;);</span>
+            <span style="color:#75715e">// ~&amp;gt; Handle incorrect password
 </span><span style="color:#75715e"></span>        <span style="color:#f92672">}</span>
     <span style="color:#f92672">}</span>
 <span style="color:#f92672">}</span></code></pre></div>
@@ -971,20 +990,20 @@ the new algorithm:</p>
 </span><span style="color:#75715e"></span>    password_hash: String,
 }
 
-<span style="color:#66d9ef">fn</span> <span style="color:#a6e22e">migrate_users</span>(users: Vec<span style="color:#f92672">&lt;&amp;</span><span style="color:#66d9ef">mut</span> User<span style="color:#f92672">&gt;</span>) {
+<span style="color:#66d9ef">fn</span> <span style="color:#a6e22e">migrate_users</span>(users: Vec<span style="color:#66d9ef">&amp;</span><span style="color:#a6e22e">lt</span>;<span style="color:#f92672">&amp;</span>amp;<span style="color:#66d9ef">mut</span> User<span style="color:#f92672">&amp;</span>gt;) {
     <span style="color:#75715e">// Step 1: Wrap old hash
 </span><span style="color:#75715e"></span>    <span style="color:#66d9ef">for</span> user <span style="color:#66d9ef">in</span> users {
-<span style="background-color:#3c3d38;display:block;width:100%">        libpasta::migrate_hash(<span style="color:#f92672">&amp;</span><span style="color:#66d9ef">mut</span> user.password_hash);
+<span style="display:block;width:100%;background-color:#3c3d38">        libpasta::migrate_hash(<span style="color:#f92672">&amp;</span>amp;<span style="color:#66d9ef">mut</span> user.password_hash);
 </span>    }
 }
 
-<span style="color:#66d9ef">fn</span> <span style="color:#a6e22e">auth_user</span>(user: <span style="color:#66d9ef">&amp;</span><span style="color:#a6e22e">mut</span> User) {
+<span style="color:#66d9ef">fn</span> <span style="color:#a6e22e">auth_user</span>(user: <span style="color:#66d9ef">&amp;</span><span style="color:#a6e22e">amp</span>;<span style="color:#66d9ef">mut</span> User) {
     <span style="color:#75715e">// Step 2: Update algorithm during log in
-</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">let</span> password <span style="color:#f92672">=</span> prompt_password_stdout(<span style="color:#e6db74">&#34;Enter password:&#34;</span>).unwrap();
-<span style="background-color:#3c3d38;display:block;width:100%">    <span style="color:#66d9ef">if</span> libpasta::verify_password_update_hash(<span style="color:#f92672">&amp;</span><span style="color:#66d9ef">mut</span> user.password_hash, password) {
-</span>        println<span style="color:#f92672">!</span>(<span style="color:#e6db74">&#34;Password correct, new hash: </span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">{}&#34;</span>, user.password_hash);
+</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">let</span> password <span style="color:#f92672">=</span> prompt_password_stdout(<span style="color:#f92672">&amp;</span><span style="color:#960050;background-color:#1e0010">#</span><span style="color:#ae81ff">34</span>;Enter password:<span style="color:#66d9ef">&amp;</span><span style="color:#960050;background-color:#1e0010">#</span><span style="color:#ae81ff">34</span>;).unwrap();
+<span style="display:block;width:100%;background-color:#3c3d38">    <span style="color:#66d9ef">if</span> libpasta::verify_password_update_hash(<span style="color:#f92672">&amp;</span>amp;<span style="color:#66d9ef">mut</span> user.password_hash, password) {
+</span>        println<span style="color:#f92672">!</span>(<span style="color:#f92672">&amp;</span><span style="color:#960050;background-color:#1e0010">#</span><span style="color:#ae81ff">34</span>;Password correct, new hash: <span style="color:#960050;background-color:#1e0010">\</span>n{}<span style="color:#f92672">&amp;</span><span style="color:#960050;background-color:#1e0010">#</span><span style="color:#ae81ff">34</span>;, user.password_hash);
     } <span style="color:#66d9ef">else</span> {
-        println<span style="color:#f92672">!</span>(<span style="color:#e6db74">&#34;Password incorrect, hash unchanged: </span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">{}&#34;</span>, user.password_hash);
+        println<span style="color:#f92672">!</span>(<span style="color:#f92672">&amp;</span><span style="color:#960050;background-color:#1e0010">#</span><span style="color:#ae81ff">34</span>;Password incorrect, hash unchanged: <span style="color:#960050;background-color:#1e0010">\</span>n{}<span style="color:#f92672">&amp;</span><span style="color:#960050;background-color:#1e0010">#</span><span style="color:#ae81ff">34</span>;, user.password_hash);
     }
 }</code></pre></div>
 </div>
@@ -1039,8 +1058,8 @@ algorithm.</p>
 
 <span style="color:#66d9ef">fn</span> <span style="color:#a6e22e">main</span>() {
     <span style="color:#66d9ef">let</span> config <span style="color:#f92672">=</span> Config::with_primitive(Bcrypt::new(<span style="color:#ae81ff">15</span>));
-    <span style="color:#66d9ef">let</span> password_hash <span style="color:#f92672">=</span> config.hash_password(<span style="color:#e6db74">&#34;hunter2&#34;</span>.to_string());
-    println<span style="color:#f92672">!</span>(<span style="color:#e6db74">&#34;The hashed password is: &#39;{}&#39;&#34;</span>, password_hash);
+    <span style="color:#66d9ef">let</span> password_hash <span style="color:#f92672">=</span> config.hash_password(<span style="color:#f92672">&amp;</span><span style="color:#960050;background-color:#1e0010">#</span><span style="color:#ae81ff">34</span>;hunter2<span style="color:#f92672">&amp;</span><span style="color:#960050;background-color:#1e0010">#</span><span style="color:#ae81ff">34</span>;);
+    println<span style="color:#f92672">!</span>(<span style="color:#f92672">&amp;</span><span style="color:#960050;background-color:#1e0010">#</span><span style="color:#ae81ff">34</span>;The hashed password is: <span style="color:#66d9ef">&amp;</span><span style="color:#960050;background-color:#1e0010">#</span><span style="color:#ae81ff">39</span>;{}<span style="color:#f92672">&amp;</span><span style="color:#960050;background-color:#1e0010">#</span><span style="color:#ae81ff">39</span>;<span style="color:#f92672">&amp;</span><span style="color:#960050;background-color:#1e0010">#</span><span style="color:#ae81ff">34</span>;, password_hash);
     <span style="color:#75715e">// Prints bcrypt hash
 </span><span style="color:#75715e"></span>}</code></pre></div>
 </div>
@@ -1153,6 +1172,22 @@ can optionally output configuration values.</p>
                     
                         
                         
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
                     
                 
                 
@@ -1512,13 +1547,13 @@ can optionally output configuration values.</p>
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1511972713"></script>
-    <script src="/js/jquery.sticky-kit.min.js?1511972713"></script>
-    <script src="/js/featherlight.min.js?1511972713"></script>
-    <script src="/js/html5shiv-printshiv.min.js?1511972713"></script>
-    <script src="/js/modernizr.custom.71422.js?1511972713"></script>
-    <script src="/js/learn.js?1511972713"></script>
-    <script src="/js/hugo-learn.js?1511972713"></script>
+    <script src="/js/clipboard.min.js?1518645205"></script>
+    <script src="/js/jquery.sticky-kit.min.js?1518645205"></script>
+    <script src="/js/featherlight.min.js?1518645205"></script>
+    <script src="/js/html5shiv-printshiv.min.js?1518645205"></script>
+    <script src="/js/modernizr.custom.71422.js?1518645205"></script>
+    <script src="/js/learn.js?1518645205"></script>
+    <script src="/js/hugo-learn.js?1518645205"></script>
 
     
 
