@@ -78,7 +78,7 @@ Why scrypt? Scrypt was introduced in 2009 as a memory-hard hash function, design
       <description>Here we give an overview of the core functionality of libpasta. Examples can be viewed in different languages, with the full list of language support found in other languages.
 The full Rust API documentation can be found here.
 Password Hashes A common scenario is that a particular user has password, which a service will check on each login to authenticate the user.
- Java Python Rust  public class test { public static void main(String argv[]) { String password = pasta.</description>
+ Java Python Rust  import io.github.libpasta.pasta; public class hash { public static void main(String argv[]) { String password = pasta.</description>
     </item>
     
     <item>
