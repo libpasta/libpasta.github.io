@@ -6,7 +6,7 @@
     <description>Recent content on libpasta</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-gb</language>
-    <lastBuildDate>Wed, 29 Nov 2017 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 21 Feb 2018 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://libpasta.github.io/index.xml" rel="self" type="application/rss+xml" />
     
@@ -231,6 +231,16 @@ id | username | password | creation-date | .</description>
       <guid>https://libpasta.github.io/introduction/alternatives/</guid>
       <description>There are currently a few options for password hashing. These vary from general crypto libraries, to specific password hashing libraries, to in-built helpers. The functionality, security, ease-of-use and compatibility of these varies, and we compare them to libpasta here.
 The design of libpasta was inspired by libsodium (a cross-platform, cross- language crypto library), and passlib (a python-based password hashing library). libpasta is an effort to take the best features of these two libraries combined into one, and more.</description>
+    </item>
+    
+    <item>
+      <title>Rust for Cross-Language System Libraries</title>
+      <link>https://libpasta.github.io/blog/bindings/</link>
+      <pubDate>Wed, 21 Feb 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://libpasta.github.io/blog/bindings/</guid>
+      <description>We have been building libpasta as a simple, usable solution to password hashing and migration. The goal for libpasta is to be a cross-platform, cross-language system library.
+libpasta is written in Rust, exports a C-style API, and builds to a static/shared library. Most languages support calling external libraries through foreign function interfaces (FFIs), and the end result can be seen in the documentation where each language has access to the libpasta functionality.</description>
     </item>
     
     <item>
