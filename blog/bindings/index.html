@@ -13,17 +13,17 @@
     <title>Rust for Cross-Language System Libraries :: libpasta</title>
     
     
-    <link href="/css/nucleus.css?1519241425" rel="stylesheet">
-    <link href="/css/hybrid.css?1519241425" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1519241425" rel="stylesheet">
-    <link href="/css/auto-complete.css?1519241425" rel="stylesheet">
-    <link href="/css/theme.css?1519241425" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1519241425" rel="stylesheet">
+    <link href="/css/nucleus.css?1519324352" rel="stylesheet">
+    <link href="/css/hybrid.css?1519324352" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1519324352" rel="stylesheet">
+    <link href="/css/auto-complete.css?1519324352" rel="stylesheet">
+    <link href="/css/theme.css?1519324352" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1519324352" rel="stylesheet">
     
-      <link href="/css/theme-libpasta.css?1519241425" rel="stylesheet">
+      <link href="/css/theme-libpasta.css?1519324352" rel="stylesheet">
     
 
-    <script src="/js/jquery-2.x.min.js?1519241425"></script>
+    <script src="/js/jquery-2.x.min.js?1519324352"></script>
     
     <style type="text/css">
       :root #header + #content > #left > #rlblock_left{ 
@@ -100,14 +100,14 @@
     <span data-search-clear=""><i class="fa fa-close"></i></span>
 </div>
 
-<script type="text/javascript" src="/js/lunr.min.js?1519241425"></script>
-<script type="text/javascript" src="/js/auto-complete.js?1519241425"></script>
+<script type="text/javascript" src="/js/lunr.min.js?1519324352"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1519324352"></script>
 <script type="text/javascript">
     
         var baseurl = "https:\/\/libpasta.github.io\/";
     
 </script>
-<script type="text/javascript" src="/js/search.js?1519241425"></script>
+<script type="text/javascript" src="/js/search.js?1519324352"></script>
 
     
   </div>
@@ -851,8 +851,8 @@ the extern version of <code>hash_password</code>, perhaps ending up with somethi
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-rust" data-lang="rust"><span style="color:#75715e">#[no_mangle]</span>
 <span style="color:#66d9ef">pub</span> <span style="color:#66d9ef">extern</span> <span style="color:#66d9ef">fn</span> <span style="color:#a6e22e">hash_password</span>(password: <span style="color:#f92672">*</span><span style="color:#66d9ef">const</span> c_char) -&gt; <span style="color:#f92672">*</span><span style="color:#66d9ef">mut</span> c_char {
     <span style="color:#66d9ef">let</span> password <span style="color:#f92672">=</span> <span style="color:#66d9ef">unsafe</span> {
-        <span style="color:#66d9ef">if</span> password.is_null() { <span style="color:#66d9ef">return</span> }
-        CString::from_raw(password)
+        assert<span style="color:#f92672">!</span>(<span style="color:#f92672">!</span>password.is_null());
+        CStr::from_ptr(password)
     };
     <span style="color:#66d9ef">let</span> hash <span style="color:#f92672">=</span> libpasta::hash_password(password);
     CString::new(hash).unwrap().into_raw()
@@ -1084,7 +1084,7 @@ approach.</p>
 <ul>
 <li>Some languages have projects dedicated to interacting with Rust. E.g.
 <a href="https://github.com/d-unseductable/ruru">ruru</a> for Ruby &lt;-&gt; Rust. These
-potential perform better, or create better bindings, or have more features. I
+potentially perform better, create better bindings, or have more features. I
 haven&rsquo;t investigated yet and would be interested to know. In the future
 individual bindings could be improved this way.</li>
 <li>I haven&rsquo;t <em>yet</em> benchmarked the overhead of all of this. However, since
@@ -1570,13 +1570,13 @@ its still useful (in my opinion) for the initial work.</li>
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1519241425"></script>
-    <script src="/js/jquery.sticky-kit.min.js?1519241425"></script>
-    <script src="/js/featherlight.min.js?1519241425"></script>
-    <script src="/js/html5shiv-printshiv.min.js?1519241425"></script>
-    <script src="/js/modernizr.custom.71422.js?1519241425"></script>
-    <script src="/js/learn.js?1519241425"></script>
-    <script src="/js/hugo-learn.js?1519241425"></script>
+    <script src="/js/clipboard.min.js?1519324352"></script>
+    <script src="/js/jquery.sticky-kit.min.js?1519324352"></script>
+    <script src="/js/featherlight.min.js?1519324352"></script>
+    <script src="/js/html5shiv-printshiv.min.js?1519324352"></script>
+    <script src="/js/modernizr.custom.71422.js?1519324352"></script>
+    <script src="/js/learn.js?1519324352"></script>
+    <script src="/js/hugo-learn.js?1519324352"></script>
 
     
 
