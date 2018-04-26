@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Introduction on libpasta</title>
+    <link>https://libpasta.github.io/introduction/</link>
+    <description>Recent content in Introduction on libpasta</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-gb</language>
+    
+	<atom:link href="https://libpasta.github.io/introduction/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>What is libpasta?</title>
+      <link>https://libpasta.github.io/introduction/what-is-libpasta/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://libpasta.github.io/introduction/what-is-libpasta/</guid>
+      <description>Password breaches have become a regular occurrence. See: Yahoo (twice), LinkedIn, Adobe, Ashley Madison, and a whole lot more.
+Furthermore, with the exception of Yahoo who eventually migrated to bcrypt in 2013, the above examples doubles as a list of &amp;ldquo;how NOT to do password storage&amp;rdquo;: simple hashing, unsalted values, misuse of encryption, and failed password migration. (For more information on why these are bad, see our introduction to password hashing theory).</description>
+    </item>
+    
+    <item>
+      <title>Basic Usage</title>
+      <link>https://libpasta.github.io/introduction/basic-usage/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://libpasta.github.io/introduction/basic-usage/</guid>
+      <description>Here we give an overview of the core functionality of libpasta. Examples can be viewed in different languages, with the full list of language support found in other languages.
+The full Rust API documentation can be found here.
+Password Hashes A common scenario is that a particular user has password, which a service will check on each login to authenticate the user.
+ Java Python Ruby Rust  import io.</description>
+    </item>
+    
+    <item>
+      <title>Installation</title>
+      <link>https://libpasta.github.io/introduction/installation/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://libpasta.github.io/introduction/installation/</guid>
+      <description>libpasta is designed to be installed as a system library. Currently, this can be achieved by downloading the repository, compiling it, and moving the library to the system library, e.g /usr/lib.
+git clone https://github.com/libpasta/libpasta/ cd libpasta # compiles the library make libpasta # installs the library to ${INSTALL_DIR} - defaults to /usr/lib make install For developing Rust applications, we recommend using it as usual through cargo.
+For non-Rust applications, follow the above steps to install the library, and follow the instructions for bindings to other languages.</description>
+    </item>
+    
+    <item>
+      <title>Password hashing theory</title>
+      <link>https://libpasta.github.io/introduction/password-hashing-theory/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://libpasta.github.io/introduction/password-hashing-theory/</guid>
+      <description>Why hash passwords? Let&amp;rsquo;s start with the most common use of passwords: user authentication.
+The general setting is that an individual has a username and a password, e.g. username: alice and password: hunter2.
+When Alice first registers on a website, a new account is created, and the password is stored in the database, so that Alice can prove she is indeed Alice
+id | username | password | creation-date | .</description>
+    </item>
+    
+    <item>
+      <title>Alternatives</title>
+      <link>https://libpasta.github.io/introduction/alternatives/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://libpasta.github.io/introduction/alternatives/</guid>
+      <description>There are currently a few options for password hashing. These vary from general crypto libraries, to specific password hashing libraries, to in-built helpers. The functionality, security, ease-of-use and compatibility of these varies, and we compare them to libpasta here.
+The design of libpasta was inspired by libsodium (a cross-platform, cross- language crypto library), and passlib (a python-based password hashing library). libpasta is an effort to take the best features of these two libraries combined into one, and more.</description>
+    </item>
+    
+  </channel>
+</rss>

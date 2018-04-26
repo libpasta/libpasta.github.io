@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Developing libpasta on libpasta</title>
+    <link>https://libpasta.github.io/libpasta-dev/</link>
+    <description>Recent content in Developing libpasta on libpasta</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-gb</language>
+    
+	<atom:link href="https://libpasta.github.io/libpasta-dev/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Contributing</title>
+      <link>https://libpasta.github.io/libpasta-dev/contributing/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://libpasta.github.io/libpasta-dev/contributing/</guid>
+      <description>libpasta is still at an early stage of development and is looking for contribution in all areas.
+Some specific areas which are looking for contribution:
+ Improving these docs - source The core Rust library - source Adding more languages - see adding languages Writing more utility tools - source  </description>
+    </item>
+    
+    <item>
+      <title>Adding Languages</title>
+      <link>https://libpasta.github.io/libpasta-dev/adding-languages/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://libpasta.github.io/libpasta-dev/adding-languages/</guid>
+      <description>Our initial support for other languages is through the use of SWIG.
+So far, this means we have simple bindings for C, Java, PHP, python, and Ruby.
+If you want to add new language bindings, this is a good place to start.
+The SWIG specification for libpasta reveals the simplicity of the API, and a few important caveats:
+# in pasta.h  #include &amp;lt;stdbool.h&amp;gt;extern char * hash_password(const char *password); extern bool verify_password(const char* hash, const char *password); extern void free_string(const char *); extern char * read_password(const char *prompt); These bind to the functions exported by the libpasta-ffi crate.</description>
+    </item>
+    
+  </channel>
+</rss>

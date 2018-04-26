@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Other Languages on libpasta</title>
+    <link>https://libpasta.github.io/other-languages/</link>
+    <description>Recent content in Other Languages on libpasta</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-gb</language>
+    
+	<atom:link href="https://libpasta.github.io/other-languages/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Overview</title>
+      <link>https://libpasta.github.io/other-languages/overview/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://libpasta.github.io/other-languages/overview/</guid>
+      <description>Our goal is for libpasta to be the clear choice for any developers requiring secure password storage. Hence we have initial support for a number of languages.
+For any missing languages, please open an issue or click &amp;ldquo;Edit this page&amp;rdquo; and submit a pull request.
+Here we list the support:
+   Language Supported? Repository Documentation     C Y TODO TODO   Java Y Link Link   PHP Y TODO TODO   Python Y Link TODO   Ruby Y TODO TODO   Rust Y (Native) Link Link    </description>
+    </item>
+    
+    <item>
+      <title>C</title>
+      <link>https://libpasta.github.io/other-languages/c/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://libpasta.github.io/other-languages/c/</guid>
+      <description>We can use the FFI definitions output by Rust directly in C code. However, unlike with the SWIG bindings, we are required to manually free the strings after use, as in the following simple example.
+### in pasta.h #include &amp;lt;stdbool.h&amp;gt; extern char * hash_password(const char *password); extern bool verify_password(const char* hash, const char *password); extern void free_string(const char *); extern char * read_password(const char *prompt);#include &amp;#34;pasta.h&amp;#34;#include &amp;lt;stdio.h&amp;gt; int main(void) { char *hash, *password; hash = hash_password(&amp;#34;hello123&amp;#34;); password = read_password(&amp;#34;Please enter the password (hint: hello123):&amp;#34;); if (verify_password(hash, password)) { printf(&amp;#34;Correct password\n&amp;#34;); } else { printf(&amp;#34;Sorry, that is incorrect\n&amp;#34;); } free_string(hash); free_string(password); return 0; } Which is compiled in the usual way:</description>
+    </item>
+    
+    <item>
+      <title>Java</title>
+      <link>https://libpasta.github.io/other-languages/java/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://libpasta.github.io/other-languages/java/</guid>
+      <description>There is currently support for the base functionality in Java.
+The library can be obtained by following the instruction in the repository. The simplest being to obtain the precompiled jar file from the releases page.
+Once obtained a simple example such as the following can be constructed:
+import io.github.libpasta.*; public class test { public static void main(String argv[]) { String hash = pasta.hash_password(&amp;#34;hello123&amp;#34;); String password = pasta.read_password(&amp;#34;Please enter the password (hint: hello123):&amp;#34;); if (pasta.</description>
+    </item>
+    
+    <item>
+      <title>PHP</title>
+      <link>https://libpasta.github.io/other-languages/php/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://libpasta.github.io/other-languages/php/</guid>
+      <description>For PHP, SWIG generates a pasta.so extension, which can be installed in the system directory (for example, /etc/php/php.ini), and must be enabled. SWIG also generates a pasta.php module file which loads the extension and defines the API for libpasta.
+// In pasta_form.php &amp;lt;?php include(&amp;#34;pasta.php&amp;#34;); $password = $_POST[&amp;#39;password&amp;#39;]; $hash = pasta::hash_password(&amp;#34;hello123&amp;#34;); if (pasta::verify_password($hash, $password)) { echo &amp;#34;Correct password.&amp;#34;; } else { echo &amp;#34;Sorry, that is incorrect&amp;#34;; } ?&amp;gt; &amp;lt;html&amp;gt; &amp;lt;head&amp;gt; &amp;lt;title&amp;gt;libpasta PHP example&amp;lt;/title&amp;gt; &amp;lt;/head&amp;gt; &amp;lt;body&amp;gt; &amp;lt;form action=&amp;#34;pasta_form.</description>
+    </item>
+    
+    <item>
+      <title>Python</title>
+      <link>https://libpasta.github.io/other-languages/python/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://libpasta.github.io/other-languages/python/</guid>
+      <description>We are currently supporting the base libpasta functionality in python.
+The library can be obtained by following the instruction in the repository. Or using pip for supported systems (currently 64-bit linux, most python versions).
+Once obtained a simple example such as the following can be constructed:
+import libpasta hash = libpasta.hash_password(&amp;#34;hello123&amp;#34;) password = libpasta.read_password(&amp;#34;Please enter the password (hint: hello123):&amp;#34;); if libpasta.verify_password(hash, password): print(&amp;#34;Correct password&amp;#34;) else: print(&amp;#34;Sorry, that is incorrect&amp;#34;)</description>
+    </item>
+    
+    <item>
+      <title>Ruby</title>
+      <link>https://libpasta.github.io/other-languages/ruby/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://libpasta.github.io/other-languages/ruby/</guid>
+      <description>In the future Ruby will be supported through a Ruby gem. For now, SWIG generates a pasta.so extension which can be used directly by Ruby:
+require &amp;#39;./pasta.so&amp;#39; hash = Pasta::hash_password(&amp;#34;hello123&amp;#34;) password = Pasta::read_password(&amp;#34;Please enter the password (hint: hello123):&amp;#34;) if Pasta::verify_password(hash, password) puts &amp;#34;Correct password&amp;#34; else puts &amp;#34;Sorry, that is incorrect&amp;#34; end</description>
+    </item>
+    
+  </channel>
+</rss>

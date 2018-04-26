@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-    <meta name="generator" content="Hugo 0.36.1" />
+    <meta name="generator" content="Hugo 0.39" />
     <meta name="description" content="libpasta - making passwords painless">
 
 
@@ -13,17 +13,17 @@
     <title>Rust for Cross-Language System Libraries :: libpasta</title>
     
     
-    <link href="/css/nucleus.css?1519324352" rel="stylesheet">
-    <link href="/css/hybrid.css?1519324352" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1519324352" rel="stylesheet">
-    <link href="/css/auto-complete.css?1519324352" rel="stylesheet">
-    <link href="/css/theme.css?1519324352" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1519324352" rel="stylesheet">
+    <link href="/css/nucleus.css?1524773799" rel="stylesheet">
+    <link href="/css/hybrid.css?1524773799" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1524773799" rel="stylesheet">
+    <link href="/css/auto-complete.css?1524773799" rel="stylesheet">
+    <link href="/css/theme.css?1524773799" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1524773799" rel="stylesheet">
     
-      <link href="/css/theme-libpasta.css?1519324352" rel="stylesheet">
+      <link href="/css/theme-libpasta.css?1524773799" rel="stylesheet">
     
 
-    <script src="/js/jquery-2.x.min.js?1519324352"></script>
+    <script src="/js/jquery-2.x.min.js?1524773799"></script>
     
     <style type="text/css">
       :root #header + #content > #left > #rlblock_left{ 
@@ -100,14 +100,14 @@
     <span data-search-clear=""><i class="fa fa-close"></i></span>
 </div>
 
-<script type="text/javascript" src="/js/lunr.min.js?1519324352"></script>
-<script type="text/javascript" src="/js/auto-complete.js?1519324352"></script>
+<script type="text/javascript" src="/js/lunr.min.js?1524773799"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1524773799"></script>
 <script type="text/javascript">
     
         var baseurl = "https:\/\/libpasta.github.io\/";
     
 </script>
-<script type="text/javascript" src="/js/search.js?1519324352"></script>
+<script type="text/javascript" src="/js/search.js?1524773799"></script>
 
     
   </div>
@@ -847,7 +847,7 @@ into a raw pointer of type <code>*mut c_char</code>.</p>
 <p>All this information and much more can be found in the
 <a href="http://jakegoulding.com/rust-ffi-omnibus/">FFI omnibus</a>, a fantastic resource
 for using Rust + FFI. Using all of this, it becomes easy enough to build
-the extern version of <code>hash_password</code>, perhaps ending up with something like<sup class="footnote-ref" id="fnref:1"><a rel="footnote" href="#fn:1">1</a></sup>:</p>
+the extern version of <code>hash_password</code>, perhaps ending up with something like<sup class="footnote-ref" id="fnref:1"><a href="#fn:1">1</a></sup>:</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-rust" data-lang="rust"><span style="color:#75715e">#[no_mangle]</span>
 <span style="color:#66d9ef">pub</span> <span style="color:#66d9ef">extern</span> <span style="color:#66d9ef">fn</span> <span style="color:#a6e22e">hash_password</span>(password: <span style="color:#f92672">*</span><span style="color:#66d9ef">const</span> c_char) -&gt; <span style="color:#f92672">*</span><span style="color:#66d9ef">mut</span> c_char {
     <span style="color:#66d9ef">let</span> password <span style="color:#f92672">=</span> <span style="color:#66d9ef">unsafe</span> {
@@ -941,7 +941,8 @@ up by the native code. Next, the annotation <code>%typemap(newfree) char *
 resultobj <span style="color:#f92672">=</span> SWIG_FromCharPtr((<span style="color:#66d9ef">const</span> <span style="color:#66d9ef">char</span> <span style="color:#f92672">*</span>)result);
 <span style="color:#66d9ef">if</span> (alloc1 <span style="color:#f92672">==</span> SWIG_NEWOBJ) <span style="color:#66d9ef">delete</span>[] buf1;
 free_string(result);
-<span style="color:#66d9ef">return</span> resultobj;</code></pre></div>
+<span style="color:#66d9ef">return</span> resultobj;
+</code></pre></div>
 <p>That is, the wrapper code calls <code>hash_password</code>, and attempts to create a native
 python string from the <code>char*</code> pointer. On a success, the original Rust string
 is deallocated using <code>free_string</code>.</p>
@@ -967,8 +968,8 @@ otherwise.</p>
 
 <p>And running Swig over the new header file will give us <code>verify_password</code>
 definitions in all our target languages.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">&gt;&gt;&gt;</span> h1 <span style="color:#f92672">=</span> libpasta<span style="color:#f92672">.</span>hash_password(<span style="color:#e6db74"></span><span style="color:#e6db74">&#34;hunter2&#34;</span>)
-<span style="color:#f92672">&gt;&gt;&gt;</span> libpasta<span style="color:#f92672">.</span>verify_password(h1, <span style="color:#e6db74"></span><span style="color:#e6db74">&#34;hunter2&#34;</span>)
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">&gt;&gt;&gt;</span> h1 <span style="color:#f92672">=</span> libpasta<span style="color:#f92672">.</span>hash_password(<span style="color:#e6db74">&#34;hunter2&#34;</span>)
+<span style="color:#f92672">&gt;&gt;&gt;</span> libpasta<span style="color:#f92672">.</span>verify_password(h1, <span style="color:#e6db74">&#34;hunter2&#34;</span>)
 True</code></pre></div>
 <p>With very little work we have a Python function returning Python booleans, and
 not just an integer which we may need to check the value.</p>
@@ -1048,15 +1049,16 @@ the target languages.</p>
                 <span style="color:#66d9ef">return</span> config_hash_password(self, password);
             };
     };
-}</code></pre></div>
+}
+</code></pre></div>
 <p>Now Swig will do the work to convert these to proper, native methods. Which
 can be used like:</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">&gt;&gt;&gt;</span> <span style="color:#f92672">import</span> libpasta
 <span style="color:#f92672">&gt;&gt;&gt;</span> cfg <span style="color:#f92672">=</span> libpasta<span style="color:#f92672">.</span>Config()
 <span style="color:#f92672">&gt;&gt;&gt;</span> cfg
-<span style="color:#f92672">&lt;</span>libpasta<span style="color:#f92672">.</span>Config; proxy of <span style="color:#f92672">&lt;</span>Swig Object of type <span style="color:#e6db74"></span><span style="color:#e6db74">&#39;libpasta::Config *&#39;</span> at <span style="color:#ae81ff">0x7fae3bb85b70</span><span style="color:#f92672">&gt;</span> <span style="color:#f92672">&gt;</span>
-<span style="color:#f92672">&gt;&gt;&gt;</span> cfg<span style="color:#f92672">.</span>hash_password(<span style="color:#e6db74"></span><span style="color:#e6db74">&#34;hunter2&#34;</span>)
-<span style="color:#e6db74"></span><span style="color:#e6db74">&#39;$$scrypt$ln=14,r=8,p=1$6MFy2ynsD3eZcp8FCZcunw$zrdE1fOrCIZYFO0xHGopxBUnody4AZ4LQ640LkRXU9A&#39;</span></code></pre></div>
+<span style="color:#f92672">&lt;</span>libpasta<span style="color:#f92672">.</span>Config; proxy of <span style="color:#f92672">&lt;</span>Swig Object of type <span style="color:#e6db74">&#39;libpasta::Config *&#39;</span> at <span style="color:#ae81ff">0x7fae3bb85b70</span><span style="color:#f92672">&gt;</span> <span style="color:#f92672">&gt;</span>
+<span style="color:#f92672">&gt;&gt;&gt;</span> cfg<span style="color:#f92672">.</span>hash_password(<span style="color:#e6db74">&#34;hunter2&#34;</span>)
+<span style="color:#e6db74">&#39;$$scrypt$ln=14,r=8,p=1$6MFy2ynsD3eZcp8FCZcunw$zrdE1fOrCIZYFO0xHGopxBUnody4AZ4LQ640LkRXU9A&#39;</span></code></pre></div>
 <p>Which in my opinion is pretty cool.</p>
 
 <p>After creating these bindings, there is still the task of packaging each
@@ -1570,13 +1572,13 @@ its still useful (in my opinion) for the initial work.</li>
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1519324352"></script>
-    <script src="/js/jquery.sticky-kit.min.js?1519324352"></script>
-    <script src="/js/featherlight.min.js?1519324352"></script>
-    <script src="/js/html5shiv-printshiv.min.js?1519324352"></script>
-    <script src="/js/modernizr.custom.71422.js?1519324352"></script>
-    <script src="/js/learn.js?1519324352"></script>
-    <script src="/js/hugo-learn.js?1519324352"></script>
+    <script src="/js/clipboard.min.js?1524773799"></script>
+    <script src="/js/jquery.sticky-kit.min.js?1524773799"></script>
+    <script src="/js/featherlight.min.js?1524773799"></script>
+    <script src="/js/html5shiv-printshiv.min.js?1524773799"></script>
+    <script src="/js/modernizr.custom.71422.js?1524773799"></script>
+    <script src="/js/learn.js?1524773799"></script>
+    <script src="/js/hugo-learn.js?1524773799"></script>
 
     
 

@@ -78,7 +78,7 @@ Why scrypt? Scrypt was introduced in 2009 as a memory-hard hash function, design
       <description>Here we give an overview of the core functionality of libpasta. Examples can be viewed in different languages, with the full list of language support found in other languages.
 The full Rust API documentation can be found here.
 Password Hashes A common scenario is that a particular user has password, which a service will check on each login to authenticate the user.
- Java Python Rust  import io.github.libpasta.pasta; public class hash { public static void main(String argv[]) { String password = pasta.</description>
+ Java Python Ruby Rust  import io.</description>
     </item>
     
     <item>
@@ -121,7 +121,7 @@ For example, the following code configures a key for use in libpasta and sets up
       
       <guid>https://libpasta.github.io/other-languages/php/</guid>
       <description>For PHP, SWIG generates a pasta.so extension, which can be installed in the system directory (for example, /etc/php/php.ini), and must be enabled. SWIG also generates a pasta.php module file which loads the extension and defines the API for libpasta.
-// In pasta_form.php &amp;lt;?php include(&amp;#34;pasta.php&amp;#34;); $password = $_POST[&amp;#39;password&amp;#39;]; $hash = pasta::hash_password(&amp;#34;hello123&amp;#34;); if (pasta::verify_password($hash, $password)) { echo &amp;#34;Correct password.&amp;#34;; } else { echo &amp;#34;Sorry, that is incorrect&amp;#34;; } ?&amp;gt;&amp;lt;html&amp;gt; &amp;lt;head&amp;gt; &amp;lt;title&amp;gt;libpasta PHP example&amp;lt;/title&amp;gt; &amp;lt;/head&amp;gt; &amp;lt;body&amp;gt; &amp;lt;form action=&amp;#34;pasta_form.</description>
+// In pasta_form.php &amp;lt;?php include(&amp;#34;pasta.php&amp;#34;); $password = $_POST[&amp;#39;password&amp;#39;]; $hash = pasta::hash_password(&amp;#34;hello123&amp;#34;); if (pasta::verify_password($hash, $password)) { echo &amp;#34;Correct password.&amp;#34;; } else { echo &amp;#34;Sorry, that is incorrect&amp;#34;; } ?&amp;gt; &amp;lt;html&amp;gt; &amp;lt;head&amp;gt; &amp;lt;title&amp;gt;libpasta PHP example&amp;lt;/title&amp;gt; &amp;lt;/head&amp;gt; &amp;lt;body&amp;gt; &amp;lt;form action=&amp;#34;pasta_form.</description>
     </item>
     
     <item>

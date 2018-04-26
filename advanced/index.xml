@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Advanced Usage on libpasta</title>
+    <link>https://libpasta.github.io/advanced/</link>
+    <description>Recent content in Advanced Usage on libpasta</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-gb</language>
+    
+	<atom:link href="https://libpasta.github.io/advanced/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Keyed Hashes</title>
+      <link>https://libpasta.github.io/advanced/keyed/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://libpasta.github.io/advanced/keyed/</guid>
+      <description>We are currently developing support for keyed hashes: whether through HMAC or encrypted values. For now, keys are generated and stored locally in memory in the running instance, which means that any passwords which are stored while the application is running will be useless if the application terminates and destroys the keys.
+The goal is for this structure to be flexible to any kinds of environments with different sources.
+For example, the following code configures a key for use in libpasta and sets up HMAC to be used as a wrapping function:</description>
+    </item>
+    
+    <item>
+      <title>Password Migration</title>
+      <link>https://libpasta.github.io/advanced/migration/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://libpasta.github.io/advanced/migration/</guid>
+      <description>One of the core principles underlying libpasta is that it should be easy to use best practice password hashing algorithms. Unfortunately, many people are currently not using these algorithms, and furthermore, &amp;ldquo;best practice&amp;rdquo; seems to be very hard to pin down. To solve this, we include support for painless migration, which can even be enabled automatically.
+Migrating a password hash is a subtle problem. The whole point of password storage is that you cannot recover the password.</description>
+    </item>
+    
+    <item>
+      <title>Tuning &amp; Parameter Selection</title>
+      <link>https://libpasta.github.io/advanced/tuning/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://libpasta.github.io/advanced/tuning/</guid>
+      <description>libpasta comes with a set of secure default algorithm and parameter choices. However, there is no single set of parameters which is suitable for all purposes and we provide tools to help with parameter selection.
+These tools also have the benefit of working as a benchmarking platform for the target system; if the system performs significantly worse than the expected times, this could result in suboptimal, or even insecure, parameters selected.</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Blog on libpasta</title>
+    <link>https://libpasta.github.io/blog/</link>
+    <description>Recent content in Blog on libpasta</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-gb</language>
+    <lastBuildDate>Wed, 21 Feb 2018 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://libpasta.github.io/blog/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Rust for Cross-Language System Libraries</title>
+      <link>https://libpasta.github.io/blog/bindings/</link>
+      <pubDate>Wed, 21 Feb 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://libpasta.github.io/blog/bindings/</guid>
+      <description>We have been building libpasta as a simple, usable solution to password hashing and migration. The goal for libpasta is to be a cross-platform, cross-language system library.
+libpasta is written in Rust, exports a C-style API, and builds to a static/shared library. Most languages support calling external libraries through foreign function interfaces (FFIs), and the end result can be seen in the documentation where each language has access to the libpasta functionality.</description>
+    </item>
+    
+    <item>
+      <title>Announcing libpasta</title>
+      <link>https://libpasta.github.io/blog/release/</link>
+      <pubDate>Wed, 29 Nov 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://libpasta.github.io/blog/release/</guid>
+      <description>Today we are announcing the alpha release of libpasta!
+libpasta is intended to be a cross-language, cross-platform, easy-to-use password hashing library for developers. In particular, libpasta offers a simple API, which uses sane defaults, offering a relatively high security level with zero configuration or parameter choice for the developer. Storing/verifying a password is as simple as libpasta.hash_password(pw) and libpasta.verify_password(hash, pw).
+Furthermore, libpasta is built to handle migrating from old hashes, finally allowing developers to move away from old, outdated algorithms and parameters.</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-    <meta name="generator" content="Hugo 0.36.1" />
+    <meta name="generator" content="Hugo 0.39" />
     <meta name="description" content="libpasta - making passwords painless">
 
 
@@ -13,17 +13,17 @@
     <title>Basic Usage :: libpasta</title>
     
     
-    <link href="/css/nucleus.css?1519324352" rel="stylesheet">
-    <link href="/css/hybrid.css?1519324352" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1519324352" rel="stylesheet">
-    <link href="/css/auto-complete.css?1519324352" rel="stylesheet">
-    <link href="/css/theme.css?1519324352" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1519324352" rel="stylesheet">
+    <link href="/css/nucleus.css?1524773799" rel="stylesheet">
+    <link href="/css/hybrid.css?1524773799" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1524773799" rel="stylesheet">
+    <link href="/css/auto-complete.css?1524773799" rel="stylesheet">
+    <link href="/css/theme.css?1524773799" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1524773799" rel="stylesheet">
     
-      <link href="/css/theme-libpasta.css?1519324352" rel="stylesheet">
+      <link href="/css/theme-libpasta.css?1524773799" rel="stylesheet">
     
 
-    <script src="/js/jquery-2.x.min.js?1519324352"></script>
+    <script src="/js/jquery-2.x.min.js?1524773799"></script>
     
     <style type="text/css">
       :root #header + #content > #left > #rlblock_left{ 
@@ -100,14 +100,14 @@
     <span data-search-clear=""><i class="fa fa-close"></i></span>
 </div>
 
-<script type="text/javascript" src="/js/lunr.min.js?1519324352"></script>
-<script type="text/javascript" src="/js/auto-complete.js?1519324352"></script>
+<script type="text/javascript" src="/js/lunr.min.js?1524773799"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1524773799"></script>
 <script type="text/javascript">
     
         var baseurl = "https:\/\/libpasta.github.io\/";
     
 </script>
-<script type="text/javascript" src="/js/search.js?1519324352"></script>
+<script type="text/javascript" src="/js/search.js?1524773799"></script>
 
     
   </div>
@@ -829,6 +829,12 @@ found in <a href="../../other-languages/">other languages</a>.</p>
 
 
 
+<button class="tablinks " onclick="changeTab(event, 'hash', 'Ruby')">Ruby</button>
+
+
+
+
+
 <button class="tablinks active" onclick="changeTab(event, 'hash', 'Rust')">Rust</button>
 
 
@@ -845,9 +851,16 @@ found in <a href="../../other-languages/">other languages</a>.</p>
 
 <div class="tabcontent Python" style="display: none" ><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">from</span> libpasta <span style="color:#f92672">import</span> <span style="color:#f92672">*</span>
 
-password <span style="color:#f92672">=</span> read_password(<span style="color:#e6db74"></span><span style="color:#e6db74">&#34;Please enter your password:&#34;</span>)
+password <span style="color:#f92672">=</span> read_password(<span style="color:#e6db74">&#34;Please enter your password:&#34;</span>)
 <span style="display:block;width:100%;background-color:#3c3d38">hash <span style="color:#f92672">=</span>  hash_password(password)
-</span><span style="color:#66d9ef">print</span>(<span style="color:#e6db74"></span><span style="color:#e6db74">&#34;The hashed password is: &#34;</span>, hash)
+</span><span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;The hashed password is: &#34;</span>, hash)
+</code></pre></div></div>
+
+<div class="tabcontent Ruby" style="display: none" ><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ruby" data-lang="ruby">require <span style="color:#e6db74">&#39;libpasta&#39;</span>
+
+password <span style="color:#f92672">=</span> <span style="color:#66d9ef">Pasta</span><span style="color:#f92672">::</span>read_password <span style="color:#e6db74">&#34;Please enter your password:&#34;</span>
+<span style="display:block;width:100%;background-color:#3c3d38">hash <span style="color:#f92672">=</span> <span style="color:#66d9ef">Pasta</span><span style="color:#f92672">::</span>hash_password(password)
+</span>puts <span style="color:#e6db74">&#34;The hashed password is: &#34;</span>, hash
 </code></pre></div></div>
 
 <div class="tabcontent Rust" style="display: block" ><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-rust" data-lang="rust"><span style="color:#66d9ef">extern</span> <span style="color:#66d9ef">crate</span> libpasta;
@@ -899,6 +912,12 @@ outputs a variable-length string.</p>
 
 
 
+<button class="tablinks " onclick="changeTab(event, 'verify', 'Ruby')">Ruby</button>
+
+
+
+
+
 <button class="tablinks active" onclick="changeTab(event, 'verify', 'Rust')">Rust</button>
 
 
@@ -924,16 +943,35 @@ outputs a variable-length string.</p>
 <div class="tabcontent Python" style="display: none" ><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">from</span> libpasta <span style="color:#f92672">import</span> <span style="color:#f92672">*</span>
 
 <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">User</span>:
-    password_hash <span style="color:#f92672">=</span> <span style="color:#e6db74"></span><span style="color:#e6db74">&#34;&#34;</span>
+    password_hash <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;&#34;</span>
 
     <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">auth_user</span>():
-        password <span style="color:#f92672">=</span> read_password(<span style="color:#e6db74"></span><span style="color:#e6db74">&#34;Enter password:&#34;</span>)
+        password <span style="color:#f92672">=</span> read_password(<span style="color:#e6db74">&#34;Enter password:&#34;</span>)
 <span style="display:block;width:100%;background-color:#3c3d38">        <span style="color:#66d9ef">if</span> verify_password(self<span style="color:#f92672">.</span>password_hash, password):
-</span>            <span style="color:#66d9ef">print</span>(<span style="color:#e6db74"></span><span style="color:#e6db74">&#34;The password is correct!&#34;</span>)
+</span>            <span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;The password is correct!&#34;</span>)
             <span style="color:#75715e"># ~&gt; Handle correct password</span>
         <span style="color:#66d9ef">else</span>:
-            <span style="color:#66d9ef">print</span>(<span style="color:#e6db74"></span><span style="color:#e6db74">&#34;Incorrect password.&#34;</span>)
+            <span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;Incorrect password.&#34;</span>)
             <span style="color:#75715e"># ~&gt; Handle incorrect password</span>
+</code></pre></div></div>
+
+<div class="tabcontent Ruby" style="display: none" ><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ruby" data-lang="ruby">require <span style="color:#e6db74">&#39;libpasta&#39;</span>
+
+<span style="color:#66d9ef">class</span> <span style="color:#a6e22e">User</span>
+    <span style="color:#66d9ef">attr_accessor</span> <span style="color:#e6db74">:pw_hash</span>
+    @pw_hash <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;&#34;</span>
+
+    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">auth_user</span>
+        password <span style="color:#f92672">=</span> <span style="color:#66d9ef">Pasta</span><span style="color:#f92672">::</span>read_password(<span style="color:#e6db74">&#34;Enter password: &#34;</span>)
+<span style="display:block;width:100%;background-color:#3c3d38">        <span style="color:#66d9ef">if</span> <span style="color:#66d9ef">Pasta</span><span style="color:#f92672">::</span>verify_password(self<span style="color:#f92672">.</span>pw_hash, password)
+</span>            puts <span style="color:#e6db74">&#34;The password is correct!&#34;</span>
+            <span style="color:#75715e"># ~&gt; Handle correct password</span>
+        <span style="color:#66d9ef">else</span>
+            puts <span style="color:#e6db74">&#34;Incorrect password.&#34;</span>
+            <span style="color:#75715e"># ~&gt; Handle incorrect password</span>
+        <span style="color:#66d9ef">end</span>
+    <span style="color:#66d9ef">end</span>
+<span style="color:#66d9ef">end</span>
 </code></pre></div></div>
 
 <div class="tabcontent Rust" style="display: block" ><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-rust" data-lang="rust"><span style="color:#66d9ef">extern</span> <span style="color:#66d9ef">crate</span> libpasta;
@@ -1000,6 +1038,12 @@ the new algorithm:</p>
 
 
 
+<button class="tablinks " onclick="changeTab(event, 'migrate', 'Ruby')">Ruby</button>
+
+
+
+
+
 <button class="tablinks active" onclick="changeTab(event, 'migrate', 'Rust')">Rust</button>
 
 
@@ -1044,7 +1088,7 @@ the new algorithm:</p>
 
 <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">User</span>:
     <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">auth_user</span>(self):
-        pw <span style="color:#f92672">=</span> read_password(<span style="color:#e6db74"></span><span style="color:#e6db74">&#34;Enter password&#34;</span>)
+        pw <span style="color:#f92672">=</span> read_password(<span style="color:#e6db74">&#34;Enter password&#34;</span>)
 <span style="display:block;width:100%;background-color:#3c3d38">        res <span style="color:#f92672">=</span> verify_password_update_hash(self<span style="color:#f92672">.</span>pw_hash, pw)
 </span>        <span style="color:#66d9ef">if</span> res<span style="color:#f92672">.</span>tag <span style="color:#f92672">==</span> HashUpdate<span style="color:#f92672">.</span>Updated:
             self<span style="color:#f92672">.</span>pw_hash <span style="color:#f92672">=</span> res<span style="color:#f92672">.</span>Updated
@@ -1059,6 +1103,39 @@ the new algorithm:</p>
 <span style="display:block;width:100%;background-color:#3c3d38">        res <span style="color:#f92672">=</span> migrate_hash(user<span style="color:#f92672">.</span>pw_hash)
 </span>        <span style="color:#66d9ef">if</span> res<span style="color:#f92672">.</span>tag <span style="color:#f92672">==</span> HashUpdate<span style="color:#f92672">.</span>Updated:
             user<span style="color:#f92672">.</span>pw_hash <span style="color:#f92672">=</span> res<span style="color:#f92672">.</span>updated
+</code></pre></div></div>
+
+<div class="tabcontent Ruby" style="display: none" ><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ruby" data-lang="ruby">require <span style="color:#e6db74">&#39;libpasta&#39;</span>
+
+<span style="color:#66d9ef">class</span> <span style="color:#a6e22e">User</span>
+    <span style="color:#66d9ef">attr_accessor</span> <span style="color:#e6db74">:pw_hash</span>
+    @pw_hash <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;&#34;</span>
+
+
+    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">auth_user</span>
+        pw <span style="color:#f92672">=</span> <span style="color:#66d9ef">Pasta</span><span style="color:#f92672">::</span>read_password(<span style="color:#e6db74">&#34;Enter password: &#34;</span>)
+<span style="display:block;width:100%;background-color:#3c3d38">        res <span style="color:#f92672">=</span> <span style="color:#66d9ef">Pasta</span><span style="color:#f92672">::</span>verify_password_update_hash(self<span style="color:#f92672">.</span>pw_hash, pw)
+</span>        <span style="color:#66d9ef">case</span> res<span style="color:#f92672">.</span>tag
+        <span style="color:#66d9ef">when</span> <span style="color:#66d9ef">Pasta</span><span style="color:#f92672">::</span><span style="color:#66d9ef">HashUpdate</span><span style="color:#f92672">::</span><span style="color:#66d9ef">Updated</span>
+            self<span style="color:#f92672">.</span>pw_hash <span style="color:#f92672">=</span> res<span style="color:#f92672">.</span>updated
+            <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">true</span>
+        <span style="color:#66d9ef">when</span>  <span style="color:#66d9ef">Pasta</span><span style="color:#f92672">::</span><span style="color:#66d9ef">HashUpdate</span><span style="color:#f92672">::</span><span style="color:#66d9ef">Ok</span>
+            <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">true</span>
+        <span style="color:#66d9ef">else</span>
+            <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">false</span>
+        <span style="color:#66d9ef">end</span>
+    <span style="color:#66d9ef">end</span>
+<span style="color:#66d9ef">end</span>
+
+<span style="color:#66d9ef">def</span> <span style="color:#a6e22e">migrate_users</span>(users)
+    <span style="color:#66d9ef">for</span> user <span style="color:#66d9ef">in</span> users <span style="color:#66d9ef">do</span>
+<span style="display:block;width:100%;background-color:#3c3d38">        res <span style="color:#f92672">=</span> <span style="color:#66d9ef">Pasta</span><span style="color:#f92672">::</span>migrate_hash(user<span style="color:#f92672">.</span>pw_hash)
+</span>        <span style="color:#66d9ef">if</span> res<span style="color:#f92672">.</span>tag<span style="color:#f92672">.</span>eql? <span style="color:#66d9ef">Pasta</span><span style="color:#f92672">::</span><span style="color:#66d9ef">HashUpdate</span><span style="color:#f92672">::</span><span style="color:#66d9ef">Updated</span>
+            user<span style="color:#f92672">.</span>pw_hash <span style="color:#f92672">=</span> res<span style="color:#f92672">.</span>updated
+        <span style="color:#66d9ef">end</span>
+    <span style="color:#66d9ef">end</span>
+<span style="color:#66d9ef">end</span>
+
 </code></pre></div></div>
 
 <div class="tabcontent Rust" style="display: block" ><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-rust" data-lang="rust"><span style="color:#66d9ef">extern</span> <span style="color:#66d9ef">crate</span> libpasta;
@@ -1146,6 +1223,12 @@ algorithm.</p>
 
 
 
+<button class="tablinks " onclick="changeTab(event, 'config', 'Ruby')">Ruby</button>
+
+
+
+
+
 <button class="tablinks active" onclick="changeTab(event, 'config', 'Rust')">Rust</button>
 
 
@@ -1165,8 +1248,15 @@ algorithm.</p>
 <div class="tabcontent Python" style="display: none" ><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">from</span> libpasta <span style="color:#f92672">import</span> <span style="color:#f92672">*</span>
 
 config <span style="color:#f92672">=</span> Config<span style="color:#f92672">.</span>with_primitive(Bcrypt(<span style="color:#ae81ff">15</span>))
-pw_hash <span style="color:#f92672">=</span> config<span style="color:#f92672">.</span>hash_password(<span style="color:#e6db74"></span><span style="color:#e6db74">&#34;hunter2&#34;</span>)
-<span style="color:#66d9ef">print</span>(<span style="color:#e6db74"></span><span style="color:#e6db74">&#34;The hashed password is: &#34;</span>, pw_hash)
+pw_hash <span style="color:#f92672">=</span> config<span style="color:#f92672">.</span>hash_password(<span style="color:#e6db74">&#34;hunter2&#34;</span>)
+<span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;The hashed password is: &#34;</span>, pw_hash)
+</code></pre></div></div>
+
+<div class="tabcontent Ruby" style="display: none" ><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ruby" data-lang="ruby">require <span style="color:#e6db74">&#39;libpasta&#39;</span>
+
+config <span style="color:#f92672">=</span> <span style="color:#66d9ef">Pasta</span><span style="color:#f92672">::</span><span style="color:#66d9ef">Config</span><span style="color:#f92672">.</span>with_primitive(<span style="color:#66d9ef">Pasta</span><span style="color:#f92672">::</span><span style="color:#66d9ef">Bcrypt</span><span style="color:#f92672">.</span>new(<span style="color:#ae81ff">15</span>))
+pw_hash <span style="color:#f92672">=</span> config<span style="color:#f92672">.</span>hash_password(<span style="color:#e6db74">&#34;hunter2&#34;</span>)
+puts <span style="color:#e6db74">&#34;The hashed password is: &#34;</span>, pw_hash
 </code></pre></div></div>
 
 <div class="tabcontent Rust" style="display: block" ><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-rust" data-lang="rust"><span style="color:#66d9ef">extern</span> <span style="color:#66d9ef">crate</span> libpasta;
@@ -1662,13 +1752,13 @@ can optionally output configuration values.</p>
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1519324352"></script>
-    <script src="/js/jquery.sticky-kit.min.js?1519324352"></script>
-    <script src="/js/featherlight.min.js?1519324352"></script>
-    <script src="/js/html5shiv-printshiv.min.js?1519324352"></script>
-    <script src="/js/modernizr.custom.71422.js?1519324352"></script>
-    <script src="/js/learn.js?1519324352"></script>
-    <script src="/js/hugo-learn.js?1519324352"></script>
+    <script src="/js/clipboard.min.js?1524773799"></script>
+    <script src="/js/jquery.sticky-kit.min.js?1524773799"></script>
+    <script src="/js/featherlight.min.js?1524773799"></script>
+    <script src="/js/html5shiv-printshiv.min.js?1524773799"></script>
+    <script src="/js/modernizr.custom.71422.js?1524773799"></script>
+    <script src="/js/learn.js?1524773799"></script>
+    <script src="/js/hugo-learn.js?1524773799"></script>
 
     
 
